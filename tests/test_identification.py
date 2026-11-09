@@ -7,7 +7,21 @@ from asyncua import Client, ua
 
 from model.app_model import OpcUaServerSettings
 from model.tag_model import CollectorHeader
-from opcua_server.server import NorthboundServer, TagNodeSpec
+from opcua_server.server import NorthboundServer, TagNodeSpec, variable_node_id
+
+
+class VariableNodeIdTest(unittest.TestCase):
+    def test_numeric_and_string_node_ids(self) -> None:
+        self.assertEqual(variable_node_id("1739", 1739, 2), ua.NodeId(1739, 2))
+        self.assertEqual(variable_node_id("jp1.value_0", None, 2), ua.NodeId("jp1.value_0", 2))
+        parsed = variable_node_id(
+            "jp1.value_0",
+            "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointPosition/J1",
+            3,
+        )
+        self.assertEqual(parsed.Identifier, "HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointPosition/J1")
+        self.assertEqual(parsed.NamespaceIndex, 2)
+        self.assertEqual(variable_node_id("jp1.value_0", "bare-id", 2), ua.NodeId("bare-id", 2))
 
 AAS_ID = "urn:example:aas:hyundai:hh7:pickplace:01"
 GLOBAL_ASSET_ID = "urn:example:asset:hyundai:hh7:pickplace:01"
@@ -43,7 +57,7 @@ def _header(**overrides: object) -> CollectorHeader:
     return CollectorHeader.model_validate(values)
 
 
-def _tag_spec(tag_id: str, name: str, node_id: int | None = None) -> TagNodeSpec:
+def _tag_spec(tag_id: str, name: str, node_id: int | str | None = None) -> TagNodeSpec:
     return TagNodeSpec(
         tag_id=tag_id,
         segments=tuple(COLLECTOR_PATH.split("/")),
@@ -124,6 +138,25 @@ class IdentificationNodeTest(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual((await node.read_browse_name()).Name, "PowerYesno")
                 self.assertEqual(node.nodeid.Identifier, 1739)
                 self.assertNotEqual(node.nodeid.NodeIdType, ua.NodeIdType.String)
+        finally:
+            await server.stop()
+
+    async def test_string_node_id_keeps_identifier(self) -> None:
+        endpoint = _free_endpoint()
+        server = NorthboundServer(_cfg(endpoint))
+        node_id = "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointPosition/J1"
+        await server.start()
+        try:
+            await server.add_tag(_tag_spec("jp1.value_0", "J1", node_id=node_id))
+            async with Client(url=endpoint) as client:
+                node = client.get_node(ua.NodeId.from_string(node_id))
+                self.assertEqual((await node.read_browse_name()).Name, "J1")
+                self.assertEqual(
+                    node.nodeid.Identifier,
+                    "HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointPosition/J1",
+                )
+                self.assertEqual(node.nodeid.NamespaceIndex, 2)
+                self.assertEqual(node.nodeid.NodeIdType, ua.NodeIdType.String)
         finally:
             await server.stop()
 

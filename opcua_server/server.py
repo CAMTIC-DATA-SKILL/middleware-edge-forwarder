@@ -22,7 +22,7 @@ _TYPE_MISMATCH = ua.StatusCode(ua.StatusCodes.BadTypeMismatch)
 
 @dataclass(frozen=True)
 class TagNodeSpec:
-    """북향 변수 노드 하나. node_id 가 있으면 i=<node_id>, 없으면 s=<tag_id>."""
+    """북향 변수 노드 하나. node_id 가 있으면 그 값, 없으면 s=<tag_id>."""
 
     tag_id: str
     segments: tuple[str, ...]
@@ -31,7 +31,7 @@ class TagNodeSpec:
     source_id: str
     description: str = ""
     unit: str = ""
-    node_id: int | None = None
+    node_id: int | str | None = None
 
 
 @dataclass(frozen=True)
@@ -125,7 +125,7 @@ class NorthboundServer:
         if self._server is None or spec.tag_id in self._tags:
             return False
         parent = await self._ensure_object_path(spec.segments)
-        node_id = ua.NodeId(spec.node_id, self._ns) if spec.node_id is not None else ua.NodeId(spec.tag_id, self._ns)
+        node_id = variable_node_id(spec.tag_id, spec.node_id, self._ns)
         variable = await parent.add_variable(
             node_id,
             ua.QualifiedName(spec.name, self._ns),
@@ -350,6 +350,23 @@ class NorthboundServer:
             logger.warning("노드 값 쓰기 실패: %s (%s)", node_id.to_string(), result.name)
             return False
         return True
+
+
+def variable_node_id(tag_id: str, node_id: int | str | None, ns: int) -> ua.NodeId:
+    """tag map node_id → 북향 변수 NodeId. 문자열은 ns=2;s=... 형식을 그대로 쓴다."""
+    if node_id is None:
+        return ua.NodeId(tag_id, ns)
+    if isinstance(node_id, int):
+        return ua.NodeId(node_id, ns)
+    raw = node_id.strip()
+    if not raw:
+        return ua.NodeId(tag_id, ns)
+    if "=" in raw:
+        try:
+            return ua.NodeId.from_string(raw)
+        except ua.UaError:
+            pass
+    return ua.NodeId(raw, ns)
 
 
 def _data_type_id(vtype: ua.VariantType) -> ua.NodeId:

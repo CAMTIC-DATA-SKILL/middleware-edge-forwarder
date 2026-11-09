@@ -1,4 +1,4 @@
-"""프로젝트 진입점. IPC 수신 → 북향 OPC UA 루프를 시작한다."""
+"""프로젝트 진입점. IPC 수신 → 북향 OPC UA 또는 MQTT 루프를 시작한다."""
 
 import asyncio
 import logging
@@ -20,7 +20,7 @@ def _asyncio_run(coro):
 
 def main():
     setup_logging()
-    logger.info("middleware_edge_forwarder 시작")
+    logger.info("middleware_edge_forwarder 시작 (northbound=%s)", settings.app.northbound.value)
     exit_code = 0
     try:
         _asyncio_run(run_forwarder(settings))

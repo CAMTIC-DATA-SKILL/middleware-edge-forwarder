@@ -9,6 +9,7 @@ from model.tag_model import TagMapFile, identification_placements
 
 ROOT = Path(__file__).resolve().parents[1]
 EXAMPLE = ROOT / "tag_map.example.json"
+LIVE = ROOT / "tag_map.json"
 
 
 def _tag(tag_id: str = "robot1.power") -> dict:
@@ -97,6 +98,36 @@ class CollectorHeaderTest(unittest.TestCase):
             TagMapFile.model_validate(
                 {"tags": [_tag("1739") | {"node_id": 1739}, _tag("1737") | {"node_id": 1739}]}
             )
+
+    def test_string_node_id_is_accepted(self) -> None:
+        tag_map = TagMapFile.model_validate(
+            {
+                "tags": [
+                    _tag("jp1.value_0")
+                    | {"node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointPosition/J1"}
+                ]
+            }
+        )
+        self.assertEqual(
+            tag_map.tags[0].node_id,
+            "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointPosition/J1",
+        )
+
+    def test_duplicate_string_node_id_is_error(self) -> None:
+        node_id = "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointPosition/J1"
+        with self.assertRaises(ValidationError):
+            TagMapFile.model_validate(
+                {"tags": [_tag("jp1.value_0") | {"node_id": node_id}, _tag("jp1.value_1") | {"node_id": node_id}]}
+            )
+
+    def test_live_tag_map_validates(self) -> None:
+        tag_map = TagMapFile.model_validate_json(LIVE.read_text(encoding="utf-8"))
+        self.assertTrue(
+            any(
+                t.node_id == "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointPosition/J1"
+                for t in tag_map.tags
+            )
+        )
 
 
 if __name__ == "__main__":

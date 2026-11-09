@@ -8,8 +8,9 @@ alwaysApply: true
 ## Layout
 - 진입: `main.py` → `utils.logging_setup` → `forwarder.run` (asyncio)
 - 설정: `.env` + `tag_map.json` → `config.settings`
-- 패키지: `zeromq_client/` (collector SUB), `opcua_server/` (북향), `model/` (DTO·설정·에러코드), `client/errors.py`, `utils/`
-- 흐름: IPC → `IpcMessage` → `Forwarder.handle` → `NorthboundServer.update`
+- 패키지: `zeromq_client/` (collector SUB), `opcua_server/` (북향 OPC UA), `mqtt_publisher/` (북향 MQTT), `model/` (DTO·설정·에러코드), `client/errors.py`, `utils/`
+- 흐름: IPC → `IpcMessage` → `Forwarder.handle` → `NORTHBOUND_MODE` 에 따라 OPC UA 또는 MQTT
+- `NORTHBOUND_MODE=opcua|mqtt`. 한 번에 하나만 연다. MQTT 토픽은 `mqtt_publisher.topics` 만 조립한다
 - IPC 방식은 미확정. 새 IPC는 `IpcMessage`를 돌려주는 `recv()`만 구현하고 `forwarder.py`·`opcua_server/`는 건드리지 않는다
 
 ## Protocol

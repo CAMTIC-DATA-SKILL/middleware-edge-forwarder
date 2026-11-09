@@ -2,3 +2,4 @@ asyncua>=2.0,<3
 pyzmq>=26.0.0
 python-dotenv>=1.0.1
 pydantic>=2.0.0
+paho-mqtt>=2.1,<3

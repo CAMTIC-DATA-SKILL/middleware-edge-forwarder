@@ -7,7 +7,7 @@ alwaysApply: false
 # OPC UA Conventions
 
 ## NodeId
-- 변수: tag map `node_id` 가 있으면 `ns=<OPCUA_NAMESPACE_URI>;i=<node_id>`, 없으면 `s=<tag_id>` (상위 시스템 주소가 바뀌지 않게)
+- 변수: tag map `node_id` 가 정수면 `ns=<OPCUA_NAMESPACE_URI>;i=<node_id>`, `ns=2;s=...` 등 문자열이면 그 NodeId, 없으면 `s=<tag_id>` (상위 시스템 주소가 바뀌지 않게)
 - 객체: `s=<path 세그먼트를 / 로 이은 값>`
 - auto 노드 tag_id: `{kind}.{device_key}.{addr}`, 소켓 필드 `{kind}.{device_key}.{socket}.{field}`, 경로 `{OPCUA_AUTO_ROOT}/{kind}/{device_key}`
 - Identification: `s=<auto_root>/<kind>/<device_key>/Identification/{AasId|GlobalAssetId|DeviceKey}` (collector 헤더 상수, CurrentRead)

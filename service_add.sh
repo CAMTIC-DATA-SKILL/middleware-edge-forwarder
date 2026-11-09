@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 현재 프로젝트 경로 기준으로 systemd 유닛만 등록·시작한다.
+# 현재 프로젝트 경로 기준으로 systemd 시스템 유닛을 등록·시작한다.
 # 사용: sudo bash service_add.sh
 set -euo pipefail
 
@@ -8,7 +8,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 UNIT_DST="/etc/systemd/system/${SERVICE_NAME}.service"
 VENV_PYTHON="${ROOT}/.venv/bin/python"
 MAIN_PY="${ROOT}/main.py"
-RUN_USER="${SUDO_USER:-}"
+RUN_USER="$(stat -c '%U' "${ROOT}")"
 
 if [[ "${EUID}" -ne 0 ]]; then
   echo "root 권한이 필요합니다. 예: sudo bash service_add.sh" >&2
@@ -30,24 +30,17 @@ if [[ ! -f "${ROOT}/.env" ]]; then
   echo "경고: ${ROOT}/.env 가 없습니다. .env.example 을 복사해 설정을 맞추세요." >&2
 fi
 
-USER_LINES=""
-if [[ -n "${RUN_USER}" && "${RUN_USER}" != "root" ]]; then
-  if id "${RUN_USER}" &>/dev/null; then
-    USER_LINES="User=${RUN_USER}"$'\n'"Group=${RUN_USER}"
-  else
-    echo "경고: 사용자 ${RUN_USER} 가 없어 root 로 실행합니다." >&2
-  fi
-fi
-
 cat > "${UNIT_DST}" <<EOF
 [Unit]
 Description=Edge Forwarder (collector ZeroMQ -> northbound OPC UA)
-After=network-online.target collector-plc.service
+After=network-online.target collector-plc.service collector-robot-modbus.service
 Wants=network-online.target
 
 [Service]
 Type=simple
-${USER_LINES}
+User=${RUN_USER}
+Group=${RUN_USER}
+
 WorkingDirectory=${ROOT}
 Environment=PYTHONUNBUFFERED=1
 EnvironmentFile=-${ROOT}/.env
@@ -66,6 +59,10 @@ WantedBy=multi-user.target
 EOF
 
 systemctl daemon-reload
+
+# 같은 이름 user 유닛이 있으면 내린다 (포트 충돌 방지)
+systemctl --user -M "${RUN_USER}@" disable --now "${SERVICE_NAME}.service" 2>/dev/null || true
+
 systemctl enable "${SERVICE_NAME}.service"
 systemctl restart "${SERVICE_NAME}.service"
 systemctl --no-pager --full status "${SERVICE_NAME}.service" || true

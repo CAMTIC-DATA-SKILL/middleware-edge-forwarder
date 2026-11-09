@@ -1,0 +1,32 @@
+---
+description: 북향 MQTT publisher 연결·토픽 규칙
+globs: mqtt_publisher/**/*.py,forwarder.py,model/app_model.py,config.py
+alwaysApply: false
+---
+
+# MQTT Conventions
+
+## 역할
+- `NORTHBOUND_MODE=mqtt` 일 때만 forwarder 가 이 클라이언트로 발행한다. `opcua` 이면 브로커에 연결하지 않고 OPC UA 서버를 연다
+- 토픽 조립은 `mqtt_publisher.topics` 만 사용한다
+- 샘플·소켓 필드는 수신한 것을 모두 발행한다. tag map 이 있으면 그 중 첫 변환(scale/offset)만 적용한다
+
+## 토픽
+형식: `{MQTT_TOPIC_ROOT}/{kind}/{device_key}/{name}`
+
+```text
+edge/robot/robot-1/S0004
+edge/robot/robot-1/hw/cpu_temperature
+edge/robot/robot-1/health
+```
+
+- 마지막 `health` 는 수집원 상태용 예약 세그먼트
+- 세그먼트에 `/`, `+`, `#` 금지. `root` 만 `/` 로 경로를 나눌 수 있다
+- 값 payload: `{"value", "sample_ms"}`. error 면 `value` 는 null 이고 `error` 를 붙인다
+- health payload: `{"device_ok", "stale", "reason"}`
+
+## 연결
+- MQTT 3.1.1, clean session. 인증서는 `MQTT_TLS=true` 일 때 시스템 CA
+- `connect()` 는 CONNACK 까지 기다린다. 실패는 `ClientError` 이고 forwarder 가 재시도한다
+- `publish` 는 큐에 넣은 뒤 반환한다. QoS 0 은 브로커 ack 를 기다리지 않는다
+- 비밀번호는 로그에 남기지 않는다

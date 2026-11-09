@@ -5,12 +5,17 @@
       "device_key": "robot-1",
       "aas_id": "urn:physical-ai:aas:hyundai:hh7:template:v0.2",
       "global_asset_id": "urn:physical-ai:aas:hyundai:hh7:template:v0.2"
+    },
+    {
+      "kind": "plc",
+      "device_key": "plc-modbus-tcp-1",
+      "aas_id": "urn:physical-ai:plc:aas:template:v0.4",
+      "global_asset_id": "urn:physical-ai:plc:asset-type:generic-plc"
     }
   ],
   "tags": [
     {
       "tag_id": "1737",
-      "node_id": 1737,
       "source": { "kind": "robot", "device_key": "robot-1", "addr": "S0041" },
       "target": {
         "path": "OperationalData/EquipmentState",
@@ -51,7 +56,6 @@
     },
     {
       "tag_id": "1703",
-      "node_id": 1703,
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "hw", "field": "cpu_temperature" },
       "target": {
         "path": "OperationalData/EnvironmentData",
@@ -71,111 +75,111 @@
     },
     {
       "tag_id": "jp1.value_0",
-      "node_id": 1145,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointPosition/J1",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "jp1", "field": "value_0" },
-      "target": { "path": "OperationalData/Axis/JointPosition", "name": "J1", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/JointPosition", "name": "J1", "data_type": "Float" }
     },
     {
       "tag_id": "jp1.value_1",
-      "node_id": 1146,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointPosition/J2",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "jp1", "field": "value_1" },
-      "target": { "path": "OperationalData/Axis/JointPosition", "name": "J2", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/JointPosition", "name": "J2", "data_type": "Float" }
     },
     {
       "tag_id": "jp1.value_2",
-      "node_id": 1147,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointPosition/J3",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "jp1", "field": "value_2" },
-      "target": { "path": "OperationalData/Axis/JointPosition", "name": "J3", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/JointPosition", "name": "J3", "data_type": "Float" }
     },
     {
       "tag_id": "jp2.value_0",
-      "node_id": 1148,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointPosition/J4",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "jp2", "field": "value_0" },
-      "target": { "path": "OperationalData/Axis/JointPosition", "name": "J4", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/JointPosition", "name": "J4", "data_type": "Float" }
     },
     {
       "tag_id": "jp2.value_1",
-      "node_id": 1149,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointPosition/J5",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "jp2", "field": "value_1" },
-      "target": { "path": "OperationalData/Axis/JointPosition", "name": "J5", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/JointPosition", "name": "J5", "data_type": "Float" }
     },
     {
       "tag_id": "jp2.value_2",
-      "node_id": 1150,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointPosition/J6",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "jp2", "field": "value_2" },
-      "target": { "path": "OperationalData/Axis/JointPosition", "name": "J6", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/JointPosition", "name": "J6", "data_type": "Float" }
     },
     {
       "tag_id": "jv1.value_0",
-      "node_id": 1160,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointSpeed/J1",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "jv1", "field": "value_0" },
-      "target": { "path": "OperationalData/Axis/JointSpeed", "name": "J1", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/JointSpeed", "name": "J1", "data_type": "Float" }
     },
     {
       "tag_id": "jv1.value_1",
-      "node_id": 1161,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointSpeed/J2",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "jv1", "field": "value_1" },
-      "target": { "path": "OperationalData/Axis/JointSpeed", "name": "J2", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/JointSpeed", "name": "J2", "data_type": "Float" }
     },
     {
       "tag_id": "jv1.value_2",
-      "node_id": 1162,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointSpeed/J3",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "jv1", "field": "value_2" },
-      "target": { "path": "OperationalData/Axis/JointSpeed", "name": "J3", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/JointSpeed", "name": "J3", "data_type": "Float" }
     },
     {
       "tag_id": "jv2.value_0",
-      "node_id": 1163,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointSpeed/J4",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "jv2", "field": "value_0" },
-      "target": { "path": "OperationalData/Axis/JointSpeed", "name": "J4", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/JointSpeed", "name": "J4", "data_type": "Float" }
     },
     {
       "tag_id": "jv2.value_1",
-      "node_id": 1164,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointSpeed/J5",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "jv2", "field": "value_1" },
-      "target": { "path": "OperationalData/Axis/JointSpeed", "name": "J5", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/JointSpeed", "name": "J5", "data_type": "Float" }
     },
     {
       "tag_id": "jv2.value_2",
-      "node_id": 1165,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointSpeed/J6",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "jv2", "field": "value_2" },
-      "target": { "path": "OperationalData/Axis/JointSpeed", "name": "J6", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/JointSpeed", "name": "J6", "data_type": "Float" }
     },
     {
       "tag_id": "tcp.value_0",
-      "node_id": 1152,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/TCPPosition/X",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "tool_pos1", "field": "value_0" },
-      "target": { "path": "OperationalData/Axis/JointPosition", "name": "tcp_x", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/TCPPosition", "name": "X", "data_type": "Float" }
     },
     {
       "tag_id": "tcp.value_1",
-      "node_id": 1153,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/TCPPosition/Y",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "tool_pos1", "field": "value_1" },
-      "target": { "path": "OperationalData/Axis/JointPosition", "name": "tcp_y", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/TCPPosition", "name": "Y", "data_type": "Float" }
     },
     {
       "tag_id": "tcp.value_2",
-      "node_id": 1154,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/TCPPosition/Z",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "tool_pos1", "field": "value_2" },
-      "target": { "path": "OperationalData/Axis/JointPosition", "name": "tcp_z", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/TCPPosition", "name": "Z", "data_type": "Float" }
     },
     {
       "tag_id": "tcp.value_3",
-      "node_id": 1156,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/TCPOrientation/Component1",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "tool_pos2", "field": "value_0" },
-      "target": { "path": "OperationalData/Axis/JointPosition", "name": "tcp_rx", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/TCPOrientation", "name": "Component1", "data_type": "Float" }
     },
     {
       "tag_id": "tcp.value_4",
-      "node_id": 1157,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/TCPOrientation/Component2",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "tool_pos2", "field": "value_1" },
-      "target": { "path": "OperationalData/Axis/JointPosition", "name": "tcp_ry", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/TCPOrientation", "name": "Component2", "data_type": "Float" }
     },
     {
       "tag_id": "tcp.value_5",
-      "node_id": 1158,
+      "node_id": "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/TCPOrientation/Component3",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "tool_pos2", "field": "value_2" },
-      "target": { "path": "OperationalData/Axis/JointPosition", "name": "tcp_rz", "data_type": "Float" }
+      "target": { "path": "RobotKinematicState/TCPOrientation", "name": "Component3", "data_type": "Float" }
     },
     {
       "tag_id": "encoder_temp_01_03.value_0",
@@ -191,6 +195,486 @@
       "tag_id": "tool_length.tool_data_x",
       "source": { "kind": "robot", "device_key": "robot-1", "socket": "tool_length", "field": "tool_data_x" },
       "target": { "path": "OperationalData/Tool", "name": "LengthX", "data_type": "Float" }
+    },
+    {
+      "tag_id": "D2000",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2000" },
+      "target": {
+        "path": "Robot01_Doosan/Handshake",
+        "name": "GripWaitRequest",
+        "data_type": "Boolean",
+        "description": "1두산 그립 대기 신호"
+      }
+    },
+    {
+      "tag_id": "D2001",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2001" },
+      "target": {
+        "path": "Robot01_Doosan/Handshake",
+        "name": "GripCompleted",
+        "data_type": "Boolean",
+        "description": "1두산 그립 완료 신호"
+      }
+    },
+    {
+      "tag_id": "D2002",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2002" },
+      "target": {
+        "path": "Robot01_Doosan/Handshake",
+        "name": "DischargeWaitRequest",
+        "data_type": "Boolean",
+        "description": "1두산 배출 대기 신호"
+      }
+    },
+    {
+      "tag_id": "D2003",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2003" },
+      "target": {
+        "path": "Robot01_Doosan/Handshake",
+        "name": "DischargeCompleted",
+        "data_type": "Boolean",
+        "description": "1두산 배출 완료 신호"
+      }
+    },
+    {
+      "tag_id": "D2004",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2004" },
+      "target": {
+        "path": "AMR/InputAMR",
+        "name": "GripWaitRequest",
+        "data_type": "Boolean",
+        "description": "투입AMR 그립 대기 신호"
+      }
+    },
+    {
+      "tag_id": "D2005",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2005" },
+      "target": {
+        "path": "AMR/InputAMR",
+        "name": "GripCompleted",
+        "data_type": "Boolean",
+        "description": "투입AMR 그립 완료 신호"
+      }
+    },
+    {
+      "tag_id": "D2006",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2006" },
+      "target": {
+        "path": "Robot01_Doosan/ActuatorState",
+        "name": "VacuumSolenoidState",
+        "data_type": "Boolean",
+        "description": "1두산 진공 SOL"
+      }
+    },
+    {
+      "tag_id": "D2007",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2007" },
+      "target": {
+        "path": "Robot01_Doosan/ActuatorState",
+        "name": "VacuumBreakSolenoidState",
+        "data_type": "Boolean",
+        "description": "1두산 파괴 SOL"
+      }
+    },
+    {
+      "tag_id": "D2010",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2010" },
+      "target": {
+        "path": "Robot02_Delta/Handshake",
+        "name": "GripWaitRequest",
+        "data_type": "Boolean",
+        "description": "2델타 그립 대기 신호"
+      }
+    },
+    {
+      "tag_id": "D2011",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2011" },
+      "target": {
+        "path": "Robot02_Delta/Handshake",
+        "name": "GripCompleted",
+        "data_type": "Boolean",
+        "description": "2델타 그립 완료 신호"
+      }
+    },
+    {
+      "tag_id": "D2012",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2012" },
+      "target": {
+        "path": "Robot02_Delta/Handshake",
+        "name": "DischargeWaitRequest",
+        "data_type": "Boolean",
+        "description": "2델타 배출 대기 신호"
+      }
+    },
+    {
+      "tag_id": "D2013",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2013" },
+      "target": {
+        "path": "Robot02_Delta/Handshake",
+        "name": "DischargeCompleted",
+        "data_type": "Boolean",
+        "description": "2델타 배출 완료 신호"
+      }
+    },
+    {
+      "tag_id": "D2014",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2014" },
+      "target": {
+        "path": "Robot02_Delta/ActuatorState",
+        "name": "VacuumSolenoidState",
+        "data_type": "Boolean",
+        "description": "2델타 진공 SOL"
+      }
+    },
+    {
+      "tag_id": "D2015",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2015" },
+      "target": {
+        "path": "Robot02_Delta/ActuatorState",
+        "name": "VacuumBreakSolenoidState",
+        "data_type": "Boolean",
+        "description": "2델타 파괴 SOL"
+      }
+    },
+    {
+      "tag_id": "D2020",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2020" },
+      "target": {
+        "path": "Robot03_Scara/Handshake",
+        "name": "GripWaitRequest",
+        "data_type": "Boolean",
+        "description": "3스칼라 그립 대기 신호"
+      }
+    },
+    {
+      "tag_id": "D2021",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2021" },
+      "target": {
+        "path": "Robot03_Scara/Handshake",
+        "name": "GripCompleted",
+        "data_type": "Boolean",
+        "description": "3스칼라 그립 완료 신호"
+      }
+    },
+    {
+      "tag_id": "D2022",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2022" },
+      "target": {
+        "path": "Robot03_Scara/Handshake",
+        "name": "DischargeWaitRequest",
+        "data_type": "Boolean",
+        "description": "3스칼라 배출 대기 신호"
+      }
+    },
+    {
+      "tag_id": "D2023",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2023" },
+      "target": {
+        "path": "Robot03_Scara/Handshake",
+        "name": "DischargeCompleted",
+        "data_type": "Boolean",
+        "description": "3스칼라 배출 완료 신호"
+      }
+    },
+    {
+      "tag_id": "D2024",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2024" },
+      "target": {
+        "path": "Robot03_Scara/ActuatorState",
+        "name": "VacuumSolenoidState",
+        "data_type": "Boolean",
+        "description": "3스칼라 진공 SOL"
+      }
+    },
+    {
+      "tag_id": "D2025",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2025" },
+      "target": {
+        "path": "Robot03_Scara/ActuatorState",
+        "name": "VacuumBreakSolenoidState",
+        "data_type": "Boolean",
+        "description": "3스칼라 파괴 SOL"
+      }
+    },
+    {
+      "tag_id": "D2030",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2030" },
+      "target": {
+        "path": "Robot04_Hyundai/Handshake",
+        "name": "GripWaitRequest",
+        "data_type": "Boolean",
+        "description": "4현대 그립 대기 신호"
+      }
+    },
+    {
+      "tag_id": "D2031",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2031" },
+      "target": {
+        "path": "Robot04_Hyundai/Handshake",
+        "name": "GripCompleted",
+        "data_type": "Boolean",
+        "description": "4현대 그립 완료 신호"
+      }
+    },
+    {
+      "tag_id": "D2032",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2032" },
+      "target": {
+        "path": "Robot04_Hyundai/Handshake",
+        "name": "DischargeWaitRequest",
+        "data_type": "Boolean",
+        "description": "4현대 배출 대기 신호"
+      }
+    },
+    {
+      "tag_id": "D2033",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2033" },
+      "target": {
+        "path": "Robot04_Hyundai/Handshake",
+        "name": "DischargeCompleted",
+        "data_type": "Boolean",
+        "description": "4현대 배출 완료 신호"
+      }
+    },
+    {
+      "tag_id": "D2034",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2034" },
+      "target": {
+        "path": "AMR/OutputAMR",
+        "name": "GripWaitRequest",
+        "data_type": "Boolean",
+        "description": "배출AMR 그립 대기 신호"
+      }
+    },
+    {
+      "tag_id": "D2035",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2035" },
+      "target": {
+        "path": "AMR/OutputAMR",
+        "name": "GripCompleted",
+        "data_type": "Boolean",
+        "description": "배출AMR 그립 완료 신호"
+      }
+    },
+    {
+      "tag_id": "D2036",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2036" },
+      "target": {
+        "path": "Robot04_Hyundai/ActuatorState",
+        "name": "VacuumSolenoidState",
+        "data_type": "Boolean",
+        "description": "4현대 진공 SOL"
+      }
+    },
+    {
+      "tag_id": "D2037",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2037" },
+      "target": {
+        "path": "Robot04_Hyundai/ActuatorState",
+        "name": "VacuumBreakSolenoidState",
+        "data_type": "Boolean",
+        "description": "4현대 파괴 SOL"
+      }
+    },
+    {
+      "tag_id": "D2220",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2220" },
+      "target": {
+        "path": "Conveyor/Line01",
+        "name": "ConveyorRunningState",
+        "data_type": "Boolean",
+        "description": "1라인 컨베어 신호"
+      }
+    },
+    {
+      "tag_id": "D2221",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2221" },
+      "target": {
+        "path": "Conveyor/Line01",
+        "name": "ProductEntrySensor",
+        "data_type": "Boolean",
+        "description": "1라인 제품 투입센서"
+      }
+    },
+    {
+      "tag_id": "D2222",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2222" },
+      "target": {
+        "path": "Conveyor/Line01",
+        "name": "ProductExitSensor",
+        "data_type": "Boolean",
+        "description": "1라인 제품 배출센서"
+      }
+    },
+    {
+      "tag_id": "D2223",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2223" },
+      "target": {
+        "path": "Conveyor/Line01",
+        "name": "AlignmentBackwardSensor",
+        "data_type": "Boolean",
+        "description": "1라인 정렬 후진센서"
+      }
+    },
+    {
+      "tag_id": "D2224",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2224" },
+      "target": {
+        "path": "Conveyor/Line01",
+        "name": "AlignmentForwardSensor",
+        "data_type": "Boolean",
+        "description": "1라인 정렬 전진센서"
+      }
+    },
+    {
+      "tag_id": "D2225",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2225" },
+      "target": {
+        "path": "Conveyor/Line02",
+        "name": "ConveyorRunningState",
+        "data_type": "Boolean",
+        "description": "2라인 컨베어 신호"
+      }
+    },
+    {
+      "tag_id": "D2226",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2226" },
+      "target": {
+        "path": "Conveyor/Line02",
+        "name": "ProductEntrySensor",
+        "data_type": "Boolean",
+        "description": "2라인 제품 투입센서"
+      }
+    },
+    {
+      "tag_id": "D2227",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2227" },
+      "target": {
+        "path": "Conveyor/Line02",
+        "name": "ProductExitSensor",
+        "data_type": "Boolean",
+        "description": "2라인 제품 배출센서"
+      }
+    },
+    {
+      "tag_id": "D2228",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2228" },
+      "target": {
+        "path": "Conveyor/Line02",
+        "name": "AlignmentBackwardSensor",
+        "data_type": "Boolean",
+        "description": "2라인 정렬 후진센서"
+      }
+    },
+    {
+      "tag_id": "D2229",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2229" },
+      "target": {
+        "path": "Conveyor/Line02",
+        "name": "AlignmentForwardSensor",
+        "data_type": "Boolean",
+        "description": "2라인 정렬 전진센서"
+      }
+    },
+    {
+      "tag_id": "D2230",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2230" },
+      "target": {
+        "path": "Conveyor/Line03",
+        "name": "ConveyorRunningState",
+        "data_type": "Boolean",
+        "description": "3라인 컨베어 신호"
+      }
+    },
+    {
+      "tag_id": "D2231",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2231" },
+      "target": {
+        "path": "Conveyor/Line03",
+        "name": "ProductEntrySensor",
+        "data_type": "Boolean",
+        "description": "3라인 제품 투입센서"
+      }
+    },
+    {
+      "tag_id": "D2232",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2232" },
+      "target": {
+        "path": "Conveyor/Line03",
+        "name": "ProductExitSensor",
+        "data_type": "Boolean",
+        "description": "3라인 제품 배출센서"
+      }
+    },
+    {
+      "tag_id": "D2233",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2233" },
+      "target": {
+        "path": "Conveyor/Line03",
+        "name": "AlignmentBackwardSensor",
+        "data_type": "Boolean",
+        "description": "3라인 정렬 후진센서"
+      }
+    },
+    {
+      "tag_id": "D2234",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2234" },
+      "target": {
+        "path": "Conveyor/Line03",
+        "name": "AlignmentForwardSensor",
+        "data_type": "Boolean",
+        "description": "3라인 정렬 전진센서"
+      }
+    },
+    {
+      "tag_id": "D2235",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2235" },
+      "target": {
+        "path": "Conveyor/Line04",
+        "name": "ConveyorRunningState",
+        "data_type": "Boolean",
+        "description": "4라인 컨베어 신호"
+      }
+    },
+    {
+      "tag_id": "D2236",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2236" },
+      "target": {
+        "path": "Conveyor/Line04",
+        "name": "ProductEntrySensor",
+        "data_type": "Boolean",
+        "description": "4라인 제품 투입센서"
+      }
+    },
+    {
+      "tag_id": "D2237",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2237" },
+      "target": {
+        "path": "Conveyor/Line04",
+        "name": "ProductExitSensor",
+        "data_type": "Boolean",
+        "description": "4라인 제품 배출센서"
+      }
+    },
+    {
+      "tag_id": "D2238",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2238" },
+      "target": {
+        "path": "Conveyor/Line04",
+        "name": "AlignmentBackwardSensor",
+        "data_type": "Boolean",
+        "description": "4라인 정렬 후진센서"
+      }
+    },
+    {
+      "tag_id": "D2239",
+      "source": { "kind": "plc", "device_key": "plc-modbus-tcp-1", "addr": "D2239" },
+      "target": {
+        "path": "Conveyor/Line04",
+        "name": "AlignmentForwardSensor",
+        "data_type": "Boolean",
+        "description": "4라인 정렬 전진센서"
+      }
     }
   ]
 }

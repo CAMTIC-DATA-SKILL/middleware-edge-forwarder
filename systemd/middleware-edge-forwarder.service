@@ -1,7 +1,7 @@
 # /opt 고정 설치 예시. 현재 체크아웃 경로로 등록하려면 service_add.sh 를 사용한다.
 [Unit]
 Description=Edge Forwarder (collector ZeroMQ -> northbound OPC UA)
-After=network-online.target collector-plc.service
+After=network-online.target collector-plc.service collector-robot-modbus.service
 Wants=network-online.target
 
 [Service]

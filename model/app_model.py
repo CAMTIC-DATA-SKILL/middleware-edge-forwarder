@@ -1,12 +1,40 @@
-"""앱 설정 스키마 (ZeroMQ 수신, 북향 OPC UA 서버)."""
+"""앱 설정 스키마 (ZeroMQ 수신, 북향 OPC UA 또는 MQTT)."""
 
 from __future__ import annotations
 
+from enum import StrEnum
 from pathlib import Path
 
 from pydantic import BaseModel, Field
 
 from model.tag_model import CollectorHeader, TagSettings
+
+
+class NorthboundMode(StrEnum):
+    """북향은 한 번에 하나만 사용한다."""
+
+    OPCUA = "opcua"
+    MQTT = "mqtt"
+
+
+class EmptySettingError(Exception):
+    """필수 설정이 비어 있다. 기본값으로 대체하지 않는다."""
+
+    def __init__(self, key: str):
+        self.key = key
+        super().__init__(f"{key} 가 비어 있습니다")
+
+
+def parse_northbound_mode(value: str | None) -> NorthboundMode:
+    """opcua / mqtt. opc-ua, OPC_UA 같은 표기도 opcua 로 받는다. 비어 있으면 예외."""
+    if value is None or not value.strip():
+        raise EmptySettingError("NORTHBOUND_MODE")
+    key = value.strip().lower().replace("-", "").replace("_", "")
+    if key == NorthboundMode.OPCUA.value:
+        return NorthboundMode.OPCUA
+    if key == NorthboundMode.MQTT.value:
+        return NorthboundMode.MQTT
+    raise ValueError(f"NORTHBOUND_MODE 는 opcua 또는 mqtt 입니다: {value!r}")
 
 
 class ZmqSettings(BaseModel):
@@ -37,6 +65,24 @@ class OpcUaServerSettings(BaseModel):
     update_period_ms: int = Field(default=0, ge=0)
 
 
+class MqttPublisherSettings(BaseModel):
+    """NORTHBOUND_MODE=mqtt 일 때 쓰는 브로커 설정."""
+
+    host: str = "127.0.0.1"
+    port: int = Field(default=1883, ge=1, le=65535)
+    client_id: str = "middleware_edge_forwarder"
+    username: str = ""
+    password: str = ""
+    keepalive_s: int = Field(default=60, ge=1)
+    qos: int = Field(default=0, ge=0, le=2)
+    retain: bool = False
+    # {topic_root}/{kind}/{device_key}/{name}
+    topic_root: str = "edge"
+    tls: bool = False
+    # TCP 연결과 CONNACK 대기 (초)
+    connect_timeout_s: int = Field(default=5, ge=1)
+
+
 class IpcLogSettings(BaseModel):
     """IPC 수신 메시지 로그: 콘솔 요약 + device_key 별 일별 파일 전문 ({프로젝트 루트}/data/logs/{device_key})."""
 
@@ -55,8 +101,11 @@ class AppSettings(BaseModel):
     reconnect_period_ms: int = 5000
     # 이 시간 동안 DATA 가 없으면 수집원 태그를 UncertainLastUsableValue 로 표시 (0 = 끔)
     source_stale_ms: int = 10000
+    # opcua 면 OPC UA 서버만, mqtt 면 MQTT publisher 만 연다
+    northbound: NorthboundMode = NorthboundMode.OPCUA
     zmq: ZmqSettings = Field(default_factory=ZmqSettings)
     opcua: OpcUaServerSettings = Field(default_factory=OpcUaServerSettings)
+    mqtt: MqttPublisherSettings = Field(default_factory=MqttPublisherSettings)
     ipc_log: IpcLogSettings = Field(default_factory=IpcLogSettings)
 
 

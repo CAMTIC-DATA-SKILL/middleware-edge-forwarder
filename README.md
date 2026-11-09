@@ -1,6 +1,6 @@
 # middleware_edge_forwarder
 
-엣지에서 collector(`collector-plc`, `collector-*`)가 수집한 데이터를 IPC로 넘겨받아 **북향 OPC UA 서버**로 상위 시스템(MES·SCADA 등)에 제공하는 프로세스입니다.
+엣지에서 collector(`collector-plc`, `collector-*`)가 수집한 데이터를 IPC로 넘겨받아 북향으로 상위 시스템(MES·SCADA 등)에 제공하는 프로세스입니다. 북향은 `NORTHBOUND_MODE`에 따라 **OPC UA 서버** 또는 **MQTT publisher** 중 하나입니다.
 
 IPC 방식은 아직 확정 전이며, 현재는 collector 레포들이 이미 쓰고 있는 **ZeroMQ PUB/SUB** 기준으로 구현되어 있습니다.
 
@@ -13,7 +13,7 @@ flowchart LR
     C1 -- "ZeroMQ PUB<br>collector.plc.{device_key}.{data|health|ack}" --> F[middleware_edge_forwarder<br>ZeroMQ SUB]
     C2 -- "collector.{kind}.…" --> F
     C1 -- 같은 PUB --> E[embedded_ingest<br>DB·로그·명령]
-    F -- "OPC UA (opc.tcp://:4840/edge/)" --> U[상위 시스템]
+    F -- "NORTHBOUND_MODE<br>opcua 또는 mqtt" --> U[상위 시스템]
 ```
 
 - collector는 PUB 소켓을 **bind**, forwarder는 SUB로 **connect** 합니다. ZeroMQ PUB은 여러 SUB에 동시에 전달하므로 `embedded_ingest`와 나란히 붙을 수 있고, collector 쪽 설정은 바꾸지 않아도 됩니다.
@@ -27,7 +27,7 @@ config.py                  # .env + tag map JSON → settings
 forwarder.py               # IPC 수신 → 북향 OPC UA 반영 루프 (DATA/HEALTH 처리, 수신 공백 감시)
 client/errors.py           # ClientError (collector 레포와 동일)
 model/
-  app_model.py             # AppSettings / ZmqSettings / OpcUaServerSettings
+  app_model.py             # AppSettings / ZmqSettings / OpcUaServerSettings / MqttPublisherSettings
   error_model.py           # ClientErrorCode (collector 와이어 코드 체계)
   protocol_model.py        # ProtocolHeaderDTO, MsgDataDTO, MsgHealthDTO (수신 전용)
   ipc_model.py             # IpcMessage: 전송 방식과 무관한 수신 단위
@@ -39,6 +39,9 @@ zeromq_client/
 opcua_server/
   server.py                # NorthboundServer: 노드 생성, 값·품질 갱신, _Forwarder 상태 노드
   values.py                # 형식 변환, 샘플 type → OPC UA 형식, 에러 코드 → StatusCode
+mqtt_publisher/
+  publisher.py             # MqttPublisher: 브로커 connect / publish / close (기본 구성)
+  topics.py                # {root}/{kind}/{device_key}/{name} 조립
 tester/
   fake_collector.py        # collector-plc 와 같은 와이어로 DATA/HEALTH PUB
   opcua_reader.py          # 북향 주소 공간 값·품질 출력
@@ -81,13 +84,40 @@ collector가 여러 개(포트가 다름)라면 `ZMQ_SUB_ENDPOINTS`에 쉼표로
 | --- | --- | --- |
 | `ZMQ_COLLECTOR_KINDS` | `plc` | 구독할 collector 종류. 비우면 `collector.*` 전체 |
 | `ZMQ_DEVICE_KEYS` | (빈 값) | 특정 `device_key`만 받을 때 |
-| `OPCUA_ENDPOINT` | `opc.tcp://0.0.0.0:4840/edge/` | 북향 서버 주소 |
+| `NORTHBOUND_MODE` | (필수) | `opcua` 또는 `mqtt`. 비어 있으면 로그 후 종료 |
+| `OPCUA_ENDPOINT` | `opc.tcp://0.0.0.0:4840/edge/` | `opcua` 모드의 북향 서버 주소 |
 | `OPCUA_NAMESPACE_URI` | `urn:middleware:edge:forwarder:tags` | 상위 시스템은 이 URI로 네임스페이스 번호를 찾습니다 |
 | `OPCUA_AUTO_CREATE_NODES` | `true` | tag map에 없는 샘플도 자동 노출 |
 | `OPCUA_UPDATE_PERIOD_MS` | `0` | 북향 노드 값 반영 주기. collector가 더 자주 보내도 이 간격으로만 갱신 (0 = 수신 즉시) |
 | `SOURCE_STALE_MS` | `10000` | 이 시간 동안 DATA가 없으면 해당 수집원 태그를 Uncertain 처리 (0 = 끔) |
 
 전체 목록은 `.env.example`을 참고합니다.
+
+### 북향 모드
+
+`NORTHBOUND_MODE` 로 둘 중 하나만 고릅니다. 값이 비어 있으면 기본값으로 바꾸지 않고 `NORTHBOUND_MODE 가 비어 있습니다` 를 로그한 뒤 종료합니다.
+
+| 모드 | 동작 |
+| --- | --- |
+| `opcua` | OPC UA 서버를 열고 값을 노드에 쓴다. MQTT 브로커에는 연결하지 않는다 |
+| `mqtt` | 브로커로만 발행한다. OPC UA 서버는 열지 않는다 |
+
+MQTT 토픽은 `{MQTT_TOPIC_ROOT}/{kind}/{device_key}/{name}` 입니다. 샘플은 주소, 소켓은 이름과 필드입니다. 수집원 상태는 마지막 세그먼트가 `health` 입니다.
+
+```text
+edge/robot/robot-1/S0004
+edge/robot/robot-1/hw/cpu_temperature
+edge/robot/robot-1/health
+```
+
+tag map 에 같은 소스가 있으면 첫 변환(scale/offset)을 적용한 값을 보냅니다. 매핑이 없는 샘플도 발행합니다. `OPCUA_UPDATE_PERIOD_MS` 는 두 모드 모두에서 값 반영 주기를 정합니다.
+
+| 변수 | 기본값 | 설명 |
+| --- | --- | --- |
+| `MQTT_BROKER_HOST` / `MQTT_BROKER_PORT` | `127.0.0.1` / `1883` | `mqtt` 모드의 브로커 주소 |
+| `MQTT_TOPIC_ROOT` | `edge` | 토픽 접두사 |
+| `MQTT_QOS` | `0` | `0`, `1`, `2` |
+| `MQTT_TLS` | `false` | `true` 이면 시스템 CA. 포트는 보통 `8883` |
 
 ### 수신 메시지 로그
 
@@ -257,8 +287,8 @@ sudo bash service_add.sh
 journalctl -u middleware-edge-forwarder -f
 ```
 
-- `sudo` 한 계정으로 실행합니다. `data/logs` 쓰기 권한과 맞춥니다.
-- collector-plc 가 같은 장비에 있으면 부팅 시 그 다음에 기동합니다. 없어도 등록은 됩니다.
+- `/etc/systemd/system` 에 시스템 유닛을 등록하고 `multi-user.target` 으로 부팅 시 자동 기동합니다. `data/logs` 쓰기 권한과 맞춥니다.
+- collector-plc / collector-robot-modbus 가 같은 장비에 있으면 부팅 시 그 다음에 기동합니다. 없어도 등록은 됩니다.
 - 제거: `sudo systemctl disable --now middleware-edge-forwarder && sudo rm /etc/systemd/system/middleware-edge-forwarder.service && sudo systemctl daemon-reload`
 
 ## 개발 현황 / 이후 검토
@@ -268,6 +298,7 @@ journalctl -u middleware-edge-forwarder -f
 - [x] 값 형식 변환, scale/offset, 품질 상태, SourceTimestamp 전달
 - [x] HEALTH·수신 공백을 Uncertain 품질과 `_Forwarder` 상태 노드에 반영
 - [x] tag map `collectors` 헤더(collector id → aas_id)를 북향 `Identification` 으로 노출
+- [x] `NORTHBOUND_MODE=opcua|mqtt`. 한 번에 하나만 북향으로 보낸다
 - [ ] IPC 방식 확정 (ZeroMQ 유지 시 collector별 엔드포인트/포트 규칙 정리)
 - [ ] 북향 보안 (인증서·사용자 인증). 현재는 NoSecurity
 - [ ] 표준 단위 코드(UNECE)·AnalogItemType 적용 (`middleware_gateway_opc_ua` catalog 참고)

@@ -1,0 +1,196 @@
+{
+  "collectors": [
+    {
+      "kind": "robot",
+      "device_key": "robot-1",
+      "aas_id": "urn:physical-ai:aas:hyundai:hh7:template:v0.2",
+      "global_asset_id": "urn:physical-ai:aas:hyundai:hh7:template:v0.2"
+    }
+  ],
+  "tags": [
+    {
+      "tag_id": "1737",
+      "node_id": 1737,
+      "source": { "kind": "robot", "device_key": "robot-1", "addr": "S0041" },
+      "target": {
+        "path": "OperationalData/EquipmentState",
+        "name": "OperationType",
+        "data_type": "String",
+        "description": "robot status (0: stop, 1: run, 2: wait)"
+      }
+    },
+    {
+      "tag_id": "S0006",
+      "source": { "kind": "robot", "device_key": "robot-1", "addr": "S0006" },
+      "target": { "path": "OperationalData/Clock", "name": "Year", "data_type": "UInt16" }
+    },
+    {
+      "tag_id": "S0008",
+      "source": { "kind": "robot", "device_key": "robot-1", "addr": "S0008" },
+      "target": { "path": "OperationalData/Clock", "name": "Month", "data_type": "Byte" }
+    },
+    {
+      "tag_id": "S0009",
+      "source": { "kind": "robot", "device_key": "robot-1", "addr": "S0009" },
+      "target": { "path": "OperationalData/Clock", "name": "Day", "data_type": "Byte" }
+    },
+    {
+      "tag_id": "S0010",
+      "source": { "kind": "robot", "device_key": "robot-1", "addr": "S0010" },
+      "target": { "path": "OperationalData/Clock", "name": "Hour", "data_type": "Byte" }
+    },
+    {
+      "tag_id": "S0011",
+      "source": { "kind": "robot", "device_key": "robot-1", "addr": "S0011" },
+      "target": { "path": "OperationalData/Clock", "name": "Minute", "data_type": "Byte" }
+    },
+    {
+      "tag_id": "S0012",
+      "source": { "kind": "robot", "device_key": "robot-1", "addr": "S0012" },
+      "target": { "path": "OperationalData/Clock", "name": "Second", "data_type": "Byte" }
+    },
+    {
+      "tag_id": "1703",
+      "node_id": 1703,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "hw", "field": "cpu_temperature" },
+      "target": {
+        "path": "OperationalData/EnvironmentData",
+        "name": "MeasurementTemperature",
+        "data_type": "Float"
+      }
+    },
+    {
+      "tag_id": "hw.mainboard_temperature",
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "hw", "field": "mainboard_temperature" },
+      "target": { "path": "OperationalData/EnvironmentData", "name": "MainboardTemperature", "data_type": "Float" }
+    },
+    {
+      "tag_id": "hw.systemboard_temperature",
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "hw", "field": "systemboard_temperature" },
+      "target": { "path": "OperationalData/EnvironmentData", "name": "SystemboardTemperature", "data_type": "Float" }
+    },
+    {
+      "tag_id": "jp1.value_0",
+      "node_id": 1145,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "jp1", "field": "value_0" },
+      "target": { "path": "OperationalData/Axis/JointPosition", "name": "J1", "data_type": "Float" }
+    },
+    {
+      "tag_id": "jp1.value_1",
+      "node_id": 1146,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "jp1", "field": "value_1" },
+      "target": { "path": "OperationalData/Axis/JointPosition", "name": "J2", "data_type": "Float" }
+    },
+    {
+      "tag_id": "jp1.value_2",
+      "node_id": 1147,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "jp1", "field": "value_2" },
+      "target": { "path": "OperationalData/Axis/JointPosition", "name": "J3", "data_type": "Float" }
+    },
+    {
+      "tag_id": "jp2.value_0",
+      "node_id": 1148,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "jp2", "field": "value_0" },
+      "target": { "path": "OperationalData/Axis/JointPosition", "name": "J4", "data_type": "Float" }
+    },
+    {
+      "tag_id": "jp2.value_1",
+      "node_id": 1149,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "jp2", "field": "value_1" },
+      "target": { "path": "OperationalData/Axis/JointPosition", "name": "J5", "data_type": "Float" }
+    },
+    {
+      "tag_id": "jp2.value_2",
+      "node_id": 1150,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "jp2", "field": "value_2" },
+      "target": { "path": "OperationalData/Axis/JointPosition", "name": "J6", "data_type": "Float" }
+    },
+    {
+      "tag_id": "jv1.value_0",
+      "node_id": 1160,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "jv1", "field": "value_0" },
+      "target": { "path": "OperationalData/Axis/JointSpeed", "name": "J1", "data_type": "Float" }
+    },
+    {
+      "tag_id": "jv1.value_1",
+      "node_id": 1161,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "jv1", "field": "value_1" },
+      "target": { "path": "OperationalData/Axis/JointSpeed", "name": "J2", "data_type": "Float" }
+    },
+    {
+      "tag_id": "jv1.value_2",
+      "node_id": 1162,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "jv1", "field": "value_2" },
+      "target": { "path": "OperationalData/Axis/JointSpeed", "name": "J3", "data_type": "Float" }
+    },
+    {
+      "tag_id": "jv2.value_0",
+      "node_id": 1163,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "jv2", "field": "value_0" },
+      "target": { "path": "OperationalData/Axis/JointSpeed", "name": "J4", "data_type": "Float" }
+    },
+    {
+      "tag_id": "jv2.value_1",
+      "node_id": 1164,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "jv2", "field": "value_1" },
+      "target": { "path": "OperationalData/Axis/JointSpeed", "name": "J5", "data_type": "Float" }
+    },
+    {
+      "tag_id": "jv2.value_2",
+      "node_id": 1165,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "jv2", "field": "value_2" },
+      "target": { "path": "OperationalData/Axis/JointSpeed", "name": "J6", "data_type": "Float" }
+    },
+    {
+      "tag_id": "tcp.value_0",
+      "node_id": 1152,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "tool_pos1", "field": "value_0" },
+      "target": { "path": "OperationalData/Axis/JointPosition", "name": "tcp_x", "data_type": "Float" }
+    },
+    {
+      "tag_id": "tcp.value_1",
+      "node_id": 1153,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "tool_pos1", "field": "value_1" },
+      "target": { "path": "OperationalData/Axis/JointPosition", "name": "tcp_y", "data_type": "Float" }
+    },
+    {
+      "tag_id": "tcp.value_2",
+      "node_id": 1154,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "tool_pos1", "field": "value_2" },
+      "target": { "path": "OperationalData/Axis/JointPosition", "name": "tcp_z", "data_type": "Float" }
+    },
+    {
+      "tag_id": "tcp.value_3",
+      "node_id": 1156,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "tool_pos2", "field": "value_0" },
+      "target": { "path": "OperationalData/Axis/JointPosition", "name": "tcp_rx", "data_type": "Float" }
+    },
+    {
+      "tag_id": "tcp.value_4",
+      "node_id": 1157,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "tool_pos2", "field": "value_1" },
+      "target": { "path": "OperationalData/Axis/JointPosition", "name": "tcp_ry", "data_type": "Float" }
+    },
+    {
+      "tag_id": "tcp.value_5",
+      "node_id": 1158,
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "tool_pos2", "field": "value_2" },
+      "target": { "path": "OperationalData/Axis/JointPosition", "name": "tcp_rz", "data_type": "Float" }
+    },
+    {
+      "tag_id": "encoder_temp_01_03.value_0",
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "encoder_temp_01_03", "field": "value_0" },
+      "target": { "path": "OperationalData/Axis/EncoderTemp", "name": "J1", "data_type": "Float" }
+    },
+    {
+      "tag_id": "tool_length.tool_weight",
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "tool_length", "field": "tool_weight" },
+      "target": { "path": "OperationalData/Tool", "name": "Weight", "data_type": "Float" }
+    },
+    {
+      "tag_id": "tool_length.tool_data_x",
+      "source": { "kind": "robot", "device_key": "robot-1", "socket": "tool_length", "field": "tool_data_x" },
+      "target": { "path": "OperationalData/Tool", "name": "LengthX", "data_type": "Float" }
+    }
+  ]
+}

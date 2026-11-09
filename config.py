@@ -13,7 +13,9 @@
 from __future__ import annotations
 
 import json
+import logging
 import os
+import sys
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -21,10 +23,13 @@ from pydantic import ValidationError
 
 from model.app_model import (
     AppSettings,
+    EmptySettingError,
     IpcLogSettings,
+    MqttPublisherSettings,
     OpcUaServerSettings,
     Settings,
     ZmqSettings,
+    parse_northbound_mode,
 )
 from model.tag_model import TagMapFile
 
@@ -77,6 +82,7 @@ def _load_app_from_env() -> AppSettings:
         log_level=_env_str("LOG_LEVEL", "INFO").upper(),
         reconnect_period_ms=_env_int("RECONNECT_PERIOD_MS", 5000),
         source_stale_ms=_env_int("SOURCE_STALE_MS", 10000),
+        northbound=parse_northbound_mode(os.getenv("NORTHBOUND_MODE")),
         zmq=ZmqSettings(
             sub_endpoints=_env_list("ZMQ_SUB_ENDPOINTS", "tcp://127.0.0.1:5556"),
             sub_bind=_env_bool("ZMQ_SUB_BIND", False),
@@ -97,6 +103,19 @@ def _load_app_from_env() -> AppSettings:
             auto_create_nodes=_env_bool("OPCUA_AUTO_CREATE_NODES", True),
             auto_root=_env_str("OPCUA_AUTO_ROOT", "Collectors"),
             update_period_ms=max(0, _env_int("OPCUA_UPDATE_PERIOD_MS", 0)),
+        ),
+        mqtt=MqttPublisherSettings(
+            host=_env_str("MQTT_BROKER_HOST", "127.0.0.1"),
+            port=_env_int("MQTT_BROKER_PORT", 1883),
+            client_id=_env_str("MQTT_CLIENT_ID", "middleware_edge_forwarder"),
+            username=_env_str("MQTT_USERNAME", ""),
+            password=_env_str("MQTT_PASSWORD", ""),
+            keepalive_s=_env_int("MQTT_KEEPALIVE_S", 60),
+            qos=_env_int("MQTT_QOS", 0),
+            retain=_env_bool("MQTT_RETAIN", False),
+            topic_root=_env_str("MQTT_TOPIC_ROOT", "edge"),
+            tls=_env_bool("MQTT_TLS", False),
+            connect_timeout_s=_env_int("MQTT_CONNECT_TIMEOUT_S", 5),
         ),
         ipc_log=IpcLogSettings(
             summary=_env_bool("IPC_LOG_SUMMARY", True),
@@ -121,4 +140,18 @@ def load_settings() -> Settings:
     )
 
 
-settings = load_settings()
+def _load_settings_or_exit() -> Settings:
+    try:
+        return load_settings()
+    except EmptySettingError as exc:
+        logging.basicConfig(
+            level=logging.ERROR,
+            format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
+            handlers=[logging.StreamHandler(sys.stdout)],
+        )
+        logging.getLogger("config").error("%s 가 비어 있습니다", exc.key)
+        raise SystemExit(1) from exc
+
+
+settings = _load_settings_or_exit()

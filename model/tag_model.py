@@ -148,12 +148,28 @@ class CollectorHeader(BaseModel):
 
 class TagSettings(BaseModel):
     tag_id: str
-    # 있으면 북향 변수 NodeId 를 i=<node_id> 로 만든다. 없으면 s=<tag_id>
-    node_id: int | None = Field(default=None, ge=1)
+    # 있으면 북향 변수 NodeId. 정수면 i=<node_id>, 문자열이면 ns=2;s=... 또는 s=<값>. 없으면 s=<tag_id>
+    node_id: int | str | None = None
     enabled: bool = True
     source: TagSource
     target: TagTarget
     conversion: TagConversion = Field(default_factory=TagConversion)
+
+    @field_validator("node_id", mode="before")
+    @classmethod
+    def _node_id(cls, value: object) -> int | str | None:
+        if value is None:
+            return None
+        if isinstance(value, bool):
+            raise ValueError("node_id 는 bool 일 수 없습니다")
+        if isinstance(value, int):
+            if value < 1:
+                raise ValueError("node_id 정수 값은 1 이상이어야 합니다")
+            return value
+        if isinstance(value, str):
+            stripped = value.strip()
+            return stripped or None
+        raise ValueError(f"node_id 는 정수 또는 문자열이어야 합니다: {value!r}")
 
 
 class TagMapFile(BaseModel):
@@ -171,7 +187,7 @@ class TagMapFile(BaseModel):
                 raise ValueError(f"collector.kind 로 {RESERVED_ROOT} 를 쓸 수 없습니다")
 
         seen_ids: set[str] = set()
-        seen_node_ids: set[int] = set()
+        seen_node_ids: set[int | str] = set()
         seen_targets: set[tuple[tuple[str, ...], str]] = set()
         for tag in self.tags:
             if tag.tag_id in seen_ids:
