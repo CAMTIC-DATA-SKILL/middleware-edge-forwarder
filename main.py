@@ -2,9 +2,12 @@
 
 import asyncio
 import logging
+import os
 import sys
+import time
 
-from config import settings
+from admin.env_file import release_process_env
+from config import BASE_DIR, settings
 from forwarder import run as run_forwarder
 from utils.logging_setup import setup_logging
 
@@ -22,15 +25,20 @@ def main():
     setup_logging()
     logger.info("middleware_edge_forwarder 시작 (northbound=%s)", settings.app.northbound.value)
     exit_code = 0
+    restart = False
     try:
-        _asyncio_run(run_forwarder(settings))
+        restart = bool(_asyncio_run(run_forwarder(settings)))
     except KeyboardInterrupt:
         pass
     except OSError as e:
         logger.error("북향 OPC UA 서버를 시작할 수 없습니다 (OPCUA_ENDPOINT 포트 확인): %s", e)
         exit_code = 1
-    finally:
-        logger.info("middleware_edge_forwarder 종료")
+    if restart and not exit_code:
+        logger.info("관리 페이지에서 저장한 설정을 적용하기 위해 다시 시작합니다")
+        release_process_env(BASE_DIR / ".env")
+        time.sleep(0.3)
+        os.execv(sys.executable, [sys.executable, *sys.argv])
+    logger.info("middleware_edge_forwarder 종료")
     if exit_code:
         raise SystemExit(exit_code)
 

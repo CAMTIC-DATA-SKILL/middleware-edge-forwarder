@@ -83,6 +83,16 @@ class MqttPublisherSettings(BaseModel):
     connect_timeout_s: int = Field(default=5, ge=1)
 
 
+class AdminSettings(BaseModel):
+    """같은 프로세스에서 여는 관리 페이지. 수집원 상태를 읽기만 한다."""
+
+    enable: bool = True
+    host: str = "127.0.0.1"
+    port: int = Field(default=8088, ge=1, le=65535)
+    # 비어 있으면 검사하지 않는다. 루프백 밖으로 열 때 둔다
+    token: str = ""
+
+
 class IpcLogSettings(BaseModel):
     """IPC 수신 메시지 로그: 콘솔 요약 + device_key 별 일별 파일 전문 ({프로젝트 루트}/data/logs/{device_key})."""
 
@@ -107,6 +117,7 @@ class AppSettings(BaseModel):
     opcua: OpcUaServerSettings = Field(default_factory=OpcUaServerSettings)
     mqtt: MqttPublisherSettings = Field(default_factory=MqttPublisherSettings)
     ipc_log: IpcLogSettings = Field(default_factory=IpcLogSettings)
+    admin: AdminSettings = Field(default_factory=AdminSettings)
 
 
 class Settings(BaseModel):

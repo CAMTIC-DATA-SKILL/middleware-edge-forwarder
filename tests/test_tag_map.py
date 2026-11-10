@@ -124,7 +124,7 @@ class CollectorHeaderTest(unittest.TestCase):
         tag_map = TagMapFile.model_validate_json(LIVE.read_text(encoding="utf-8"))
         self.assertTrue(
             any(
-                t.node_id == "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointPosition/J1"
+                t.node_id == "ns=1;s=Hyundai_HH7_AAS_Template_v0.3/HH7/RobotKinematicState/JointPosition/J1"
                 for t in tag_map.tags
             )
         )
