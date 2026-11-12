@@ -45,6 +45,9 @@ mqtt_publisher/
 tester/
   fake_collector.py        # collector-plc 와 같은 와이어로 DATA/HEALTH PUB
   opcua_reader.py          # 북향 주소 공간 값·품질 출력
+admin/
+  server.py                # 같은 프로세스의 관리 페이지 (상태, .env 저장, 재시작)
+  page.html                # 화면
 utils/
   logging_setup.py         # 콘솔 로깅
   message_log.py           # IPC 수신 메시지 요약(콘솔) + 전문(일별 파일)
@@ -245,6 +248,7 @@ tag map 파일 하나가 이 프로세스의 표입니다. 그 안에 자산과 
 | `int`, `long word` | Int64 |
 | `ascii` | String |
 | `u8`/`i8`/`u16`/`i16`/`u32`/`i32`/`u64`/`i64`/`f32`/`f64` (robot 메모리 맵) | 대응하는 정수/실수 형식 |
+| `str` (robot `literals`) | String |
 | 그 외 | 값의 파이썬 타입으로 추론 (배열은 지원하지 않음) |
 
 ### 품질 상태
@@ -259,6 +263,27 @@ tag map 파일 하나가 이 프로세스의 표입니다. 그 안에 자산과 
 | HEALTH `device_ok=false` 또는 `SOURCE_STALE_MS` 동안 DATA 없음 | `UncertainLastUsableValue` | 마지막 정상 값 |
 
 다음 DATA를 받으면 다시 `Good`이 됩니다.
+
+## 관리 페이지
+
+포워더와 같은 프로세스에서 연다. 수집원 목록은 메모리에만 있으므로 화면용 프로세스를 따로 두지 않는다. `ADMIN_PORT` 가 이미 쓰이고 있으면 오류 로그만 남기고 수신과 북향은 계속한다.
+
+기본 주소는 `http://127.0.0.1:8088/` 이다.
+
+- 구독 주소, tag map 에 적힌 collector, 최근에 DATA/HEALTH 가 온 collector
+- 이번 실행의 수신 요약과 `data/logs/{device_key}` 파일의 마지막 줄
+- 북향 모드, MQTT 토픽 접두사, ZeroMQ 주소와 구독 필터, OPC UA 주소
+
+저장은 `.env` 의 해당 키만 바꾼다. 주석과 tag map 은 그대로 둔다. MQTT 비밀번호는 다시 보여 주지 않고, 입력한 경우에만 덮어쓴다. 적용은 페이지의 재시작이다. 프로세스가 소켓을 닫고 같은 명령으로 다시 뜬다.
+
+`ADMIN_TOKEN` 이 있으면 `/api/` 요청에 `X-Admin-Token` 헤더가 필요하다. `ADMIN_HOST` 를 루프백 밖으로 열 때는 토큰을 둔다.
+
+| 변수 | 기본값 | 설명 |
+| --- | --- | --- |
+| `ADMIN_ENABLE` | `true` | 관리 페이지를 연다 |
+| `ADMIN_HOST` | `127.0.0.1` | 바인드 주소 |
+| `ADMIN_PORT` | `8088` | 바인드 포트 |
+| `ADMIN_TOKEN` | (빈 값) | 비어 있으면 토큰을 검사하지 않는다 |
 
 ## 로컬 스모크 테스트
 

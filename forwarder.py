@@ -28,6 +28,7 @@ from mqtt_publisher.publisher import MqttPublisher, health_message, value_messag
 from mqtt_publisher.topics import health_topic, value_topic
 from opcua_server.server import NorthboundServer, TagNodeSpec
 from opcua_server.values import infer_variant_type, status_for_error
+from admin.server import AdminServer
 from utils.message_log import MessageLog
 from zeromq_client.sub_client import ZmqSubClient
 from zeromq_client.topics import sub_topics_for
@@ -110,6 +111,7 @@ class Forwarder:
         self._multi_warned: set[tuple[str, ...]] = set()
         self.messages_received = 0
         self.messages_invalid = 0
+        self.started_mono = time.monotonic()
         self._update_period_ms = max(0, app.opcua.update_period_ms)
 
     def _collector_ref(self, kind: str, device_key: str) -> str:
@@ -129,42 +131,59 @@ class Forwarder:
             raise RuntimeError("MQTT publisher 가 없습니다")
         return self.mqtt
 
-    async def run(self, stop: asyncio.Event | None = None) -> None:
+    async def run(self, stop: asyncio.Event | None = None) -> bool:
+        """SIGTERM/SIGINT 로 정리 종료. 관리 페이지에서 재시작을 누르면 True."""
         stop = stop or asyncio.Event()
         logger.info("북향 모드 %s", self._mode.value)
-        if not self._mqtt_mode:
-            await self._opcua().start()
+        restart = False
+        tasks: list[asyncio.Task] = []
+        admin: AdminServer | None = None
+        admin_task: asyncio.Task | None = None
+        if self.settings.app.admin.enable:
+            admin = AdminServer(self, stop)
+            admin_task = asyncio.create_task(admin.serve(), name="admin")
+            await admin.started.wait()
         try:
             if not self._mqtt_mode:
+                await self._opcua().start()
                 await self._register_mapped_tags()
             self.message_log.check_writable()
-            if self._mqtt_mode and not await self._connect_mqtt(stop):
-                return
-            if not await self._connect_ipc(stop):
-                return
-            tasks = [
-                asyncio.create_task(self._recv_loop(), name="ipc-recv"),
-                asyncio.create_task(self._watch_loop(), name="source-watch"),
-            ]
-            if self._update_period_ms > 0:
-                tasks.append(asyncio.create_task(self._flush_loop(), name="northbound-flush"))
-                logger.info("북향 값 반영 주기 %dms", self._update_period_ms)
-            try:
+            ready = await self._connect_mqtt(stop) if self._mqtt_mode else True
+            if ready:
+                ready = await self._connect_ipc(stop)
+            if ready:
+                tasks = [
+                    asyncio.create_task(self._recv_loop(), name="ipc-recv"),
+                    asyncio.create_task(self._watch_loop(), name="source-watch"),
+                ]
+                if self._update_period_ms > 0:
+                    tasks.append(asyncio.create_task(self._flush_loop(), name="northbound-flush"))
+                    logger.info("북향 값 반영 주기 %dms", self._update_period_ms)
                 await stop.wait()
-            finally:
-                for task in tasks:
-                    task.cancel()
-                for task in tasks:
-                    with contextlib.suppress(asyncio.CancelledError):
-                        await task
-                await self._flush_pending()
+            restart = bool(admin and admin.restart)
         finally:
+            if not stop.is_set():
+                stop.set()
+            for task in tasks:
+                task.cancel()
+            for task in tasks:
+                with contextlib.suppress(asyncio.CancelledError):
+                    await task
+            await self._flush_pending()
+            if admin_task is not None:
+                try:
+                    await admin_task
+                except asyncio.CancelledError:
+                    raise
+                except Exception:
+                    logger.exception("관리 페이지 종료 실패")
             self.ipc.close()
             self.message_log.close()
             if self._mqtt_mode:
                 await asyncio.to_thread(self._mqtt().close)
             else:
                 await self._opcua().stop()
+        return restart
 
     async def handle(self, msg: IpcMessage) -> None:
         """메시지 1건 처리. ack / cmd 는 무시한다."""
@@ -624,11 +643,11 @@ class Forwarder:
         await self._opcua().update(tag_id, conversion.apply(value), source_timestamp=sample_ts)
 
 
-async def run(settings: Settings) -> None:
-    """SIGTERM/SIGINT 로 정리 종료. Windows 는 KeyboardInterrupt 로 취소된다."""
+async def run(settings: Settings) -> bool:
+    """SIGTERM/SIGINT 로 정리 종료. 관리 페이지에서 재시작을 누르면 True."""
     stop = asyncio.Event()
     loop = asyncio.get_running_loop()
     for sig in (signal.SIGINT, signal.SIGTERM):
         with contextlib.suppress(NotImplementedError, RuntimeError):
             loop.add_signal_handler(sig, stop.set)
-    await Forwarder(settings).run(stop)
+    return await Forwarder(settings).run(stop)

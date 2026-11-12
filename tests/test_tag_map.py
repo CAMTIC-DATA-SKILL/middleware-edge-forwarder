@@ -122,11 +122,22 @@ class CollectorHeaderTest(unittest.TestCase):
 
     def test_live_tag_map_validates(self) -> None:
         tag_map = TagMapFile.model_validate_json(LIVE.read_text(encoding="utf-8"))
-        self.assertTrue(
-            any(
-                t.node_id == "ns=2;s=HH7_AAS_Template_v0.2/HH7/RobotKinematicState/JointPosition/J1"
-                for t in tag_map.tags
-            )
+        node_ids = {t.node_id for t in tag_map.tags}
+        self.assertIn(
+            "ns=1;s=Hyundai_HH7_AAS_Template_v0.3/HH7/RobotKinematicState/JointPosition/J1",
+            node_ids,
+        )
+        self.assertIn(
+            "ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition/J1",
+            node_ids,
+        )
+        self.assertIn(
+            "ns=1;s=Epson_LS6_602_AAS_Template_v0.1/Epson_LS6_602/RobotKinematicState/TCPOrientation/Component1",
+            node_ids,
+        )
+        self.assertIn(
+            "ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointPosition/J1",
+            node_ids,
         )
 
 

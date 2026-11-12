@@ -39,6 +39,7 @@ _SAMPLE_TYPE_TO_VARIANT = {
     "i64": ua.VariantType.Int64,
     "f32": ua.VariantType.Float,
     "f64": ua.VariantType.Double,
+    "str": ua.VariantType.String,
 }
 
 

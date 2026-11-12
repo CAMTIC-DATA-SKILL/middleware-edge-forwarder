@@ -1,0 +1,1970 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UANodeSet xmlns="http://opcfoundation.org/UA/" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://opcfoundation.org/UA/ http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
+  <NamespaceUris>
+    <Uri>https://camtic.or.kr/opcua/aas/Igus_DLE_DR_0001_AAS_Template_v0.1/d9ef3c63c19d</Uri>
+    <Uri>http://opcfoundation.org/UA/I4AAS/</Uri>
+  </NamespaceUris>
+  <Models>
+    <Model ModelUri="https://camtic.or.kr/opcua/aas/Igus_DLE_DR_0001_AAS_Template_v0.1/d9ef3c63c19d" Version="1.0.0" PublicationDate="2026-11-11T11:23:26Z">
+      <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04"/>
+      <RequiredModel ModelUri="http://opcfoundation.org/UA/I4AAS/" Version="1.0.0"/>
+    </Model>
+  </Models>
+  <Aliases>
+    <Alias Alias="Boolean">i=1</Alias>
+    <Alias Alias="SByte">i=2</Alias>
+    <Alias Alias="Byte">i=3</Alias>
+    <Alias Alias="Int16">i=4</Alias>
+    <Alias Alias="UInt16">i=5</Alias>
+    <Alias Alias="Int32">i=6</Alias>
+    <Alias Alias="UInt32">i=7</Alias>
+    <Alias Alias="Int64">i=8</Alias>
+    <Alias Alias="UInt64">i=9</Alias>
+    <Alias Alias="Float">i=10</Alias>
+    <Alias Alias="Double">i=11</Alias>
+    <Alias Alias="String">i=12</Alias>
+    <Alias Alias="DateTime">i=13</Alias>
+    <Alias Alias="ByteString">i=15</Alias>
+    <Alias Alias="Organizes">i=35</Alias>
+    <Alias Alias="HasTypeDefinition">i=40</Alias>
+    <Alias Alias="HasComponent">i=47</Alias>
+    <Alias Alias="HasProperty">i=46</Alias>
+    <Alias Alias="FolderType">i=61</Alias>
+    <Alias Alias="BaseObjectType">i=58</Alias>
+    <Alias Alias="BaseDataVariableType">i=63</Alias>
+  </Aliases>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1" BrowseName="1:Igus_DLE_DR_0001_AAS_Template_v0.1" ParentNodeId="i=85">
+    <DisplayName>Igus_DLE_DR_0001_AAS_Template_v0.1</DisplayName>
+    <Description>AasxPackage | Igus_DLE_DR_0001_AAS_Template_v0.1</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">i=85</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001" BrowseName="1:Igus_DLE_DR_0001" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1">
+    <DisplayName>이구스 DLE-DR-0001 델타로봇 AAS</DisplayName>
+    <Description>AssetAdministrationShell | urn:physical-ai:aas:igus:dle-dr-0001:testbed:v0.1</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration" BrowseName="1:DataAcquisitionConfiguration" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001">
+    <DisplayName>데이터수집 설정</DisplayName>
+    <Description>Submodel | urn:physical-ai:igus:dle-dr-0001:submodel:DataAcquisitionConfiguration | urn:physical-ai:industrial-robot:semantic:submodel:DataAcquisitionConfiguration</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/SourceInterface" BrowseName="1:SourceInterface" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration">
+    <DisplayName>원천 인터페이스</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:igus:dle-dr-0001:concept:SourceInterface</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/SourceInterface/PhysicalInterface" BrowseName="1:PhysicalInterface" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/SourceInterface" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>물리 인터페이스</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:PhysicalInterface</Description>
+    <Value>
+      <uax:String>Ethernet</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/SourceInterface</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/SourceInterface/ApplicationProtocol" BrowseName="1:ApplicationProtocol" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/SourceInterface" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>응용 프로토콜</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:ApplicationProtocol</Description>
+    <Value>
+      <uax:String>PLC Modbus TCP. 로봇 REST가 아니다.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/SourceInterface</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/SourceInterface/EdgeRole" BrowseName="1:EdgeRole" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/SourceInterface" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>Edge 역할</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:EdgeRole</Description>
+    <Value>
+      <uax:String>PLC holding 을 읽어 Robot-Delta 클러스터로 변환</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/SourceInterface</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/SourceInterface/Endpoint" BrowseName="1:Endpoint" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/SourceInterface" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>접속 주소</DisplayName>
+    <Value>
+      <uax:String>192.168.1.120 unit 2 port 502, holding 1024-1033 read, 1030-1031 write</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/SourceInterface</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/SourceInterface/PlcRole" BrowseName="1:PlcRole" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/SourceInterface" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>PLC 장비 서브모델</DisplayName>
+    <Value>
+      <uax:String>Robot02_Delta</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/SourceInterface</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings" BrowseName="1:Mappings" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration">
+    <DisplayName>데이터 매핑</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:igus:dle-dr-0001:concept:Mappings</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition" BrowseName="1:MapJointPosition" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>관절 위치</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:igus:dle-dr-0001:concept:MapJointPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointPositionLogicalField</Description>
+    <Value>
+      <uax:String>관절 위치</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointPositionRawSourceField</Description>
+    <Value>
+      <uax:String>LabVIEW Robot-Delta J13 J14 J15 Position. DeltaRAWdata 열 1, I32, scale 1. 테스트베드 AAS 축 이름은 J1 J2 J3 이고 클러스터 이름은 J13 J14 J15 다.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointPositionTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotKinematicState/JointPosition/J1..J3</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointPositionValueType</Description>
+    <Value>
+      <uax:String>xs:double</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointPositionUnitNote</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointPositionSamplingPolicy</Description>
+    <Value>
+      <uax:String>FIXED_RATE</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointPositionSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointPositionStorageTarget</Description>
+    <Value>
+      <uax:String>TSDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointPositionOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Igus_DLE_DR_0001/RobotKinematicState/JointPosition/Jx</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointPositionVerificationStatus</Description>
+    <Value>
+      <uax:String>PARTIAL</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition/Notes" BrowseName="1:Notes" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>비고</DisplayName>
+    <Value>
+      <uax:String>PLC holding 1024부터 10워드만 주소가 확정돼 있다. 관절 3축(6워드)과 1:1로 단정하지 않는다.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition" BrowseName="1:MapTCPPosition" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>TCP 위치</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:igus:dle-dr-0001:concept:MapTCPPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPPositionLogicalField</Description>
+    <Value>
+      <uax:String>TCP 위치</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPPositionRawSourceField</Description>
+    <Value>
+      <uax:String>DeltaRAWdata 열 4, I32 에 1000을 곱해 X Y Z. 단위는 미확인.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPPositionTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotKinematicState/TCPPosition/X..Z</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPPositionValueType</Description>
+    <Value>
+      <uax:String>xs:double</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPPositionUnitNote</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPPositionSamplingPolicy</Description>
+    <Value>
+      <uax:String>FIXED_RATE</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPPositionSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPPositionStorageTarget</Description>
+    <Value>
+      <uax:String>TSDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPPositionOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Igus_DLE_DR_0001/RobotKinematicState/TCPPosition/{Axis}</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPPositionVerificationStatus</Description>
+    <Value>
+      <uax:String>PARTIAL</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" BrowseName="1:MapTCPOrientation" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>TCP 자세</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:igus:dle-dr-0001:concept:MapTCPOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPOrientationLogicalField</Description>
+    <Value>
+      <uax:String>TCP 자세</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPOrientationRawSourceField</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPOrientationTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotKinematicState/TCPOrientation/Component1..3</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPOrientationValueType</Description>
+    <Value>
+      <uax:String>xs:double</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPOrientationUnitNote</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPOrientationSamplingPolicy</Description>
+    <Value>
+      <uax:String>FIXED_RATE</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPOrientationSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPOrientationStorageTarget</Description>
+    <Value>
+      <uax:String>TSDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPOrientationOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Igus_DLE_DR_0001/RobotKinematicState/TCPOrientation/Component{i}</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPOrientationVerificationStatus</Description>
+    <Value>
+      <uax:String>SOURCE_BINDING_REQUIRED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/Notes" BrowseName="1:Notes" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>비고</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPOrientationNotes</Description>
+    <Value>
+      <uax:String>Orientation convention must be verified.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed" BrowseName="1:MapJointSpeed" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>관절 속도</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:igus:dle-dr-0001:concept:MapJointSpeed</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointSpeedLogicalField</Description>
+    <Value>
+      <uax:String>관절 속도</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointSpeedRawSourceField</Description>
+    <Value>
+      <uax:String>DeltaRAWdata 열 2, I32, scale 0.1. J13 J14 J15 Speed.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointSpeedTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotKinematicState/JointSpeed/J1..J3</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointSpeedValueType</Description>
+    <Value>
+      <uax:String>xs:double</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointSpeedUnitNote</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointSpeedSamplingPolicy</Description>
+    <Value>
+      <uax:String>FIXED_RATE</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointSpeedSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointSpeedStorageTarget</Description>
+    <Value>
+      <uax:String>TSDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointSpeedOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Igus_DLE_DR_0001/RobotKinematicState/JointSpeed/Jx</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapJointSpeedVerificationStatus</Description>
+    <Value>
+      <uax:String>PARTIAL</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" BrowseName="1:MapTCPSpeed" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>TCP 속도</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:igus:dle-dr-0001:concept:MapTCPSpeed</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPSpeedLogicalField</Description>
+    <Value>
+      <uax:String>TCP 속도</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPSpeedRawSourceField</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPSpeedTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotKinematicState/TCPSpeed</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPSpeedValueType</Description>
+    <Value>
+      <uax:String>xs:double</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPSpeedUnitNote</Description>
+    <Value>
+      <uax:String>mm/s</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPSpeedSamplingPolicy</Description>
+    <Value>
+      <uax:String>FIXED_RATE</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPSpeedSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPSpeedStorageTarget</Description>
+    <Value>
+      <uax:String>TSDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPSpeedOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Igus_DLE_DR_0001/RobotKinematicState/TCPSpeed</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPSpeedVerificationStatus</Description>
+    <Value>
+      <uax:String>SOURCE_BINDING_REQUIRED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/Notes" BrowseName="1:Notes" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>비고</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPSpeedNotes</Description>
+    <Value>
+      <uax:String>Scalar/vector definition must be verified.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" BrowseName="1:MapAxisAcceleration" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>축 가속도</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:igus:dle-dr-0001:concept:MapAxisAcceleration</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapAxisAccelerationLogicalField</Description>
+    <Value>
+      <uax:String>축 가속도</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapAxisAccelerationRawSourceField</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapAxisAccelerationTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotKinematicState/AxisAcceleration</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapAxisAccelerationValueType</Description>
+    <Value>
+      <uax:String>xs:double</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapAxisAccelerationUnitNote</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapAxisAccelerationSamplingPolicy</Description>
+    <Value>
+      <uax:String>FIXED_RATE</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapAxisAccelerationSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapAxisAccelerationStorageTarget</Description>
+    <Value>
+      <uax:String>TSDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapAxisAccelerationOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Igus_DLE_DR_0001/RobotKinematicState/AxisAcceleration</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapAxisAccelerationVerificationStatus</Description>
+    <Value>
+      <uax:String>SOURCE_BINDING_REQUIRED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/Notes" BrowseName="1:Notes" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>비고</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapAxisAccelerationNotes</Description>
+    <Value>
+      <uax:String>Physical dimension/structure must be verified.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose" BrowseName="1:MapToolPose" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>툴 포즈/TCP 오프셋</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:igus:dle-dr-0001:concept:MapToolPose</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapToolPoseLogicalField</Description>
+    <Value>
+      <uax:String>툴 포즈/TCP 오프셋</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapToolPoseRawSourceField</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapToolPoseTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotKinematicState/ToolPoseTCPOffset/*</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapToolPoseValueType</Description>
+    <Value>
+      <uax:String>xs:double</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapToolPoseUnitNote</Description>
+    <Value>
+      <uax:String>mm, deg</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapToolPoseSamplingPolicy</Description>
+    <Value>
+      <uax:String>FIXED_RATE</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapToolPoseSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapToolPoseStorageTarget</Description>
+    <Value>
+      <uax:String>TSDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapToolPoseOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/*</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapToolPoseVerificationStatus</Description>
+    <Value>
+      <uax:String>SOURCE_BINDING_REQUIRED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose/Notes" BrowseName="1:Notes" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>비고</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapToolPoseNotes</Description>
+    <Value>
+      <uax:String>Orientation convention must be verified.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" BrowseName="1:MapProgramTaskState" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>프로그램/작업 상태</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:igus:dle-dr-0001:concept:MapProgramTaskState</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapProgramTaskStateLogicalField</Description>
+    <Value>
+      <uax:String>프로그램/작업 상태</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapProgramTaskStateRawSourceField</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapProgramTaskStateTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotOperationalState/ProgramTaskState</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapProgramTaskStateValueType</Description>
+    <Value>
+      <uax:String>xs:string</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapProgramTaskStateUnitNote</Description>
+    <Value>
+      <uax:String>-</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapProgramTaskStateSamplingPolicy</Description>
+    <Value>
+      <uax:String>CHANGE_BASED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapProgramTaskStateSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapProgramTaskStateStorageTarget</Description>
+    <Value>
+      <uax:String>EventDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapProgramTaskStateOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Igus_DLE_DR_0001/RobotOperationalState/ProgramTaskState</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapProgramTaskStateVerificationStatus</Description>
+    <Value>
+      <uax:String>SOURCE_BINDING_REQUIRED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode" BrowseName="1:MapRobotMode" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>로봇 모드</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:igus:dle-dr-0001:concept:MapRobotMode</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapRobotModeLogicalField</Description>
+    <Value>
+      <uax:String>로봇 모드</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapRobotModeRawSourceField</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapRobotModeTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotOperationalState/RobotMode</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapRobotModeValueType</Description>
+    <Value>
+      <uax:String>xs:string</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapRobotModeUnitNote</Description>
+    <Value>
+      <uax:String>-</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapRobotModeSamplingPolicy</Description>
+    <Value>
+      <uax:String>CHANGE_BASED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapRobotModeSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapRobotModeStorageTarget</Description>
+    <Value>
+      <uax:String>EventDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapRobotModeOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Igus_DLE_DR_0001/RobotOperationalState/RobotMode</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapRobotModeVerificationStatus</Description>
+    <Value>
+      <uax:String>SOURCE_BINDING_REQUIRED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus" BrowseName="1:MapSystemStatus" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>시스템 상태</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:igus:dle-dr-0001:concept:MapSystemStatus</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapSystemStatusLogicalField</Description>
+    <Value>
+      <uax:String>시스템 상태</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapSystemStatusRawSourceField</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapSystemStatusTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotOperationalState/SystemStatus</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapSystemStatusValueType</Description>
+    <Value>
+      <uax:String>xs:string</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapSystemStatusUnitNote</Description>
+    <Value>
+      <uax:String>-</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapSystemStatusSamplingPolicy</Description>
+    <Value>
+      <uax:String>CHANGE_BASED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapSystemStatusSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapSystemStatusStorageTarget</Description>
+    <Value>
+      <uax:String>EventDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapSystemStatusOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Igus_DLE_DR_0001/RobotOperationalState/SystemStatus</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapSystemStatusVerificationStatus</Description>
+    <Value>
+      <uax:String>SOURCE_BINDING_REQUIRED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Documentation" BrowseName="1:Documentation" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001">
+    <DisplayName>문서 및 설정파일</DisplayName>
+    <Description>Submodel | urn:physical-ai:igus:dle-dr-0001:submodel:Documentation | urn:physical-ai:industrial-robot:semantic:submodel:Documentation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Documentation/MappingTable" BrowseName="1:MappingTable" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Documentation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>Igus_DLE_DR_0001 매핑 테이블</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:MappingTable</Description>
+    <Value>
+      <uax:String>/aasx/suppl/mapping.csv</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Documentation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Documentation/TemplateReadme" BrowseName="1:TemplateReadme" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Documentation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>템플릿 README</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:TemplateReadme</Description>
+    <Value>
+      <uax:String>/aasx/suppl/README.txt</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Documentation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Documentation/PreValidationReport" BrowseName="1:PreValidationReport" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Documentation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>사전검증 결과</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:PreValidationReport</Description>
+    <Value>
+      <uax:String>/aasx/suppl/prevalidation.md</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Documentation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Documentation/DigitalTwinUsdModel" BrowseName="1:DigitalTwinUsdModel" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Documentation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>디지털 트윈 USD 모델</DisplayName>
+    <Description>urn:physical-ai:ids/cd/DigitalTwinUsdModel/1/0</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Documentation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Documentation/DigitalTwinCadModel" BrowseName="1:DigitalTwinCadModel" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Documentation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>디지털 트윈 CAD 모델</DisplayName>
+    <Description>urn:physical-ai:ids/cd/DigitalTwinCadModel/1/0</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Documentation</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration" BrowseName="1:HistoricalDataConfiguration" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001">
+    <DisplayName>이력데이터 설정</DisplayName>
+    <Description>Submodel | urn:physical-ai:igus:dle-dr-0001:submodel:HistoricalDataConfiguration | urn:physical-ai:industrial-robot:semantic:submodel:HistoricalDataConfiguration</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration/CurrentValuePolicy" BrowseName="1:CurrentValuePolicy" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>현재값 정책</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:CurrentValuePolicy</Description>
+    <Value>
+      <uax:String>AAS_PROPERTY_LATEST_VALUE_ONLY</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration/HistoricalStorage" BrowseName="1:HistoricalStorage" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>이력 저장소</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:HistoricalStorage</Description>
+    <Value>
+      <uax:String>TSDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration/OperationalEventStorage" BrowseName="1:OperationalEventStorage" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>운전 이벤트 저장소</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:OperationalEventStorage</Description>
+    <Value>
+      <uax:String>EventDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration/EdgeBuffering" BrowseName="1:EdgeBuffering" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration" DataType="Boolean" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>Edge 버퍼링</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:EdgeBuffering</Description>
+    <Value>
+      <uax:String>true</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration/TimestampPolicy" BrowseName="1:TimestampPolicy" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>타임스탬프 정책</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:TimestampPolicy</Description>
+    <Value>
+      <uax:String>SOURCE_TIMESTAMP_IF_AVAILABLE_ELSE_EDGE_RECEIVE_TIMESTAMP</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration/QualityPolicy" BrowseName="1:QualityPolicy" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>품질 정책</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:QualityPolicy</Description>
+    <Value>
+      <uax:String>OPCUA_STATUSCODE</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration/ClockSynchronization" BrowseName="1:ClockSynchronization" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>시각동기 정책</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:ClockSynchronization</Description>
+    <Value>
+      <uax:String>NTP_OR_PTP_TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration/PathTrajectoryDataReference" BrowseName="1:PathTrajectoryDataReference" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>경로/궤적 데이터 참조</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:PathTrajectoryDataReference</Description>
+    <Value>
+      <uax:String>urn:physical-ai:igus:dle-dr-0001:timeseries:path-trajectory</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration/PathTrajectorySamplingRange" BrowseName="1:PathTrajectorySamplingRange" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>경로/궤적 샘플링 범위</DisplayName>
+    <Description>urn:physical-ai:igus:dle-dr-0001:concept:PathTrajectorySamplingRange</Description>
+    <Value>
+      <uax:String>10-100 ms</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification" BrowseName="1:Identification" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001">
+    <DisplayName>식별정보</DisplayName>
+    <Description>Submodel | urn:physical-ai:igus:dle-dr-0001:submodel:Identification | urn:physical-ai:industrial-robot:semantic:submodel:Identification</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification/ManufacturerName" BrowseName="1:ManufacturerName" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>제조사명</DisplayName>
+    <Description>0112/2///61987#ABA565#009</Description>
+    <Value>
+      <uax:String>igus</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification/ProductDesignation" BrowseName="1:ProductDesignation" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>제품명</DisplayName>
+    <Description>0112/2///61987#ABA567#009</Description>
+    <Value>
+      <uax:String>DLE-DR-0001</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification/AssetType" BrowseName="1:AssetType" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>자산 유형</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:AssetType</Description>
+    <Value>
+      <uax:String>DeltaRobot</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification/SerialNumber" BrowseName="1:SerialNumber" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>일련번호</DisplayName>
+    <Description>0112/2///61987#ABA951#009</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification/InstallationLocation" BrowseName="1:InstallationLocation" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>설치 위치</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:InstallationLocation</Description>
+    <Value>
+      <uax:String>CAMTIC Physical AI Testbed</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification/ControllerModel" BrowseName="1:ControllerModel" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>컨트롤러 모델</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:ControllerModel</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/Identification</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState" BrowseName="1:RobotKinematicState" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001">
+    <DisplayName>로봇 운동학 상태</DisplayName>
+    <Description>Submodel | urn:physical-ai:igus:dle-dr-0001:submodel:RobotKinematicState | urn:physical-ai:industrial-robot:semantic:submodel:RobotKinematicState</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointPosition" BrowseName="1:JointPosition" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState">
+    <DisplayName>관절 위치</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:industrial-robot:concept:JointPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointPosition/J1" BrowseName="1:J1" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointPosition" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>1축 관절 위치</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointPosition/J2" BrowseName="1:J2" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointPosition" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>2축 관절 위치</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointPosition/J3" BrowseName="1:J3" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointPosition" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>3축 관절 위치</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPPosition" BrowseName="1:TCPPosition" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState">
+    <DisplayName>TCP 위치</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:industrial-robot:concept:TCPPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPPosition/X" BrowseName="1:X" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPPosition" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>TCP X 위치</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:TCPPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPPosition/Y" BrowseName="1:Y" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPPosition" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>TCP Y 위치</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:TCPPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPPosition/Z" BrowseName="1:Z" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPPosition" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>TCP Z 위치</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:TCPPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPOrientation" BrowseName="1:TCPOrientation" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState">
+    <DisplayName>TCP 자세</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:industrial-robot:concept:TCPOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPOrientation/Component1" BrowseName="1:Component1" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPOrientation" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>TCP 자세 성분 1</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:TCPOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPOrientation/Component2" BrowseName="1:Component2" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPOrientation" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>TCP 자세 성분 2</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:TCPOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPOrientation/Component3" BrowseName="1:Component3" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPOrientation" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>TCP 자세 성분 3</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:TCPOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointSpeed" BrowseName="1:JointSpeed" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState">
+    <DisplayName>관절 속도</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:industrial-robot:concept:JointSpeed</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointSpeed/J1" BrowseName="1:J1" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointSpeed" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>1축 관절 속도</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointSpeed</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointSpeed/J2" BrowseName="1:J2" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointSpeed" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>2축 관절 속도</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointSpeed</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointSpeed/J3" BrowseName="1:J3" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointSpeed" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>3축 관절 속도</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointSpeed</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/TCPSpeed" BrowseName="1:TCPSpeed" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>TCP 속도</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:TCPSpeed</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/AxisAcceleration" BrowseName="1:AxisAcceleration" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>축 가속도</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:AxisAcceleration</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset" BrowseName="1:ToolPoseTCPOffset" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState">
+    <DisplayName>툴 포즈/TCP 오프셋</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffset</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Position" BrowseName="1:Position" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset">
+    <DisplayName>위치 오프셋</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffsetPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Position/X" BrowseName="1:X" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Position" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>X 위치 오프셋</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffsetPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Position</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Position/Y" BrowseName="1:Y" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Position" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>Y 위치 오프셋</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffsetPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Position</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Position/Z" BrowseName="1:Z" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Position" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>Z 위치 오프셋</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffsetPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Position</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Orientation" BrowseName="1:Orientation" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset">
+    <DisplayName>자세 오프셋</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffsetOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Orientation/Component1" BrowseName="1:Component1" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Orientation" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>자세 오프셋 성분 1</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffsetOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Orientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Orientation/Component2" BrowseName="1:Component2" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Orientation" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>자세 오프셋 성분 2</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffsetOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Orientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Orientation/Component3" BrowseName="1:Component3" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Orientation" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>자세 오프셋 성분 3</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffsetOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/ToolPoseTCPOffset/Orientation</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotOperationalState" BrowseName="1:RobotOperationalState" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001">
+    <DisplayName>로봇 운전상태</DisplayName>
+    <Description>Submodel | urn:physical-ai:igus:dle-dr-0001:submodel:RobotOperationalState | urn:physical-ai:industrial-robot:semantic:submodel:RobotOperationalState</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotOperationalState/ProgramTaskState" BrowseName="1:ProgramTaskState" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotOperationalState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>프로그램/작업 상태</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:ProgramTaskState</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotOperationalState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotOperationalState/RobotMode" BrowseName="1:RobotMode" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotOperationalState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>로봇 모드</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:RobotMode</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotOperationalState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotOperationalState/SystemStatus" BrowseName="1:SystemStatus" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotOperationalState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>시스템 상태</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:SystemStatus</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotOperationalState</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData" BrowseName="1:TechnicalData" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001">
+    <DisplayName>기술데이터</DisplayName>
+    <Description>Submodel | urn:physical-ai:igus:dle-dr-0001:submodel:TechnicalData | urn:physical-ai:industrial-robot:semantic:submodel:TechnicalData</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/NumberOfAxes" BrowseName="1:NumberOfAxes" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>축 수</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:NumberOfAxes</Description>
+    <Value>
+      <uax:String>3</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/Payload" BrowseName="1:Payload" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>가반하중</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:Payload</Description>
+    <Value>
+      <uax:String>5.0</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/Reach" BrowseName="1:Reach" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>도달거리</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:Reach</Description>
+    <Value>
+      <uax:String>360.0</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/Repeatability" BrowseName="1:Repeatability" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>반복정밀도</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:PositionRepeatability</Description>
+    <Value>
+      <uax:String>0.5</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification" BrowseName="1:CatalogSpecification" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData">
+    <DisplayName>카탈로그 제원</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification/WorkspaceDiameterMm" BrowseName="1:WorkspaceDiameterMm" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>높이 75 mm 작업공간 지름</DisplayName>
+    <Value>
+      <uax:String>360</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification/WorkspaceReferenceHeightMm" BrowseName="1:WorkspaceReferenceHeightMm" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>지름을 정의한 높이</DisplayName>
+    <Value>
+      <uax:String>75</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification/MaxProcessForceN" BrowseName="1:MaxProcessForceN" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>반경 0에서 최대 공정력 N</DisplayName>
+    <Value>
+      <uax:String>100</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification/MaxTrackSpeed" BrowseName="1:MaxTrackSpeed" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>최대 궤적 속도</DisplayName>
+    <Value>
+      <uax:String>3 m/s</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification/MaxAcceleration" BrowseName="1:MaxAcceleration" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>최대 가속도</DisplayName>
+    <Value>
+      <uax:String>60 m/s²</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification/MassKg" BrowseName="1:MassKg" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>본체 질량 kg</DisplayName>
+    <Value>
+      <uax:String>15</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification/Dynamics" BrowseName="1:Dynamics" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>픽 성능</DisplayName>
+    <Value>
+      <uax:String>500 g에서 최소 60 picks/min</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification/Motor" BrowseName="1:Motor" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>모터</DisplayName>
+    <Value>
+      <uax:String>NEMA 23 XL, 24/48 V, 4.2 A</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification/VariantNote" BrowseName="1:VariantNote" ParentNodeId="ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>형번 주석</DisplayName>
+    <Value>
+      <uax:String>DLE-DR-0001 은 조립 키트다. 제어기 포함 형번인지, Dryve D1 또는 iRC가 달렸는지는 테스트베드에서 확인되지 않았다.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/TechnicalData/CatalogSpecification</Reference>
+    </References>
+  </UAVariable>
+</UANodeSet>

@@ -22,6 +22,7 @@ from dotenv import load_dotenv
 from pydantic import ValidationError
 
 from model.app_model import (
+    AdminSettings,
     AppSettings,
     EmptySettingError,
     IpcLogSettings,
@@ -116,6 +117,12 @@ def _load_app_from_env() -> AppSettings:
             topic_root=_env_str("MQTT_TOPIC_ROOT", "edge"),
             tls=_env_bool("MQTT_TLS", False),
             connect_timeout_s=_env_int("MQTT_CONNECT_TIMEOUT_S", 5),
+        ),
+        admin=AdminSettings(
+            enable=_env_bool("ADMIN_ENABLE", True),
+            host=_env_str("ADMIN_HOST", "127.0.0.1") or "127.0.0.1",
+            port=_env_int("ADMIN_PORT", 8088),
+            token=_env_str("ADMIN_TOKEN", ""),
         ),
         ipc_log=IpcLogSettings(
             summary=_env_bool("IPC_LOG_SUMMARY", True),

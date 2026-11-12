@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>엣지 포워더</title>
+<style>
+  :root {
+    --bg: #e7edf3;
+    --paper: #ffffff;
+    --ink: #15202b;
+    --muted: #5c6b7a;
+    --line: #d0d9e2;
+    --accent: #1d4e89;
+    --warn: #8a5a00;
+    --warn-bg: #f7f3e8;
+    --bad: #9d2c2c;
+    --bad-bg: #fdeeee;
+    --ok: #0c6a46;
+    --ok-bg: #e7f6ef;
+    --shadow: 0 1px 2px rgba(21, 32, 43, 0.05);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--bg);
+    font: 15px/1.45 system-ui, "Noto Sans KR", sans-serif;
+  }
+  header, main { width: min(1180px, calc(100% - 28px)); margin: 0 auto; }
+  header { padding: 22px 0 8px; }
+  h1 { margin: 0; font-size: 22px; font-weight: 650; letter-spacing: -0.02em; }
+  h2 { margin: 0 0 12px; font-size: 16px; }
+  p { margin: 0; }
+  .sub { color: var(--muted); margin-top: 4px; }
+  .stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .stat, .banner {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+  .stat { padding: 8px 12px; min-width: 120px; }
+  .stat b { display: block; font-size: 16px; font-weight: 650; }
+  .stat span, .hint, .help { color: var(--muted); font-size: 12px; }
+  .banner { margin-top: 12px; padding: 10px 12px; background: var(--warn-bg); color: var(--warn); }
+  .banner[hidden], #auth[hidden] { display: none; }
+  #auth { margin-top: 12px; display: flex; gap: 8px; align-items: end; }
+  main { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 16px; padding: 16px 0 28px; }
+  section {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px 16px;
+    box-shadow: var(--shadow);
+  }
+  .logs { grid-column: 1 / -1; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; white-space: nowrap; }
+  th { color: var(--muted); font-weight: 600; font-size: 12px; }
+  td.reason, td.aas { white-space: normal; }
+  .pill { display: inline-block; border-radius: 999px; padding: 1px 8px; font-size: 12px; }
+  .ok { background: var(--ok-bg); color: var(--ok); }
+  .bad { background: var(--bad-bg); color: var(--bad); }
+  .wait { background: var(--bg); color: var(--muted); }
+  .stale { background: var(--warn-bg); color: var(--warn); }
+  .mono, code, textarea, input, select { font-family: ui-monospace, "Cascadia Code", monospace; }
+  .mono { font-size: 13px; }
+  .endpoints, #topic-preview { margin: 0 0 10px; color: var(--ink); white-space: pre-wrap; }
+  form { display: grid; gap: 14px; }
+  fieldset { margin: 0; padding: 0; border: 0; display: grid; gap: 8px; }
+  legend { font-weight: 650; padding: 0; margin-bottom: 2px; }
+  label { display: grid; gap: 4px; font-size: 13px; }
+  input, select, textarea {
+    width: 100%;
+    border: 1px solid #c5d0db;
+    background: #fbfcfd;
+    color: var(--ink);
+    border-radius: 6px;
+    padding: 7px 8px;
+    font-size: 13px;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: 2px solid #c5d8ef;
+    border-color: var(--accent);
+  }
+  textarea { min-height: 74px; resize: vertical; }
+  .check { display: flex; align-items: center; gap: 8px; }
+  .check input { width: auto; }
+  .row { display: flex; gap: 8px; align-items: center; margin-top: 4px; }
+  button {
+    border: 0;
+    background: var(--accent);
+    color: white;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font: inherit;
+    cursor: pointer;
+  }
+  button.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+  button:disabled { opacity: 0.55; cursor: default; }
+  .dim { opacity: 0.55; }
+  .logbox {
+    margin: 0;
+    max-height: 280px;
+    overflow: auto;
+    background: #12181f;
+    color: #d5dee8;
+    border: 1px solid #243140;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font: 12px/1.5 ui-monospace, monospace;
+    white-space: pre-wrap;
+  }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .error { color: var(--bad); min-height: 1.2em; }
+  @media (max-width: 900px) {
+    main, .split { grid-template-columns: 1fr; }
+    .logs { grid-column: auto; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>엣지 포워더</h1>
+  <p class="sub">붙어 있는 collector, 수신 요약, 북향·ZeroMQ 설정. 저장한 값은 재시작 후 적용됩니다.</p>
+  <div class="stats" id="stats"></div>
+  <div id="banner" class="banner" hidden></div>
+  <div id="auth" hidden>
+    <label>관리 토큰
+      <input id="token" type="password" autocomplete="current-password">
+    </label>
+    <button type="button" id="token-save">확인</button>
+  </div>
+</header>
+<main>
+  <section>
+    <h2>Collector</h2>
+    <p class="endpoints mono" id="endpoints">구독 주소를 읽는 중</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>종류</th>
+            <th>device_key</th>
+            <th>상태</th>
+            <th>마지막 DATA</th>
+            <th>사유</th>
+            <th>tag map</th>
+          </tr>
+        </thead>
+        <tbody id="sources"></tbody>
+      </table>
+    </div>
+  </section>
+  <section>
+    <h2>설정</h2>
+    <form id="settings" autocomplete="off">
+      <fieldset>
+        <legend>북향</legend>
+        <label>모드
+          <select id="NORTHBOUND_MODE">
+            <option value="opcua">opcua</option>
+            <option value="mqtt">mqtt</option>
+          </select>
+        </label>
+        <p class="hint" id="NORTHBOUND_MODE-hint"></p>
+        <label>수신 공백 기준 (ms)
+          <input id="SOURCE_STALE_MS" inputmode="numeric">
+        </label>
+        <p class="help">0 이면 공백 감시를 끕니다.</p>
+        <p class="hint" id="SOURCE_STALE_MS-hint"></p>
+      </fieldset>
+      <fieldset>
+        <legend>ZeroMQ</legend>
+        <label>구독 주소
+          <textarea id="ZMQ_SUB_ENDPOINTS" spellcheck="false"></textarea>
+        </label>
+        <p class="help">한 줄에 하나. collector PUB 주소와 같게 적습니다.</p>
+        <p class="hint" id="ZMQ_SUB_ENDPOINTS-hint"></p>
+        <label class="check"><input id="ZMQ_SUB_BIND" type="checkbox">이 프로세스가 포트를 bind</label>
+        <label>토픽 접두사
+          <input id="ZMQ_TOPIC_ROOT" spellcheck="false">
+        </label>
+        <label>collector 종류
+          <input id="ZMQ_COLLECTOR_KINDS" placeholder="plc,robot" spellcheck="false">
+        </label>
+        <p class="help">비우면 collector 전체를 구독합니다.</p>
+        <label>device_key 필터
+          <input id="ZMQ_DEVICE_KEYS" spellcheck="false">
+        </label>
+        <p class="help">비우면 종류 안의 모든 장비입니다.</p>
+      </fieldset>
+      <fieldset id="opcua-fields">
+        <legend>OPC UA</legend>
+        <label>주소
+          <input id="OPCUA_ENDPOINT" spellcheck="false">
+        </label>
+        <label>값 반영 주기 (ms)
+          <input id="OPCUA_UPDATE_PERIOD_MS" inputmode="numeric">
+        </label>
+        <p class="help">0 이면 받는 즉시 반영합니다.</p>
+        <label class="check"><input id="OPCUA_AUTO_CREATE_NODES" type="checkbox">tag map 에 없는 샘플도 노출</label>
+        <label>자동 노드 루트
+          <input id="OPCUA_AUTO_ROOT" spellcheck="false">
+        </label>
+      </fieldset>
+      <fieldset id="mqtt-fields">
+        <legend>MQTT</legend>
+        <label>브로커 호스트
+          <input id="MQTT_BROKER_HOST" spellcheck="false">
+        </label>
+        <label>브로커 포트
+          <input id="MQTT_BROKER_PORT" inputmode="numeric">
+        </label>
+        <label>토픽 접두사
+          <input id="MQTT_TOPIC_ROOT" spellcheck="false">
+        </label>
+        <label>QoS
+          <select id="MQTT_QOS">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+          </select>
+        </label>
+        <label class="check"><input id="MQTT_TLS" type="checkbox">TLS</label>
+        <label class="check"><input id="MQTT_RETAIN" type="checkbox">retain</label>
+        <label>클라이언트 ID
+          <input id="MQTT_CLIENT_ID" spellcheck="false">
+        </label>
+        <label>사용자
+          <input id="MQTT_USERNAME" autocomplete="off">
+        </label>
+        <label>비밀번호
+          <input id="MQTT_PASSWORD" type="password" autocomplete="new-password" placeholder="비워 두면 유지">
+        </label>
+        <p class="help" id="password-state"></p>
+        <label class="check"><input id="clear-password" type="checkbox">저장된 비밀번호 지우기</label>
+      </fieldset>
+      <p class="mono" id="topic-preview"></p>
+      <p class="help">토픽 이름은 접두사로 조립합니다. tag map 의 태그 이름은 이 화면에서 바꾸지 않습니다.</p>
+      <p class="error" id="form-error"></p>
+      <div class="row">
+        <button type="submit" id="save">저장</button>
+        <button type="button" class="ghost" id="reload">다시 읽기</button>
+        <button type="button" id="restart">재시작</button>
+      </div>
+    </form>
+  </section>
+  <section class="logs">
+    <h2>수신 로그</h2>
+    <div class="split">
+      <div>
+        <p class="help">이번 실행의 최근 요약</p>
+        <pre class="logbox" id="recent">아직 수신이 없습니다.</pre>
+      </div>
+      <div>
+        <div class="row">
+          <select id="device"></select>
+          <button type="button" class="ghost" id="tail-refresh">파일 끝 보기</button>
+        </div>
+        <p class="help" id="tail-meta"></p>
+        <pre class="logbox" id="tail">로그 파일을 고르면 마지막 줄을 읽습니다.</pre>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const CHECKS = ["ZMQ_SUB_BIND", "OPCUA_AUTO_CREATE_NODES", "MQTT_TLS", "MQTT_RETAIN"];
+const TEXT_AREAS = new Set(["ZMQ_SUB_ENDPOINTS"]);
+let dirty = false;
+let token = sessionStorage.getItem("edge-admin-token") || "";
+let restarting = false;
+
+function authHeaders(extra) {
+  const headers = Object.assign({ "Accept": "application/json" }, extra || {});
+  if (token) headers["X-Admin-Token"] = token;
+  return headers;
+}
+
+async function api(path, options) {
+  const opts = options || {};
+  const response = await fetch(path, {
+    method: opts.method || "GET",
+    headers: authHeaders(opts.headers),
+    body: opts.body
+  });
+  const isHtml = (response.headers.get("content-type") || "").includes("text/html");
+  const payload = isHtml ? null : await response.json().catch(() => ({}));
+  if (response.status === 401) {
+    $("auth").hidden = false;
+    throw new Error((payload && payload.error) || "인증이 필요합니다");
+  }
+  if (!response.ok) throw new Error((payload && payload.error) || ("요청 실패 " + response.status));
+  return payload;
+}
+
+function duration(seconds) {
+  seconds = Math.max(0, Math.floor(seconds));
+  if (seconds < 60) return seconds + "초";
+  const minutes = Math.floor(seconds / 60);
+  if (minutes < 60) return minutes + "분";
+  const hours = Math.floor(minutes / 60);
+  return hours + "시간 " + (minutes % 60) + "분";
+}
+
+function age(ms) {
+  if (ms == null) return "없음";
+  if (ms < 1000) return ms + "ms";
+  if (ms < 60000) return (ms / 1000).toFixed(1) + "초";
+  const minutes = Math.floor(ms / 60000);
+  if (minutes < 60) return minutes + "분";
+  return Math.floor(minutes / 60) + "시간";
+}
+
+function pill(source) {
+  const span = document.createElement("span");
+  span.className = "pill ";
+  if (!source.seen) {
+    span.className += "wait";
+    span.textContent = "대기";
+  } else if (source.stale) {
+    span.className += "stale";
+    span.textContent = "공백";
+  } else if (source.device_ok === false) {
+    span.className += "bad";
+    span.textContent = "이상";
+  } else if (source.device_ok === true) {
+    span.className += "ok";
+    span.textContent = "정상";
+  } else {
+    span.className += "wait";
+    span.textContent = "수신";
+  }
+  return span;
+}
+
+function stat(label, value) {
+  const node = document.createElement("div");
+  node.className = "stat";
+  const strong = document.createElement("b");
+  strong.textContent = value;
+  const caption = document.createElement("span");
+  caption.textContent = label;
+  node.append(strong, caption);
+  return node;
+}
+
+function renderStatus(data) {
+  const box = $("stats");
+  box.replaceChildren(
+    stat(data.northbound === "mqtt" ? "MQTT" : "OPC UA", data.northbound),
+    stat("ZeroMQ", data.zmq_open ? "연결" : "대기"),
+    stat("수신", String(data.messages_received)),
+    stat("오류", String(data.messages_invalid)),
+    stat("가동", duration(data.uptime_s))
+  );
+  if (data.northbound === "mqtt") {
+    box.append(stat("브로커", data.mqtt_connected ? "연결" : "끊김"));
+  }
+  const banner = $("banner");
+  if (restarting) {
+    banner.hidden = false;
+    banner.textContent = "다시 시작하는 중입니다. 잠시 후 이 페이지를 새로고침합니다.";
+  } else if (data.pending_restart) {
+    banner.hidden = false;
+    banner.textContent = "파일에 저장된 설정이 실행 중인 값과 다릅니다. 재시작해야 적용됩니다.";
+  } else {
+    banner.hidden = true;
+  }
+  const ends = (data.endpoints || []).join("\n");
+  const subs = (data.subscriptions || []).join("  ");
+  const north = data.northbound === "mqtt"
+    ? data.mqtt_broker + "  " + data.mqtt_topic
+    : data.opcua_endpoint;
+  $("endpoints").textContent = "구독 " + ends + "\n토픽 " + subs + "\n북향 " + north;
+
+  const body = $("sources");
+  body.replaceChildren();
+  if (!data.sources.length) {
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+    td.colSpan = 6;
+    td.textContent = "아직 수신이 없고 tag map collector 도 없습니다.";
+    tr.append(td);
+    body.append(tr);
+  }
+  for (const source of data.sources) {
+    const tr = document.createElement("tr");
+    for (const value of [source.kind, source.device_key]) {
+      const td = document.createElement("td");
+      td.textContent = value;
+      tr.append(td);
+    }
+    const state = document.createElement("td");
+    state.append(pill(source));
+    const when = document.createElement("td");
+    when.textContent = age(source.last_data_age_ms);
+    const reason = document.createElement("td");
+    reason.className = "reason";
+    reason.textContent = source.reason || "";
+    const mapped = document.createElement("td");
+    mapped.textContent = source.in_tag_map ? (source.aas_id || "있음") : "없음";
+    mapped.className = "aas";
+    tr.append(state, when, reason, mapped);
+    body.append(tr);
+  }
+  const recent = $("recent");
+  if (!data.recent || !data.recent.length) {
+    recent.textContent = "아직 수신이 없습니다.";
+  } else {
+    recent.textContent = data.recent.map((line) => line.time + "  " + line.text).join("\n");
+  }
+  if (!dirty) {
+    $("opcua-fields").classList.toggle("dim", data.northbound !== "opcua");
+    $("mqtt-fields").classList.toggle("dim", data.northbound !== "mqtt");
+  }
+}
+
+function listValue(text) {
+  return text.split(/[\n,]/).map((part) => part.trim()).filter(Boolean).join(",");
+}
+
+function fillSettings(view) {
+  for (const [key, field] of Object.entries(view.fields)) {
+    const el = $(key);
+    if (!el) continue;
+    if (CHECKS.includes(key)) el.checked = field.saved === "true";
+    else if (TEXT_AREAS.has(key)) el.value = String(field.saved).split(",").join("\n");
+    else el.value = field.saved;
+    const hint = $(key + "-hint");
+    if (hint) hint.textContent = field.pending ? "실행 중: " + field.running : "";
+  }
+  $("password-state").textContent = view.password_set ? "비밀번호가 저장되어 있습니다." : "저장된 비밀번호가 없습니다.";
+  $("clear-password").checked = false;
+  $("MQTT_PASSWORD").value = "";
+  preview();
+}
+
+function collect() {
+  const payload = {};
+  for (const el of $("settings").querySelectorAll("input, select, textarea")) {
+    if (!el.id || el.id === "MQTT_PASSWORD" || el.id === "clear-password") continue;
+    if (CHECKS.includes(el.id)) payload[el.id] = el.checked;
+    else if (TEXT_AREAS.has(el.id)) payload[el.id] = listValue(el.value);
+    else payload[el.id] = el.value.trim();
+  }
+  if ($("clear-password").checked) payload.MQTT_PASSWORD = "";
+  else if ($("MQTT_PASSWORD").value) payload.MQTT_PASSWORD = $("MQTT_PASSWORD").value;
+  return payload;
+}
+
+function preview() {
+  const root = $("ZMQ_TOPIC_ROOT").value.trim() || "collector";
+  const kinds = listValue($("ZMQ_COLLECTOR_KINDS").value).split(",").filter(Boolean);
+  const devices = listValue($("ZMQ_DEVICE_KEYS").value).split(",").filter(Boolean);
+  let sub = root + ".";
+  if (kinds.length && !devices.length) sub = kinds.map((kind) => root + "." + kind + ".").join("  ");
+  if (kinds.length && devices.length) sub = "data / health";
+  const mqtt = ($("MQTT_TOPIC_ROOT").value.trim() || "edge") + "/{kind}/{device_key}/{name}";
+  $("topic-preview").textContent = "저장될 구독  " + sub + "\n저장될 발행  " + mqtt;
+  const mode = $("NORTHBOUND_MODE").value;
+  $("opcua-fields").classList.toggle("dim", mode !== "opcua");
+  $("mqtt-fields").classList.toggle("dim", mode !== "mqtt");
+}
+
+async function loadSettings() {
+  const view = await api("/api/settings");
+  dirty = false;
+  fillSettings(view);
+}
+
+async function poll() {
+  try {
+    const data = await api("/api/status");
+    renderStatus(data);
+    if (restarting) {
+      restarting = false;
+      dirty = false;
+      await loadSettings();
+    }
+  } catch (error) {
+    if (restarting) {
+      $("banner").hidden = false;
+      $("banner").textContent = "다시 시작하는 중입니다. 아직 응답이 없습니다.";
+      return;
+    }
+    $("banner").hidden = false;
+    $("banner").textContent = error.message;
+  }
+}
+
+async function loadDevices() {
+  try {
+    const data = await api("/api/logs");
+    const select = $("device");
+    const current = select.value;
+    select.replaceChildren();
+    for (const name of data.devices) {
+      const option = document.createElement("option");
+      option.value = name;
+      option.textContent = name;
+      select.append(option);
+    }
+    if (current) select.value = current;
+  } catch (error) {
+    $("tail-meta").textContent = error.message;
+  }
+}
+
+async function loadTail() {
+  const device = $("device").value;
+  if (!device) {
+    $("tail").textContent = "로그 파일이 없습니다.";
+    $("tail-meta").textContent = "";
+    return;
+  }
+  const data = await api("/api/logs/tail?device=" + encodeURIComponent(device) + "&lines=40");
+  $("tail-meta").textContent = data.file ? device + " / " + data.file : device + " / 파일 없음";
+  $("tail").textContent = data.lines && data.lines.length ? data.lines.join("\n") : "파일이 비어 있습니다.";
+}
+
+$("settings").addEventListener("input", () => {
+  dirty = true;
+  preview();
+});
+$("settings").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  $("form-error").textContent = "";
+  $("save").disabled = true;
+  try {
+    await api("/api/settings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(collect())
+    });
+    dirty = false;
+    await loadSettings();
+    await poll();
+  } catch (error) {
+    $("form-error").textContent = error.message;
+  } finally {
+    $("save").disabled = false;
+  }
+});
+$("reload").addEventListener("click", async () => {
+  $("form-error").textContent = "";
+  try { await loadSettings(); } catch (error) { $("form-error").textContent = error.message; }
+});
+$("restart").addEventListener("click", async () => {
+  if (!confirm("포워더를 다시 시작합니다. 북향 연결이 잠시 끊깁니다.")) return;
+  $("form-error").textContent = "";
+  restarting = true;
+  $("banner").hidden = false;
+  $("banner").textContent = "다시 시작하는 중입니다.";
+  try {
+    await api("/api/restart", { method: "POST" });
+  } catch (error) {
+    restarting = false;
+    $("form-error").textContent = error.message;
+  }
+});
+$("token-save").addEventListener("click", async () => {
+  token = $("token").value;
+  sessionStorage.setItem("edge-admin-token", token);
+  $("form-error").textContent = "";
+  try {
+    await poll();
+    await loadSettings();
+    $("auth").hidden = true;
+  } catch (error) {
+    $("form-error").textContent = error.message;
+  }
+});
+$("tail-refresh").addEventListener("click", () => loadTail().catch((error) => {
+  $("tail-meta").textContent = error.message;
+}));
+$("device").addEventListener("change", () => loadTail().catch((error) => {
+  $("tail-meta").textContent = error.message;
+}));
+
+poll();
+loadSettings().catch((error) => { $("form-error").textContent = error.message; });
+loadDevices().then(() => loadTail()).catch(() => {});
+setInterval(poll, 2000);
+setInterval(loadDevices, 5000);
+</script>
+</body>
+</html>

@@ -1,0 +1,2014 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UANodeSet xmlns="http://opcfoundation.org/UA/" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://opcfoundation.org/UA/ http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
+  <NamespaceUris>
+    <Uri>https://camtic.or.kr/opcua/aas/Doosan_M1509_AAS_Template_v0.3/8a62cf974bc7</Uri>
+    <Uri>http://opcfoundation.org/UA/I4AAS/</Uri>
+  </NamespaceUris>
+  <Models>
+    <Model ModelUri="https://camtic.or.kr/opcua/aas/Doosan_M1509_AAS_Template_v0.3/8a62cf974bc7" Version="1.0.0" PublicationDate="2026-11-11T11:23:26Z">
+      <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04"/>
+      <RequiredModel ModelUri="http://opcfoundation.org/UA/I4AAS/" Version="1.0.0"/>
+    </Model>
+  </Models>
+  <Aliases>
+    <Alias Alias="Boolean">i=1</Alias>
+    <Alias Alias="SByte">i=2</Alias>
+    <Alias Alias="Byte">i=3</Alias>
+    <Alias Alias="Int16">i=4</Alias>
+    <Alias Alias="UInt16">i=5</Alias>
+    <Alias Alias="Int32">i=6</Alias>
+    <Alias Alias="UInt32">i=7</Alias>
+    <Alias Alias="Int64">i=8</Alias>
+    <Alias Alias="UInt64">i=9</Alias>
+    <Alias Alias="Float">i=10</Alias>
+    <Alias Alias="Double">i=11</Alias>
+    <Alias Alias="String">i=12</Alias>
+    <Alias Alias="DateTime">i=13</Alias>
+    <Alias Alias="ByteString">i=15</Alias>
+    <Alias Alias="Organizes">i=35</Alias>
+    <Alias Alias="HasTypeDefinition">i=40</Alias>
+    <Alias Alias="HasComponent">i=47</Alias>
+    <Alias Alias="HasProperty">i=46</Alias>
+    <Alias Alias="FolderType">i=61</Alias>
+    <Alias Alias="BaseObjectType">i=58</Alias>
+    <Alias Alias="BaseDataVariableType">i=63</Alias>
+  </Aliases>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3" BrowseName="1:Doosan_M1509_AAS_Template_v0.3" ParentNodeId="i=85">
+    <DisplayName>Doosan_M1509_AAS_Template_v0.3</DisplayName>
+    <Description>AasxPackage | Doosan_M1509_AAS_Template_v0.3</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">i=85</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509" BrowseName="1:Doosan_M1509" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3">
+    <DisplayName>두산 M1509 협동로봇 AAS</DisplayName>
+    <Description>AssetAdministrationShell | urn:physical-ai:aas:doosan:m1509:T1Z5B7:v0.3</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration" BrowseName="1:DataAcquisitionConfiguration" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509">
+    <DisplayName>데이터수집 설정</DisplayName>
+    <Description>Submodel | urn:physical-ai:doosan:m1509:submodel:DataAcquisitionConfiguration | urn:physical-ai:industrial-robot:semantic:submodel:DataAcquisitionConfiguration</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/SourceInterface" BrowseName="1:SourceInterface" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration">
+    <DisplayName>원천 인터페이스</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:doosan:m1509:concept:SourceInterface</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/SourceInterface/PhysicalInterface" BrowseName="1:PhysicalInterface" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/SourceInterface" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>물리 인터페이스</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:PhysicalInterface</Description>
+    <Value>
+      <uax:String>Ethernet</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/SourceInterface</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/SourceInterface/ApplicationProtocol" BrowseName="1:ApplicationProtocol" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/SourceInterface" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>응용 프로토콜</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:ApplicationProtocol</Description>
+    <Value>
+      <uax:String>Modbus TCP slave</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/SourceInterface</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/SourceInterface/EdgeRole" BrowseName="1:EdgeRole" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/SourceInterface" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>Edge 역할</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:EdgeRole</Description>
+    <Value>
+      <uax:String>Holding register 수집 후 AAS 매핑</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/SourceInterface</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/SourceInterface/Endpoint" BrowseName="1:Endpoint" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/SourceInterface" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>접속 주소</DisplayName>
+    <Value>
+      <uax:String>192.168.1.100:502</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/SourceInterface</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/SourceInterface/PlcRole" BrowseName="1:PlcRole" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/SourceInterface" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>PLC 장비 서브모델</DisplayName>
+    <Value>
+      <uax:String>Robot01_Doosan</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/SourceInterface</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings" BrowseName="1:Mappings" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration">
+    <DisplayName>데이터 매핑</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:doosan:m1509:concept:Mappings</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition" BrowseName="1:MapJointPosition" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>관절 위치</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:doosan:m1509:concept:MapJointPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointPositionLogicalField</Description>
+    <Value>
+      <uax:String>관절 위치</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointPositionRawSourceField</Description>
+    <Value>
+      <uax:String>Modbus holding 270-275, i16, scale 0.1. 두산 슬레이브 관절위치와 테스트베드 m1509_memory_map.json 이 같다.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointPositionTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotKinematicState/JointPosition/J1..J6</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointPositionValueType</Description>
+    <Value>
+      <uax:String>xs:double</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointPositionUnitNote</Description>
+    <Value>
+      <uax:String>deg</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointPositionSamplingPolicy</Description>
+    <Value>
+      <uax:String>FIXED_RATE</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointPositionSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointPositionStorageTarget</Description>
+    <Value>
+      <uax:String>TSDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointPositionOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Doosan_M1509/RobotKinematicState/JointPosition/Jx</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointPositionVerificationStatus</Description>
+    <Value>
+      <uax:String>TESTBED_MAP</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition/Notes" BrowseName="1:Notes" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>비고</DisplayName>
+    <Value>
+      <uax:String>수집 주기는 메모리 맵에 없다. 템플릿의 10 ms 는 쓰지 않는다.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition" BrowseName="1:MapTCPPosition" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>TCP 위치</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:doosan:m1509:concept:MapTCPPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPPositionLogicalField</Description>
+    <Value>
+      <uax:String>TCP 위치</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPPositionRawSourceField</Description>
+    <Value>
+      <uax:String>Modbus holding 400-402, i16, scale 0.01. m1509_memory_map.json tcp_x/y/z.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPPositionTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotKinematicState/TCPPosition/X..Z</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPPositionValueType</Description>
+    <Value>
+      <uax:String>xs:double</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPPositionUnitNote</Description>
+    <Value>
+      <uax:String>mm</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPPositionSamplingPolicy</Description>
+    <Value>
+      <uax:String>FIXED_RATE</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPPositionSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPPositionStorageTarget</Description>
+    <Value>
+      <uax:String>TSDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPPositionOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Doosan_M1509/RobotKinematicState/TCPPosition/{Axis}</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPPositionVerificationStatus</Description>
+    <Value>
+      <uax:String>TESTBED_MAP</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" BrowseName="1:MapTCPOrientation" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>TCP 자세</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:doosan:m1509:concept:MapTCPOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPOrientationLogicalField</Description>
+    <Value>
+      <uax:String>TCP 자세</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPOrientationRawSourceField</Description>
+    <Value>
+      <uax:String>Modbus holding 403-405, i16, scale 0.01. m1509_memory_map.json tcp_rx/ry/rz.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPOrientationTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotKinematicState/TCPOrientation/Component1..3</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPOrientationValueType</Description>
+    <Value>
+      <uax:String>xs:double</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPOrientationUnitNote</Description>
+    <Value>
+      <uax:String>deg</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPOrientationSamplingPolicy</Description>
+    <Value>
+      <uax:String>FIXED_RATE</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPOrientationSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPOrientationStorageTarget</Description>
+    <Value>
+      <uax:String>TSDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPOrientationOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Doosan_M1509/RobotKinematicState/TCPOrientation/Component{i}</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPOrientationVerificationStatus</Description>
+    <Value>
+      <uax:String>TESTBED_MAP</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation/Notes" BrowseName="1:Notes" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>비고</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPOrientationNotes</Description>
+    <Value>
+      <uax:String>오일러 순서와 부호는 컨트롤러 설정 확인이 필요하다.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed" BrowseName="1:MapJointSpeed" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>관절 속도</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:doosan:m1509:concept:MapJointSpeed</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointSpeedLogicalField</Description>
+    <Value>
+      <uax:String>관절 속도</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointSpeedRawSourceField</Description>
+    <Value>
+      <uax:String>Modbus holding 280-285, i16, scale 0.1. m1509_memory_map.json.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointSpeedTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotKinematicState/JointSpeed/J1..J6</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointSpeedValueType</Description>
+    <Value>
+      <uax:String>xs:double</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointSpeedUnitNote</Description>
+    <Value>
+      <uax:String>deg/s</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointSpeedSamplingPolicy</Description>
+    <Value>
+      <uax:String>FIXED_RATE</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointSpeedSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointSpeedStorageTarget</Description>
+    <Value>
+      <uax:String>TSDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointSpeedOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Doosan_M1509/RobotKinematicState/JointSpeed/Jx</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapJointSpeedVerificationStatus</Description>
+    <Value>
+      <uax:String>TESTBED_MAP</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapJointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" BrowseName="1:MapTCPSpeed" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>TCP 속도</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:doosan:m1509:concept:MapTCPSpeed</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPSpeedLogicalField</Description>
+    <Value>
+      <uax:String>TCP 속도</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPSpeedRawSourceField</Description>
+    <Value>
+      <uax:String>Modbus holding 410-412, i16, scale 0.01. tcp_vx/vy/vz. AAS 속성은 스칼라 하나라 벡터 대응은 아직이다.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPSpeedTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotKinematicState/TCPSpeed</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPSpeedValueType</Description>
+    <Value>
+      <uax:String>xs:double</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPSpeedUnitNote</Description>
+    <Value>
+      <uax:String>mm/s</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPSpeedSamplingPolicy</Description>
+    <Value>
+      <uax:String>FIXED_RATE</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPSpeedSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPSpeedStorageTarget</Description>
+    <Value>
+      <uax:String>TSDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPSpeedOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Doosan_M1509/RobotKinematicState/TCPSpeed</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPSpeedVerificationStatus</Description>
+    <Value>
+      <uax:String>PARTIAL</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed/Notes" BrowseName="1:Notes" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>비고</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapTCPSpeedNotes</Description>
+    <Value>
+      <uax:String>Scalar/vector definition must be verified.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapTCPSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" BrowseName="1:MapAxisAcceleration" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>축 가속도</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:doosan:m1509:concept:MapAxisAcceleration</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapAxisAccelerationLogicalField</Description>
+    <Value>
+      <uax:String>축 가속도</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapAxisAccelerationRawSourceField</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapAxisAccelerationTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotKinematicState/AxisAcceleration</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapAxisAccelerationValueType</Description>
+    <Value>
+      <uax:String>xs:double</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapAxisAccelerationUnitNote</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapAxisAccelerationSamplingPolicy</Description>
+    <Value>
+      <uax:String>FIXED_RATE</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapAxisAccelerationSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapAxisAccelerationStorageTarget</Description>
+    <Value>
+      <uax:String>TSDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapAxisAccelerationOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Doosan_M1509/RobotKinematicState/AxisAcceleration</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapAxisAccelerationVerificationStatus</Description>
+    <Value>
+      <uax:String>SOURCE_BINDING_REQUIRED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration/Notes" BrowseName="1:Notes" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>비고</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapAxisAccelerationNotes</Description>
+    <Value>
+      <uax:String>Physical dimension/structure must be verified.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapAxisAcceleration</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose" BrowseName="1:MapToolPose" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>툴 포즈/TCP 오프셋</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:doosan:m1509:concept:MapToolPose</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapToolPoseLogicalField</Description>
+    <Value>
+      <uax:String>툴 포즈/TCP 오프셋</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapToolPoseRawSourceField</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapToolPoseTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotKinematicState/ToolPoseTCPOffset/*</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapToolPoseValueType</Description>
+    <Value>
+      <uax:String>xs:double</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapToolPoseUnitNote</Description>
+    <Value>
+      <uax:String>mm, deg</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapToolPoseSamplingPolicy</Description>
+    <Value>
+      <uax:String>FIXED_RATE</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapToolPoseSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapToolPoseStorageTarget</Description>
+    <Value>
+      <uax:String>TSDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapToolPoseOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/*</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapToolPoseVerificationStatus</Description>
+    <Value>
+      <uax:String>SOURCE_BINDING_REQUIRED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose/Notes" BrowseName="1:Notes" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>비고</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapToolPoseNotes</Description>
+    <Value>
+      <uax:String>Orientation convention must be verified.</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapToolPose</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" BrowseName="1:MapProgramTaskState" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>프로그램/작업 상태</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:doosan:m1509:concept:MapProgramTaskState</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapProgramTaskStateLogicalField</Description>
+    <Value>
+      <uax:String>프로그램/작업 상태</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapProgramTaskStateRawSourceField</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapProgramTaskStateTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotOperationalState/ProgramTaskState</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapProgramTaskStateValueType</Description>
+    <Value>
+      <uax:String>xs:string</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapProgramTaskStateUnitNote</Description>
+    <Value>
+      <uax:String>-</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapProgramTaskStateSamplingPolicy</Description>
+    <Value>
+      <uax:String>CHANGE_BASED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapProgramTaskStateSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapProgramTaskStateStorageTarget</Description>
+    <Value>
+      <uax:String>EventDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapProgramTaskStateOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Doosan_M1509/RobotOperationalState/ProgramTaskState</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapProgramTaskStateVerificationStatus</Description>
+    <Value>
+      <uax:String>SOURCE_BINDING_REQUIRED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapProgramTaskState</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode" BrowseName="1:MapRobotMode" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>로봇 모드</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:doosan:m1509:concept:MapRobotMode</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapRobotModeLogicalField</Description>
+    <Value>
+      <uax:String>로봇 모드</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapRobotModeRawSourceField</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapRobotModeTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotOperationalState/RobotMode</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapRobotModeValueType</Description>
+    <Value>
+      <uax:String>xs:string</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapRobotModeUnitNote</Description>
+    <Value>
+      <uax:String>-</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapRobotModeSamplingPolicy</Description>
+    <Value>
+      <uax:String>CHANGE_BASED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapRobotModeSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapRobotModeStorageTarget</Description>
+    <Value>
+      <uax:String>EventDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapRobotModeOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Doosan_M1509/RobotOperationalState/RobotMode</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapRobotModeVerificationStatus</Description>
+    <Value>
+      <uax:String>SOURCE_BINDING_REQUIRED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapRobotMode</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus" BrowseName="1:MapSystemStatus" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings">
+    <DisplayName>시스템 상태</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:doosan:m1509:concept:MapSystemStatus</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus/LogicalField" BrowseName="1:LogicalField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>논리 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapSystemStatusLogicalField</Description>
+    <Value>
+      <uax:String>시스템 상태</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus/RawSourceField" BrowseName="1:RawSourceField" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>원천 필드</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapSystemStatusRawSourceField</Description>
+    <Value>
+      <uax:String>TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus/TargetAASPath" BrowseName="1:TargetAASPath" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>대상 AAS 경로</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapSystemStatusTargetAASPath</Description>
+    <Value>
+      <uax:String>RobotOperationalState/SystemStatus</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus/ValueType" BrowseName="1:ValueType" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>데이터형</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapSystemStatusValueType</Description>
+    <Value>
+      <uax:String>xs:string</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus/Unit" BrowseName="1:Unit" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>단위 메모</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapSystemStatusUnitNote</Description>
+    <Value>
+      <uax:String>-</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus/SamplingPolicy" BrowseName="1:SamplingPolicy" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 정책</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapSystemStatusSamplingPolicy</Description>
+    <Value>
+      <uax:String>CHANGE_BASED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus/SamplingIntervalMs" BrowseName="1:SamplingIntervalMs" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>샘플링 간격</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapSystemStatusSamplingIntervalMs</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus/StorageTarget" BrowseName="1:StorageTarget" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>저장대상</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapSystemStatusStorageTarget</Description>
+    <Value>
+      <uax:String>EventDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus/OPCUANodeId" BrowseName="1:OPCUANodeId" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>OPC UA NodeId</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapSystemStatusOPCUANodeId</Description>
+    <Value>
+      <uax:String>ns=2;s=Doosan_M1509/RobotOperationalState/SystemStatus</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus/VerificationStatus" BrowseName="1:VerificationStatus" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>검증상태</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MapSystemStatusVerificationStatus</Description>
+    <Value>
+      <uax:String>SOURCE_BINDING_REQUIRED</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/DataAcquisitionConfiguration/Mappings/MapSystemStatus</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Documentation" BrowseName="1:Documentation" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509">
+    <DisplayName>문서 및 설정파일</DisplayName>
+    <Description>Submodel | urn:physical-ai:doosan:m1509:submodel:Documentation | urn:physical-ai:industrial-robot:semantic:submodel:Documentation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Documentation/MappingTable" BrowseName="1:MappingTable" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Documentation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>Doosan_M1509 매핑 테이블</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:MappingTable</Description>
+    <Value>
+      <uax:String>/aasx/suppl/mapping.csv</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Documentation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Documentation/TemplateReadme" BrowseName="1:TemplateReadme" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Documentation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>템플릿 README</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:TemplateReadme</Description>
+    <Value>
+      <uax:String>/aasx/suppl/README.txt</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Documentation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Documentation/PreValidationReport" BrowseName="1:PreValidationReport" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Documentation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>사전검증 결과</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:PreValidationReport</Description>
+    <Value>
+      <uax:String>/aasx/suppl/prevalidation.md</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Documentation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Documentation/DigitalTwinUsdModel" BrowseName="1:DigitalTwinUsdModel" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Documentation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>디지털 트윈 USD 모델</DisplayName>
+    <Description>urn:physical-ai:ids/cd/DigitalTwinUsdModel/1/0</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Documentation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Documentation/DigitalTwinCadModel" BrowseName="1:DigitalTwinCadModel" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Documentation" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>디지털 트윈 CAD 모델</DisplayName>
+    <Description>urn:physical-ai:ids/cd/DigitalTwinCadModel/1/0</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Documentation</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration" BrowseName="1:HistoricalDataConfiguration" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509">
+    <DisplayName>이력데이터 설정</DisplayName>
+    <Description>Submodel | urn:physical-ai:doosan:m1509:submodel:HistoricalDataConfiguration | urn:physical-ai:industrial-robot:semantic:submodel:HistoricalDataConfiguration</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration/CurrentValuePolicy" BrowseName="1:CurrentValuePolicy" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>현재값 정책</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:CurrentValuePolicy</Description>
+    <Value>
+      <uax:String>AAS_PROPERTY_LATEST_VALUE_ONLY</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration/HistoricalStorage" BrowseName="1:HistoricalStorage" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>이력 저장소</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:HistoricalStorage</Description>
+    <Value>
+      <uax:String>TSDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration/OperationalEventStorage" BrowseName="1:OperationalEventStorage" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>운전 이벤트 저장소</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:OperationalEventStorage</Description>
+    <Value>
+      <uax:String>EventDB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration/EdgeBuffering" BrowseName="1:EdgeBuffering" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration" DataType="Boolean" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>Edge 버퍼링</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:EdgeBuffering</Description>
+    <Value>
+      <uax:String>true</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration/TimestampPolicy" BrowseName="1:TimestampPolicy" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>타임스탬프 정책</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:TimestampPolicy</Description>
+    <Value>
+      <uax:String>SOURCE_TIMESTAMP_IF_AVAILABLE_ELSE_EDGE_RECEIVE_TIMESTAMP</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration/QualityPolicy" BrowseName="1:QualityPolicy" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>품질 정책</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:QualityPolicy</Description>
+    <Value>
+      <uax:String>OPCUA_STATUSCODE</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration/ClockSynchronization" BrowseName="1:ClockSynchronization" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>시각동기 정책</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:ClockSynchronization</Description>
+    <Value>
+      <uax:String>NTP_OR_PTP_TBD</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration/PathTrajectoryDataReference" BrowseName="1:PathTrajectoryDataReference" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>경로/궤적 데이터 참조</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:PathTrajectoryDataReference</Description>
+    <Value>
+      <uax:String>urn:physical-ai:doosan:m1509:timeseries:path-trajectory</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration/PathTrajectorySamplingRange" BrowseName="1:PathTrajectorySamplingRange" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>경로/궤적 샘플링 범위</DisplayName>
+    <Description>urn:physical-ai:doosan:m1509:concept:PathTrajectorySamplingRange</Description>
+    <Value>
+      <uax:String>10-100 ms</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/HistoricalDataConfiguration</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification" BrowseName="1:Identification" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509">
+    <DisplayName>식별정보</DisplayName>
+    <Description>Submodel | urn:physical-ai:doosan:m1509:submodel:Identification | urn:physical-ai:industrial-robot:semantic:submodel:Identification</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification/ManufacturerName" BrowseName="1:ManufacturerName" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>제조사명</DisplayName>
+    <Description>0112/2///61987#ABA565#009</Description>
+    <Value>
+      <uax:String>Doosan Robotics</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification/ProductDesignation" BrowseName="1:ProductDesignation" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>제품명</DisplayName>
+    <Description>0112/2///61987#ABA567#009</Description>
+    <Value>
+      <uax:String>M1509</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification/AssetType" BrowseName="1:AssetType" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>자산 유형</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:AssetType</Description>
+    <Value>
+      <uax:String>CollaborativeRobot</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification/SerialNumber" BrowseName="1:SerialNumber" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>일련번호</DisplayName>
+    <Description>0112/2///61987#ABA951#009</Description>
+    <Value>
+      <uax:String>T1Z5B7</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification/InstallationLocation" BrowseName="1:InstallationLocation" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>설치 위치</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:InstallationLocation</Description>
+    <Value>
+      <uax:String>CAMTIC Physical AI Testbed</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification/ControllerModel" BrowseName="1:ControllerModel" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>컨트롤러 모델</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:ControllerModel</Description>
+    <Value>
+      <uax:String>CS-01</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/Identification</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState" BrowseName="1:RobotKinematicState" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509">
+    <DisplayName>로봇 운동학 상태</DisplayName>
+    <Description>Submodel | urn:physical-ai:doosan:m1509:submodel:RobotKinematicState | urn:physical-ai:industrial-robot:semantic:submodel:RobotKinematicState</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition" BrowseName="1:JointPosition" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState">
+    <DisplayName>관절 위치</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:industrial-robot:concept:JointPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition/J1" BrowseName="1:J1" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>1축 관절 위치</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition/J2" BrowseName="1:J2" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>2축 관절 위치</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition/J3" BrowseName="1:J3" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>3축 관절 위치</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition/J4" BrowseName="1:J4" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>4축 관절 위치</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition/J5" BrowseName="1:J5" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>5축 관절 위치</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition/J6" BrowseName="1:J6" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>6축 관절 위치</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPPosition" BrowseName="1:TCPPosition" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState">
+    <DisplayName>TCP 위치</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:industrial-robot:concept:TCPPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPPosition/X" BrowseName="1:X" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPPosition" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>TCP X 위치</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:TCPPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPPosition/Y" BrowseName="1:Y" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPPosition" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>TCP Y 위치</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:TCPPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPPosition/Z" BrowseName="1:Z" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPPosition" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>TCP Z 위치</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:TCPPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPPosition</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPOrientation" BrowseName="1:TCPOrientation" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState">
+    <DisplayName>TCP 자세</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:industrial-robot:concept:TCPOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPOrientation/Component1" BrowseName="1:Component1" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPOrientation" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>TCP 자세 성분 1</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:TCPOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPOrientation/Component2" BrowseName="1:Component2" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPOrientation" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>TCP 자세 성분 2</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:TCPOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPOrientation/Component3" BrowseName="1:Component3" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPOrientation" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>TCP 자세 성분 3</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:TCPOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPOrientation</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed" BrowseName="1:JointSpeed" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState">
+    <DisplayName>관절 속도</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:industrial-robot:concept:JointSpeed</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed/J1" BrowseName="1:J1" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>1축 관절 속도</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointSpeed</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed/J2" BrowseName="1:J2" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>2축 관절 속도</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointSpeed</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed/J3" BrowseName="1:J3" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>3축 관절 속도</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointSpeed</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed/J4" BrowseName="1:J4" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>4축 관절 속도</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointSpeed</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed/J5" BrowseName="1:J5" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>5축 관절 속도</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointSpeed</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed/J6" BrowseName="1:J6" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>6축 관절 속도</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:JointSpeed</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointSpeed</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/TCPSpeed" BrowseName="1:TCPSpeed" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>TCP 속도</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:TCPSpeed</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/AxisAcceleration" BrowseName="1:AxisAcceleration" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>축 가속도</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:AxisAcceleration</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset" BrowseName="1:ToolPoseTCPOffset" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState">
+    <DisplayName>툴 포즈/TCP 오프셋</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffset</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Position" BrowseName="1:Position" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset">
+    <DisplayName>위치 오프셋</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffsetPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Position/X" BrowseName="1:X" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Position" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>X 위치 오프셋</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffsetPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Position</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Position/Y" BrowseName="1:Y" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Position" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>Y 위치 오프셋</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffsetPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Position</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Position/Z" BrowseName="1:Z" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Position" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>Z 위치 오프셋</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffsetPosition</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Position</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Orientation" BrowseName="1:Orientation" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset">
+    <DisplayName>자세 오프셋</DisplayName>
+    <Description>SubmodelElementCollection | urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffsetOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Orientation/Component1" BrowseName="1:Component1" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Orientation" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>자세 오프셋 성분 1</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffsetOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Orientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Orientation/Component2" BrowseName="1:Component2" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Orientation" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>자세 오프셋 성분 2</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffsetOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Orientation</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Orientation/Component3" BrowseName="1:Component3" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Orientation" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>자세 오프셋 성분 3</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:ToolPoseTCPOffsetOrientation</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/ToolPoseTCPOffset/Orientation</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotOperationalState" BrowseName="1:RobotOperationalState" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509">
+    <DisplayName>로봇 운전상태</DisplayName>
+    <Description>Submodel | urn:physical-ai:doosan:m1509:submodel:RobotOperationalState | urn:physical-ai:industrial-robot:semantic:submodel:RobotOperationalState</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotOperationalState/ProgramTaskState" BrowseName="1:ProgramTaskState" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotOperationalState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>프로그램/작업 상태</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:ProgramTaskState</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotOperationalState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotOperationalState/RobotMode" BrowseName="1:RobotMode" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotOperationalState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>로봇 모드</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:RobotMode</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotOperationalState</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotOperationalState/SystemStatus" BrowseName="1:SystemStatus" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotOperationalState" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>시스템 상태</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:SystemStatus</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotOperationalState</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData" BrowseName="1:TechnicalData" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509">
+    <DisplayName>기술데이터</DisplayName>
+    <Description>Submodel | urn:physical-ai:doosan:m1509:submodel:TechnicalData | urn:physical-ai:industrial-robot:semantic:submodel:TechnicalData</Description>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/NumberOfAxes" BrowseName="1:NumberOfAxes" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData" DataType="Int32" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>축 수</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:NumberOfAxes</Description>
+    <Value>
+      <uax:String>6</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/Payload" BrowseName="1:Payload" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>가반하중</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:Payload</Description>
+    <Value>
+      <uax:String>15.0</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/Reach" BrowseName="1:Reach" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>도달거리</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:Reach</Description>
+    <Value>
+      <uax:String>900.0</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/Repeatability" BrowseName="1:Repeatability" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData" DataType="Double" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>반복정밀도</DisplayName>
+    <Description>urn:physical-ai:industrial-robot:concept:PositionRepeatability</Description>
+    <Value>
+      <uax:String>0.03</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification" BrowseName="1:CatalogSpecification" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData">
+    <DisplayName>카탈로그 제원</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification/MassKg" BrowseName="1:MassKg" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>본체 질량 kg</DisplayName>
+    <Value>
+      <uax:String>32</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification/MaxTcpSpeed" BrowseName="1:MaxTcpSpeed" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>최대 TCP 속도</DisplayName>
+    <Value>
+      <uax:String>1 m/s</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification/IpRating" BrowseName="1:IpRating" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>보호 등급</DisplayName>
+    <Value>
+      <uax:String>IP54</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification/Mounting" BrowseName="1:Mounting" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>설치 방향</DisplayName>
+    <Value>
+      <uax:String>Any orientation</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification/OperatingTemperature" BrowseName="1:OperatingTemperature" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>운전 온도</DisplayName>
+    <Value>
+      <uax:String>0–45 °C</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification/Noise" BrowseName="1:Noise" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>소음</DisplayName>
+    <Value>
+      <uax:String>&lt; 65 dB</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification/JointLimits" BrowseName="1:JointLimits" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>관절 범위와 최대 속도</DisplayName>
+    <Value>
+      <uax:String>J1 ±360°/150°/s; J2 ±360°/150°/s; J3 ±150°/180°/s; J4 ±360°/225°/s; J5 ±360°/225°/s; J6 ±360°/225°/s</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification/TorqueSensing" BrowseName="1:TorqueSensing" ParentNodeId="ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification" DataType="String" AccessLevel="3" UserAccessLevel="3">
+    <DisplayName>토크 센서</DisplayName>
+    <Value>
+      <uax:String>6축 각각 토크 센서</uax:String>
+    </Value>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/TechnicalData/CatalogSpecification</Reference>
+    </References>
+  </UAVariable>
+</UANodeSet>

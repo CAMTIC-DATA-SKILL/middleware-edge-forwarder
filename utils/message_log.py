@@ -17,6 +17,7 @@ import logging
 import os
 import re
 import time
+from collections import deque
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -35,6 +36,7 @@ summary_logger = logging.getLogger("ipc")
 
 _DAY_LOG = re.compile(r"^(\d{4}-\d{2}-\d{2})\.log$")
 _UNSAFE = re.compile(r"[^\w.\-]+", re.UNICODE)
+_RECENT_MAX = 200
 
 
 @dataclass
@@ -43,11 +45,14 @@ class _DayFile:
     stream: TextIO
 
 
-def device_folder(msg: IpcMessage) -> str:
+def safe_device_name(raw: str) -> str:
     """로그 폴더 이름. 경로 이동 문자(/, ..)는 제거한다."""
-    raw = msg.address or msg.device_key
     s = _UNSAFE.sub("_", (raw or "").strip()).strip("._")
     return s[:128] or "unknown"
+
+
+def device_folder(msg: IpcMessage) -> str:
+    return safe_device_name(msg.address or msg.device_key)
 
 
 def summarize(msg: IpcMessage) -> str:
@@ -70,6 +75,8 @@ class MessageLog:
         # 쓰기 실패 시 이 시각(monotonic)까지 파일 기록을 쉬고 다시 시도한다
         self._suspended_until: float | None = None
         self._files: dict[str, _DayFile] = {}
+        # 관리 페이지용 최근 요약. 파일·콘솔 설정과 무관하게 메모리에만 둔다
+        self._recent: deque[tuple[str, str, str]] = deque(maxlen=_RECENT_MAX)
         # 이번 기동에서 기록한 device 폴더 (정리 대상)
         self._folders: set[str] = set()
         # clean_on_start: 처음 기록한 뒤 아직 정리하지 않은 폴더
@@ -97,13 +104,22 @@ class MessageLog:
         return True
 
     def record(self, msg: IpcMessage) -> None:
+        text = summarize(msg)
+        self._recent.append((datetime.now().isoformat(timespec="milliseconds"), device_folder(msg), text))
         if self.cfg.summary:
-            summary_logger.info(summarize(msg))
+            summary_logger.info(text)
         if not self.cfg.file_enable:
             return
         if self._suspended_until is not None and time.monotonic() < self._suspended_until:
             return
         self._write(msg)
+
+    def recent(self, limit: int = 40) -> list[dict[str, str]]:
+        """최신이 앞. 관리 페이지 폴링용."""
+        limit = max(1, min(_RECENT_MAX, limit))
+        items = list(self._recent)[-limit:]
+        items.reverse()
+        return [{"time": t, "device": device, "text": text} for t, device, text in items]
 
     def maybe_cleanup(self, now: datetime | None = None) -> None:
         """기동 시(새 device 폴더) + 매일 IPC_LOG_CLEAN_HOUR 시에 보관 기간이 지난 파일을 지운다."""
