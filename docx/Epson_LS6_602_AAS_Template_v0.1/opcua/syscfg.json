@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-11-11T11:23:26.823982+00:00",
+  "source": {
+    "packageId": "Epson_LS6_602_AAS_Template_v0.1",
+    "fileName": "Epson_LS6_602_AAS_Template_v0.1.aasx",
+    "aasStandard": "IEC 63278 / IDTA AAS V3",
+    "opcUaCompanion": "OPC 30270 (I4AAS)"
+  },
+  "opcUa": {
+    "namespaceUri": "https://camtic.or.kr/opcua/aas/Epson_LS6_602_AAS_Template_v0.1/95beeddda17b",
+    "requiredModels": [
+      {
+        "modelUri": "http://opcfoundation.org/UA/",
+        "version": "1.04"
+      },
+      {
+        "modelUri": "http://opcfoundation.org/UA/I4AAS/",
+        "version": "1.0.0"
+      }
+    ],
+    "endpoint": {
+      "url": "opc.tcp://127.0.0.1:4840",
+      "securityMode": "None",
+      "securityPolicy": "None",
+      "applicationUri": "urn:camtic:aas:Epson_LS6_602_AAS_Template_v0.1"
+    },
+    "rootNodeId": "ns=1;s=Epson_LS6_602_AAS_Template_v0.1",
+    "nodeCount": 197,
+    "variableCount": 168,
+    "objectCount": 29
+  },
+  "artifacts": {
+    "nodeset": "nodeset.xml",
+    "engineering": "engineering.csv",
+    "syscfg": "syscfg.json"
+  },
+  "assetAdministrationShells": [
+    {
+      "id": "urn:physical-ai:aas:epson:ls6-602:testbed:v0.1",
+      "idShort": "Epson_LS6_602",
+      "globalAssetId": "urn:physical-ai:asset:epson:ls6-602:testbed",
+      "assetKind": "INSTANCE",
+      "submodelIds": [
+        "urn:physical-ai:epson:ls6-602:submodel:RobotOperationalState",
+        "urn:physical-ai:epson:ls6-602:submodel:Documentation",
+        "urn:physical-ai:epson:ls6-602:submodel:HistoricalDataConfiguration",
+        "urn:physical-ai:epson:ls6-602:submodel:TechnicalData",
+        "urn:physical-ai:epson:ls6-602:submodel:DataAcquisitionConfiguration",
+        "urn:physical-ai:epson:ls6-602:submodel:RobotKinematicState",
+        "urn:physical-ai:epson:ls6-602:submodel:Identification"
+      ]
+    }
+  ],
+  "counts": {
+    "shells": 1,
+    "submodels": 7,
+    "conceptDescriptions": 177,
+    "supplementaryFiles": 3
+  }
+}

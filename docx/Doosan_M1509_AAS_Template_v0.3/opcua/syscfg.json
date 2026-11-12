@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-11-11T11:23:26.789602+00:00",
+  "source": {
+    "packageId": "Doosan_M1509_AAS_Template_v0.3",
+    "fileName": "Doosan_M1509_AAS_Template_v0.3.aasx",
+    "aasStandard": "IEC 63278 / IDTA AAS V3",
+    "opcUaCompanion": "OPC 30270 (I4AAS)"
+  },
+  "opcUa": {
+    "namespaceUri": "https://camtic.or.kr/opcua/aas/Doosan_M1509_AAS_Template_v0.3/8a62cf974bc7",
+    "requiredModels": [
+      {
+        "modelUri": "http://opcfoundation.org/UA/",
+        "version": "1.04"
+      },
+      {
+        "modelUri": "http://opcfoundation.org/UA/I4AAS/",
+        "version": "1.0.0"
+      }
+    ],
+    "endpoint": {
+      "url": "opc.tcp://127.0.0.1:4840",
+      "securityMode": "None",
+      "securityPolicy": "None",
+      "applicationUri": "urn:camtic:aas:Doosan_M1509_AAS_Template_v0.3"
+    },
+    "rootNodeId": "ns=1;s=Doosan_M1509_AAS_Template_v0.3",
+    "nodeCount": 200,
+    "variableCount": 171,
+    "objectCount": 29
+  },
+  "artifacts": {
+    "nodeset": "nodeset.xml",
+    "engineering": "engineering.csv",
+    "syscfg": "syscfg.json"
+  },
+  "assetAdministrationShells": [
+    {
+      "id": "urn:physical-ai:aas:doosan:m1509:T1Z5B7:v0.3",
+      "idShort": "Doosan_M1509",
+      "globalAssetId": "urn:physical-ai:asset:doosan:m1509:T1Z5B7",
+      "assetKind": "INSTANCE",
+      "submodelIds": [
+        "urn:physical-ai:doosan:m1509:submodel:Identification",
+        "urn:physical-ai:doosan:m1509:submodel:TechnicalData",
+        "urn:physical-ai:doosan:m1509:submodel:RobotOperationalState",
+        "urn:physical-ai:doosan:m1509:submodel:DataAcquisitionConfiguration",
+        "urn:physical-ai:doosan:m1509:submodel:Documentation",
+        "urn:physical-ai:doosan:m1509:submodel:HistoricalDataConfiguration",
+        "urn:physical-ai:doosan:m1509:submodel:RobotKinematicState"
+      ]
+    }
+  ],
+  "counts": {
+    "shells": 1,
+    "submodels": 7,
+    "conceptDescriptions": 177,
+    "supplementaryFiles": 3
+  }
+}

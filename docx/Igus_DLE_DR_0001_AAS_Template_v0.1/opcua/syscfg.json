@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-11-11T11:23:26.857544+00:00",
+  "source": {
+    "packageId": "Igus_DLE_DR_0001_AAS_Template_v0.1",
+    "fileName": "Igus_DLE_DR_0001_AAS_Template_v0.1.aasx",
+    "aasStandard": "IEC 63278 / IDTA AAS V3",
+    "opcUaCompanion": "OPC 30270 (I4AAS)"
+  },
+  "opcUa": {
+    "namespaceUri": "https://camtic.or.kr/opcua/aas/Igus_DLE_DR_0001_AAS_Template_v0.1/d9ef3c63c19d",
+    "requiredModels": [
+      {
+        "modelUri": "http://opcfoundation.org/UA/",
+        "version": "1.04"
+      },
+      {
+        "modelUri": "http://opcfoundation.org/UA/I4AAS/",
+        "version": "1.0.0"
+      }
+    ],
+    "endpoint": {
+      "url": "opc.tcp://127.0.0.1:4840",
+      "securityMode": "None",
+      "securityPolicy": "None",
+      "applicationUri": "urn:camtic:aas:Igus_DLE_DR_0001_AAS_Template_v0.1"
+    },
+    "rootNodeId": "ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1",
+    "nodeCount": 195,
+    "variableCount": 166,
+    "objectCount": 29
+  },
+  "artifacts": {
+    "nodeset": "nodeset.xml",
+    "engineering": "engineering.csv",
+    "syscfg": "syscfg.json"
+  },
+  "assetAdministrationShells": [
+    {
+      "id": "urn:physical-ai:aas:igus:dle-dr-0001:testbed:v0.1",
+      "idShort": "Igus_DLE_DR_0001",
+      "globalAssetId": "urn:physical-ai:asset:igus:dle-dr-0001:testbed",
+      "assetKind": "INSTANCE",
+      "submodelIds": [
+        "urn:physical-ai:igus:dle-dr-0001:submodel:HistoricalDataConfiguration",
+        "urn:physical-ai:igus:dle-dr-0001:submodel:RobotKinematicState",
+        "urn:physical-ai:igus:dle-dr-0001:submodel:TechnicalData",
+        "urn:physical-ai:igus:dle-dr-0001:submodel:RobotOperationalState",
+        "urn:physical-ai:igus:dle-dr-0001:submodel:Identification",
+        "urn:physical-ai:igus:dle-dr-0001:submodel:DataAcquisitionConfiguration",
+        "urn:physical-ai:igus:dle-dr-0001:submodel:Documentation"
+      ]
+    }
+  ],
+  "counts": {
+    "shells": 1,
+    "submodels": 7,
+    "conceptDescriptions": 177,
+    "supplementaryFiles": 3
+  }
+}
