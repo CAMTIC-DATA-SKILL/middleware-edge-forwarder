@@ -120,24 +120,152 @@ class CollectorHeaderTest(unittest.TestCase):
                 {"tags": [_tag("jp1.value_0") | {"node_id": node_id}, _tag("jp1.value_1") | {"node_id": node_id}]}
             )
 
+    def test_nested_tags_expand_under_collector_roots(self) -> None:
+        tag_map = TagMapFile.model_validate(
+            {
+                "collectors": [
+                    {
+                        "kind": "robot",
+                        "device_key": "m1509",
+                        "aas_id": "urn:aas:m1509",
+                        "browse_root": "Doosan_M1509",
+                        "node_root": "ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509",
+                        "tags": [
+                            {
+                                "id": "m1509.j1_position",
+                                "addr": "270",
+                                "node": "RobotKinematicState/JointPosition/J1",
+                                "type": "Double",
+                            }
+                        ],
+                    }
+                ]
+            }
+        )
+        tag = tag_map.tags[0]
+        self.assertEqual(tag.source.device_key, "m1509")
+        self.assertEqual(tag.source.addr, "270")
+        self.assertEqual(tag.target.path, "Doosan_M1509/RobotKinematicState/JointPosition")
+        self.assertEqual(tag.target.name, "J1")
+        self.assertEqual(
+            tag.node_id,
+            "ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition/J1",
+        )
+        self.assertEqual(tag_map.collectors[0].aas_id, "urn:aas:m1509")
+
+    def test_same_relative_node_is_distinct_per_browse_root(self) -> None:
+        def block(device: str, root: str, node_root: str) -> dict:
+            return {
+                "kind": "robot",
+                "device_key": device,
+                "browse_root": root,
+                "node_root": node_root,
+                "tags": [
+                    {
+                        "id": f"{device}.j1",
+                        "addr": "1",
+                        "node": "RobotKinematicState/JointPosition/J1",
+                        "type": "Double",
+                    }
+                ],
+            }
+
+        tag_map = TagMapFile.model_validate(
+            {
+                "collectors": [
+                    block("hh7", "", "ns=1;s=Hyundai_HH7_AAS_Template_v0.3/HH7"),
+                    block("m1509", "Doosan_M1509", "ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509"),
+                ]
+            }
+        )
+        self.assertEqual(
+            [tag.target.path for tag in tag_map.tags],
+            [
+                "RobotKinematicState/JointPosition",
+                "Doosan_M1509/RobotKinematicState/JointPosition",
+            ],
+        )
+
+    def test_same_browse_path_after_expand_is_error(self) -> None:
+        def block(device: str, node_root: str) -> dict:
+            return {
+                "kind": "robot",
+                "device_key": device,
+                "browse_root": "Shared",
+                "node_root": node_root,
+                "tags": [
+                    {
+                        "id": f"{device}.j1",
+                        "addr": "1",
+                        "node": "RobotKinematicState/JointPosition/J1",
+                        "type": "Double",
+                    }
+                ],
+            }
+
+        with self.assertRaises(ValidationError):
+            TagMapFile.model_validate(
+                {
+                    "collectors": [
+                        block("a", "ns=1;s=A"),
+                        block("b", "ns=1;s=B"),
+                    ]
+                }
+            )
+
+    def test_link_false_keeps_browse_path_without_node_id(self) -> None:
+        tag_map = TagMapFile.model_validate(
+            {
+                "collectors": [
+                    {
+                        "kind": "robot",
+                        "device_key": "robot-1",
+                        "node_root": "ns=1;s=Hyundai_HH7_AAS_Template_v0.3/HH7",
+                        "tags": [
+                            {
+                                "id": "1737",
+                                "addr": "S0041",
+                                "node": "OperationalData/EquipmentState/OperationType",
+                                "type": "String",
+                                "link": False,
+                                "description": "robot status",
+                            }
+                        ],
+                    }
+                ]
+            }
+        )
+        tag = tag_map.tags[0]
+        self.assertIsNone(tag.node_id)
+        self.assertEqual(tag.target.path, "OperationalData/EquipmentState")
+        self.assertEqual(tag.target.name, "OperationType")
+        self.assertEqual(tag.target.description, "robot status")
+
     def test_live_tag_map_validates(self) -> None:
         tag_map = TagMapFile.model_validate_json(LIVE.read_text(encoding="utf-8"))
-        node_ids = {t.node_id for t in tag_map.tags}
-        self.assertIn(
+        by_id = {tag.tag_id: tag for tag in tag_map.tags}
+        self.assertEqual(len(tag_map.tags), 114)
+        self.assertEqual(
+            by_id["jp1.value_0"].node_id,
             "ns=1;s=Hyundai_HH7_AAS_Template_v0.3/HH7/RobotKinematicState/JointPosition/J1",
-            node_ids,
         )
-        self.assertIn(
+        self.assertEqual(by_id["jp1.value_0"].target.path, "RobotKinematicState/JointPosition")
+        self.assertIsNone(by_id["1737"].node_id)
+        self.assertEqual(
+            by_id["m1509.j1_position"].node_id,
             "ns=1;s=Doosan_M1509_AAS_Template_v0.3/Doosan_M1509/RobotKinematicState/JointPosition/J1",
-            node_ids,
         )
-        self.assertIn(
+        self.assertEqual(
+            by_id["m1509.j1_position"].target.path,
+            "Doosan_M1509/RobotKinematicState/JointPosition",
+        )
+        self.assertEqual(
+            by_id["ls6.rz"].node_id,
             "ns=1;s=Epson_LS6_602_AAS_Template_v0.1/Epson_LS6_602/RobotKinematicState/TCPOrientation/Component1",
-            node_ids,
         )
-        self.assertIn(
+        self.assertEqual(
+            by_id["dr0001.j1_position"].node_id,
             "ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointPosition/J1",
-            node_ids,
         )
 
 

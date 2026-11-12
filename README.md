@@ -186,30 +186,41 @@ Objects
 
 collector 샘플 `(kind, device_key, addr)`을 북향 노드에 연결합니다. 운영에서는 tag map으로 경로를 고정하고 auto 노드는 끄는 것(`OPCUA_AUTO_CREATE_NODES=false`)을 권장합니다.
 
+태그는 collector 안에 둡니다. `kind` 와 `device_key` 는 헤더를 따르고, `node` 는 `browse_root` 아래 브라우저 경로입니다. `node_root` 가 있으면 그 뒤에 `node` 를 붙여 NodeId 를 만듭니다. `link` 를 false 로 두면 경로만 만들고 NodeId 는 만들지 않습니다. 로더는 이 블록을 펼친 뒤 `tag_id`, NodeId, 브라우저 경로를 맵 전체에서 한 번씩만 허용합니다.
+
 ```json
 {
-  "tags": [
+  "collectors": [
     {
-      "tag_id": "line01.press01.temperature",
-      "enabled": true,
-      "source": { "kind": "plc", "device_key": "plc-mitsubishi-1", "addr": "D100" },
-      "target": {
-        "path": "Factory/Line01/Press01",
-        "name": "Temperature",
-        "data_type": "Double",
-        "unit": "°C",
-        "description": "프레스 1호기 금형 온도"
-      },
-      "conversion": { "scale": 0.1, "offset": 0.0 }
+      "kind": "plc",
+      "device_key": "plc-mitsubishi-1",
+      "aas_id": "urn:example:aas:plc:01",
+      "global_asset_id": "urn:example:asset:plc:01",
+      "browse_root": "Factory",
+      "node_root": "ns=1;s=Factory",
+      "tags": [
+        {
+          "id": "line01.press01.temperature",
+          "addr": "D100",
+          "node": "Line01/Press01/Temperature",
+          "type": "Double",
+          "unit": "°C",
+          "description": "프레스 1호기 금형 온도",
+          "scale": 0.1
+        }
+      ]
     }
   ]
 }
 ```
 
-- `source.addr`는 collector가 DATA에 싣는 `addr` 문자열과 **완전히 같아야** 합니다 (`D100`, `D800.0`, `D101~102` …).
-- `data_type`: `Boolean`, `SByte`, `Byte`, `Int16`, `UInt16`, `Int32`, `UInt32`, `Int64`, `UInt64`, `Float`, `Double`, `String`
-- `conversion`: 제공값 = 원본값 × `scale` + `offset` (숫자만). 소수가 나오면 `data_type`을 `Double`/`Float`로 둡니다. 정수 형식이면 반올림합니다.
-- 같은 샘플을 여러 태그에 연결할 수 있습니다. `target.path` 첫 세그먼트로 `_Forwarder`는 쓸 수 없습니다.
+펼치면 경로는 `Factory/Line01/Press01`, 이름은 `Temperature`, NodeId 는 `ns=1;s=Factory/Line01/Press01/Temperature` 입니다.
+
+- `addr` 는 collector 가 DATA 에 싣는 `addr` 문자열과 같아야 합니다 (`D100`, `D800.0`, `D101~102` …). 소켓 필드는 `socket` 과 `field` 를 같이 적습니다.
+- `type`: `Boolean`, `SByte`, `Byte`, `Int16`, `UInt16`, `Int32`, `UInt32`, `Int64`, `UInt64`, `Float`, `Double`, `String`, `DateTime`
+- `scale` / `offset`: 제공값 = 원본값 × `scale` + `offset` (숫자만). 소수가 나오면 `type` 을 `Double` / `Float` 로 둡니다. 정수 형식이면 반올림합니다.
+- 같은 샘플을 여러 태그에 연결할 수 있습니다. 브라우저 경로 첫 세그먼트로 `_Forwarder` 는 쓸 수 없습니다.
+- 맨 위에 `tags` 배열만 있는 예전 파일도 읽습니다. `tag_map.example.json` 이 그 형식입니다.
 
 tag map 파일 하나가 이 프로세스의 표입니다. 그 안에 자산과 태그를 여러 개 둘 수 있습니다. 파일을 자산마다 쪼개지 않습니다.
 
@@ -232,9 +243,9 @@ tag map 파일 하나가 이 프로세스의 표입니다. 그 안에 자산과 
 }
 ```
 
-- 샘플(`S0004` 등)마다 헤더를 쓰지 않습니다. collector 한 대에 행 하나입니다.
+- 샘플(`S0004` 등)마다 헤더를 쓰지 않습니다. collector 한 대에 행 하나입니다. 그 행의 `tags` 가 그 장비의 북향 노드입니다.
 - `.env` 나 DATA 토픽에 AAS id 를 싣지 않습니다. 키는 이 표에만 둡니다.
-- `tags` 는 예전처럼 주소 재배치가 필요할 때만 씁니다. 헤더와 무관합니다.
+- `browse_root` 와 `node_root` 는 그 collector 의 태그가 공유하는 접두입니다. 비우면 태그의 `node` 가 경로 전부입니다.
 - 헤더가 없는 collector 는 값만 나가고 Identification 은 없습니다.
 - BrowseName 은 `Identification`, `AasId`, `GlobalAssetId`, `DeviceKey`. NodeId 예: `ns=;s=Collectors/robot/robot-1/Identification/AasId`.
 - AAS Property 매칭은 상위 뷰어가 합니다.
@@ -328,4 +339,4 @@ journalctl -u middleware-edge-forwarder -f
 - [ ] 북향 보안 (인증서·사용자 인증). 현재는 NoSecurity
 - [ ] 표준 단위 코드(UNECE)·AnalogItemType 적용 (`middleware_gateway_opc_ua` catalog 참고)
 - [ ] tag map 변경 시 재시작 없이 반영
-- [ ] 배열 샘플(robot `i16[6]` 등) 지원
+- [x] 1차원 배열 샘플. auto 노드와 tag map `Double[]`. 라이다 거리처럼 숫자 리스트를 `Double[]` 로 올린다. 2차원 이상, 지도 이미지, 포인트클라우드는 대상이 아니다

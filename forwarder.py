@@ -27,7 +27,7 @@ from model.tag_model import CollectorHeader, TagConversion, TagSettings, identif
 from mqtt_publisher.publisher import MqttPublisher, health_message, value_message
 from mqtt_publisher.topics import health_topic, value_topic
 from opcua_server.server import NorthboundServer, TagNodeSpec
-from opcua_server.values import infer_variant_type, status_for_error
+from opcua_server.values import node_type, status_for_error, variant_from_opcua_type
 from admin.server import AdminServer
 from utils.message_log import MessageLog
 from zeromq_client.sub_client import ZmqSubClient
@@ -37,6 +37,13 @@ logger = logging.getLogger(__name__)
 
 _UNCERTAIN = ua.StatusCode(ua.StatusCodes.UncertainLastUsableValue)
 _NO_CONVERSION = TagConversion()
+
+
+def _value_preview(value: object) -> str:
+    if isinstance(value, list):
+        return f"list[{len(value)}]"
+    text = repr(value)
+    return text if len(text) <= 80 else text[:77] + "..."
 
 
 @dataclass
@@ -205,16 +212,18 @@ class Forwarder:
         for tag in enabled:
             sid = source_id(tag.source.kind, tag.source.device_key)
             await self._ensure_source(sid)
+            vtype, is_array = variant_from_opcua_type(tag.target.data_type)
             await self._opcua().add_tag(
                 TagNodeSpec(
                     tag_id=tag.tag_id,
                     segments=tag.target.segments,
                     name=tag.target.name,
-                    vtype=ua.VariantType[tag.target.data_type],
+                    vtype=vtype,
                     source_id=sid,
                     description=tag.target.description,
                     unit=tag.target.unit,
                     node_id=tag.node_id,
+                    is_array=is_array,
                 )
             )
         await self._register_identifications()
@@ -529,13 +538,19 @@ class Forwarder:
             return tag_id
         if tag_id in self._auto_skipped:
             return None
-        vtype = infer_variant_type(sample.type, sample.value)
-        if vtype is None:
-            # 값이 아직 없거나(error) 배열 등 지원하지 않는 형식. 값이 없으면 다음 샘플에서 다시 본다
-            if sample.value is not None:
+        parsed = node_type(sample.type, sample.value)
+        if parsed is None:
+            # 값이 없거나 빈 배열이면 다음 샘플에서 다시 본다. 그 외에는 이 주소를 건너뛴다.
+            if sample.value is not None and not (isinstance(sample.value, list) and len(sample.value) == 0):
                 self._auto_skipped.add(tag_id)
-                logger.warning("auto 노드 형식을 정할 수 없어 건너뜀: %s type=%s value=%r", tag_id, sample.type, sample.value)
+                logger.warning(
+                    "auto 노드 형식을 정할 수 없어 건너뜀: %s type=%s value=%s",
+                    tag_id,
+                    sample.type,
+                    _value_preview(sample.value),
+                )
             return None
+        vtype, is_array = parsed
         added = await self._opcua().add_tag(
             TagNodeSpec(
                 tag_id=tag_id,
@@ -544,6 +559,7 @@ class Forwarder:
                 vtype=vtype,
                 source_id=source_id(kind, device_key),
                 description=sample.name or "",
+                is_array=is_array,
             )
         )
         if added:
@@ -566,12 +582,17 @@ class Forwarder:
             return tag_id
         if tag_id in self._auto_skipped:
             return None
-        vtype = infer_variant_type(None, value)
-        if vtype is None:
-            if value is not None:
+        parsed = node_type(None, value)
+        if parsed is None:
+            if value is not None and not (isinstance(value, list) and len(value) == 0):
                 self._auto_skipped.add(tag_id)
-                logger.warning("auto 노드 형식을 정할 수 없어 건너뜀: %s value=%r", tag_id, value)
+                logger.warning(
+                    "auto 노드 형식을 정할 수 없어 건너뜀: %s value=%s",
+                    tag_id,
+                    _value_preview(value),
+                )
             return None
+        vtype, is_array = parsed
         added = await self._opcua().add_tag(
             TagNodeSpec(
                 tag_id=tag_id,
@@ -580,6 +601,7 @@ class Forwarder:
                 vtype=vtype,
                 source_id=source_id(kind, device_key),
                 description=f"{sock.command_name or sock.name} {field}".strip(),
+                is_array=is_array,
             )
         )
         if added:

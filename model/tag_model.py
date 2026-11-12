@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import BaseModel, Field, field_validator, model_validator
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_validator, model_validator
 
 # 북향 상태 노드 루트. 태그 경로로 쓸 수 없다
 RESERVED_ROOT = "_Forwarder"
@@ -25,6 +25,7 @@ OpcUaDataType = Literal[
     "Double",
     "String",
     "DateTime",
+    "Double[]",
 ]
 
 
@@ -103,7 +104,9 @@ class TagConversion(BaseModel):
     offset: float = 0.0
 
     def apply(self, value: object) -> object:
-        """제공값 = 원본값 × scale + offset. 숫자가 아니면 그대로 둔다."""
+        """제공값 = 원본값 × scale + offset. 숫자가 아니면 그대로 둔다. 리스트는 원소마다 적용한다."""
+        if isinstance(value, list):
+            return [self.apply(item) for item in value]
         if isinstance(value, bool) or not isinstance(value, (int, float)):
             return value
         if self.scale == 1.0 and self.offset == 0.0:
@@ -146,6 +149,117 @@ class CollectorHeader(BaseModel):
         return (auto_root, self.kind, self.device_key)
 
 
+_HEADER_KEYS = {"kind", "device_key", "aas_id", "global_asset_id", "browse_root", "node_root", "tags"}
+
+
+class CompactTag(BaseModel):
+    """collector 블록 안의 짧은 태그. kind·device_key·경로 접두는 헤더가 채운다."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    id: str
+    # browse_root 아래 경로/이름. node_root 가 있으면 NodeId 접미로도 쓴다
+    node: str
+    type: OpcUaDataType
+    addr: str = ""
+    socket: str = ""
+    field: str = ""
+    # None 이면 node_root 가 있을 때만 NodeId 를 만든다
+    link: bool | None = None
+    description: str = ""
+    unit: str = ""
+    enabled: bool = True
+    scale: float = 1.0
+    offset: float = 0.0
+
+    @field_validator("id", "node")
+    @classmethod
+    def _strip(cls, value: str) -> str:
+        stripped = value.strip()
+        if not stripped:
+            raise ValueError("비어 있을 수 없습니다")
+        return stripped
+
+
+def expand_tag_map(data: dict) -> dict:
+    """중첩 tags 를 평탄한 collectors + tags 로 펼친다. 맨 위 tags 는 그대로 둔다."""
+    collectors_in = data.get("collectors") or []
+    tags_out: list = list(data.get("tags") or [])
+    collectors_out: list = []
+    for raw in collectors_in:
+        if not isinstance(raw, dict):
+            collectors_out.append(raw)
+            continue
+        unknown = set(raw) - _HEADER_KEYS
+        if unknown:
+            who = f"{raw.get('kind', '?')}/{raw.get('device_key', '?')}"
+            raise ValueError(f"collector {who} 에 알 수 없는 키: {sorted(unknown)}")
+        block = {key: raw[key] for key in ("kind", "device_key", "aas_id", "global_asset_id") if key in raw}
+        browse_root = str(raw.get("browse_root") or "").strip("/")
+        node_root = str(raw.get("node_root") or "").rstrip("/")
+        collectors_out.append(block)
+        nested = raw.get("tags")
+        if not nested:
+            continue
+        if not isinstance(nested, list):
+            raise ValueError(f"collector {block.get('kind')}/{block.get('device_key')} tags 는 배열이어야 합니다")
+        kind = str(block.get("kind") or "")
+        device_key = str(block.get("device_key") or "")
+        for item in nested:
+            tags_out.append(
+                _expand_compact(item, kind=kind, device_key=device_key, browse_root=browse_root, node_root=node_root)
+            )
+    return {"collectors": collectors_out, "tags": tags_out}
+
+
+def _expand_compact(
+    item: object, *, kind: str, device_key: str, browse_root: str, node_root: str
+) -> dict:
+    where = f"{kind}/{device_key}"
+    try:
+        tag = item if isinstance(item, CompactTag) else CompactTag.model_validate(item)
+    except ValidationError as e:
+        raise ValueError(f"{where} 태그 형식 오류: {e}") from e
+    parts = tag.node.split("/")
+    if len(parts) < 2 or any(not part for part in parts):
+        raise ValueError(f"{where} {tag.id}: node 는 경로/이름 이어야 합니다 ({tag.node!r})")
+    parent = "/".join(parts[:-1])
+    path = f"{browse_root}/{parent}" if browse_root else parent
+    link = bool(node_root) if tag.link is None else tag.link
+    node_id = None
+    if link:
+        if not node_root:
+            raise ValueError(f"{where} {tag.id}: node_root 없이 NodeId 를 만들 수 없습니다")
+        node_id = f"{node_root}/{tag.node}"
+    source: dict[str, str] = {"kind": kind, "device_key": device_key}
+    if tag.socket:
+        source["socket"] = tag.socket
+        source["field"] = tag.field
+    else:
+        source["addr"] = tag.addr
+    expanded: dict = {
+        "tag_id": tag.id,
+        "enabled": tag.enabled,
+        "source": source,
+        "target": {
+            "path": path,
+            "name": parts[-1],
+            "data_type": tag.type,
+            "unit": tag.unit,
+            "description": tag.description,
+        },
+    }
+    if node_id is not None:
+        expanded["node_id"] = node_id
+    if tag.scale != 1.0 or tag.offset != 0.0:
+        expanded["conversion"] = {"scale": tag.scale, "offset": tag.offset}
+    try:
+        TagSettings.model_validate(expanded)
+    except ValidationError as e:
+        raise ValueError(f"{where} {tag.id}: {e}") from e
+    return expanded
+
+
 class TagSettings(BaseModel):
     tag_id: str
     # 있으면 북향 변수 NodeId. 정수면 i=<node_id>, 문자열이면 ns=2;s=... 또는 s=<값>. 없으면 s=<tag_id>
@@ -175,6 +289,13 @@ class TagSettings(BaseModel):
 class TagMapFile(BaseModel):
     collectors: list[CollectorHeader] = Field(default_factory=list)
     tags: list[TagSettings] = Field(default_factory=list)
+
+    @model_validator(mode="before")
+    @classmethod
+    def _expand_nested(cls, data: object) -> object:
+        if isinstance(data, dict):
+            return expand_tag_map(data)
+        return data
 
     @model_validator(mode="after")
     def _unique(self) -> TagMapFile:
