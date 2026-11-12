@@ -32,10 +32,12 @@
         {"id": "tcp.value_0", "socket": "tool_pos1", "field": "value_0", "node": "RobotKinematicState/TCPPosition/X", "type": "Float"},
         {"id": "tcp.value_1", "socket": "tool_pos1", "field": "value_1", "node": "RobotKinematicState/TCPPosition/Y", "type": "Float"},
         {"id": "tcp.value_2", "socket": "tool_pos1", "field": "value_2", "node": "RobotKinematicState/TCPPosition/Z", "type": "Float"},
-        {"id": "tcp.value_3", "socket": "tool_pos2", "field": "value_0", "node": "RobotKinematicState/TCPOrientation/Component1", "type": "Float"},
-        {"id": "tcp.value_4", "socket": "tool_pos2", "field": "value_1", "node": "RobotKinematicState/TCPOrientation/Component2", "type": "Float"},
-        {"id": "tcp.value_5", "socket": "tool_pos2", "field": "value_2", "node": "RobotKinematicState/TCPOrientation/Component3", "type": "Float"},
+        {"id": "tcp.value_3", "socket": "tool_pos2", "field": "value_0", "node": "RobotKinematicState/TCPOrientation/Rx", "type": "Float"},
+        {"id": "tcp.value_4", "socket": "tool_pos2", "field": "value_1", "node": "RobotKinematicState/TCPOrientation/Ry", "type": "Float"},
+        {"id": "tcp.value_5", "socket": "tool_pos2", "field": "value_2", "node": "RobotKinematicState/TCPOrientation/Rz", "type": "Float"},
         {"id": "encoder_temp_01_03.value_0", "socket": "encoder_temp_01_03", "field": "value_0", "node": "OperationalData/Axis/EncoderTemp/J1", "type": "Float", "link": false},
+        {"id": "encoder_temp_01_03.value_1", "socket": "encoder_temp_01_03", "field": "value_1", "node": "OperationalData/Axis/EncoderTemp/J2", "type": "Float", "link": false},
+        {"id": "encoder_temp_01_03.value_2", "socket": "encoder_temp_01_03", "field": "value_2", "node": "OperationalData/Axis/EncoderTemp/J3", "type": "Float", "link": false},
         {"id": "tool_length.tool_weight", "socket": "tool_length", "field": "tool_weight", "node": "OperationalData/Tool/Weight", "type": "Float", "link": false},
         {"id": "tool_length.tool_data_x", "socket": "tool_length", "field": "tool_data_x", "node": "OperationalData/Tool/LengthX", "type": "Float", "link": false}
       ]
@@ -140,7 +142,7 @@
         {"id": "ls6.x", "addr": "x", "node": "RobotKinematicState/TCPPosition/X", "type": "Double"},
         {"id": "ls6.y", "addr": "y", "node": "RobotKinematicState/TCPPosition/Y", "type": "Double"},
         {"id": "ls6.z", "addr": "z", "node": "RobotKinematicState/TCPPosition/Z", "type": "Double"},
-        {"id": "ls6.rz", "addr": "rz", "node": "RobotKinematicState/TCPOrientation/Component1", "type": "Double", "description": "CU(CurPos) Rz. Component2, Component3 은 소스가 없다"}
+        {"id": "ls6.rz", "addr": "rz", "node": "RobotKinematicState/TCPOrientation/Rz", "type": "Double", "description": "CU(CurPos) Rz"}
       ]
     },
     {
@@ -160,6 +162,43 @@
         {"id": "dr0001.x", "addr": "4116", "node": "RobotKinematicState/TCPPosition/X", "type": "Double"},
         {"id": "dr0001.y", "addr": "4118", "node": "RobotKinematicState/TCPPosition/Y", "type": "Double"},
         {"id": "dr0001.z", "addr": "4120", "node": "RobotKinematicState/TCPPosition/Z", "type": "Double"}
+      ]
+    },
+    {
+      "kind": "amr",
+      "device_key": "amr-scout-1",
+      "aas_id": "urn:physical-ai:aas:camtic:st-mini:template:v0.1",
+      "global_asset_id": "urn:physical-ai:asset-type:camtic:st-mini",
+      "browse_root": "ST_mini",
+      "node_root": "ns=1;s=CAMTIC_ST_mini_AAS_Template_v0.1/ST_mini",
+      "tags": [
+        {"id": "stmini.vehicle_state", "addr": "vehicle_state", "node": "OperationalData/OperationalState", "type": "Int32", "description": "/scout_status vehicle_state"},
+        {"id": "stmini.error_code", "addr": "error_code", "node": "OperationalData/ErrorState", "type": "Int32", "description": "/scout_status error_code. 0은 정상"},
+        {"id": "stmini.amcl_x", "addr": "amcl_x", "node": "OperationalData/Coordinates/X", "type": "Double", "unit": "mm", "scale": 1000, "description": "/amcl_pose position.x (m → mm)"},
+        {"id": "stmini.amcl_y", "addr": "amcl_y", "node": "OperationalData/Coordinates/Y", "type": "Double", "unit": "mm", "scale": 1000, "description": "/amcl_pose position.y (m → mm)"},
+        {"id": "stmini.amcl_yaw", "addr": "amcl_yaw", "node": "OperationalData/Coordinates/Angle", "type": "Double", "unit": "rad", "description": "/amcl_pose yaw"},
+        {"id": "stmini.odom_vx", "addr": "odom_vx", "node": "OperationalData/CurrentSpeed", "type": "Double", "unit": "m/min", "scale": 60, "description": "/wheel_odom twist.linear.x (m/s → m/min)"},
+        {"id": "stmini.battery_voltage", "addr": "battery_voltage", "node": "OperationalData/BatteryVoltage", "type": "Double", "unit": "V", "description": "/scout_status battery_voltage"},
+        {"id": "stmini.odom_x", "addr": "odom_x", "node": "OperationalData/WheelOdometry/X", "type": "Double", "unit": "m", "description": "/wheel_odom position.x"},
+        {"id": "stmini.odom_y", "addr": "odom_y", "node": "OperationalData/WheelOdometry/Y", "type": "Double", "unit": "m", "description": "/wheel_odom position.y"},
+        {"id": "stmini.odom_yaw", "addr": "odom_yaw", "node": "OperationalData/WheelOdometry/Yaw", "type": "Double", "unit": "rad", "description": "/wheel_odom yaw"},
+        {"id": "stmini.odom_wz", "addr": "odom_wz", "node": "OperationalData/AngularSpeed", "type": "Double", "unit": "rad/s", "description": "/wheel_odom twist.angular.z"},
+        {"id": "stmini.control_mode", "addr": "control_mode", "node": "OperationalData/ControlMode", "type": "Int32", "description": "/scout_status control_mode"},
+        {"id": "stmini.light_control_enabled", "addr": "light_control_enabled", "node": "OperationalData/LightControlEnabled", "type": "Boolean", "description": "/scout_status light_control_enabled"},
+        {"id": "stmini.front_light_mode", "addr": "front_light_state_mode", "node": "OperationalData/FrontLightMode", "type": "Int32", "description": "/scout_status front_light_state.mode"},
+        {"id": "stmini.rear_light_mode", "addr": "rear_light_state_mode", "node": "OperationalData/RearLightMode", "type": "Int32", "description": "/scout_status rear_light_state.mode"},
+        {"id": "stmini.wheel0_rpm", "addr": "actuator_states_0_rpm", "node": "OperationalData/ActuatorStates/Wheel_n/rpm", "type": "Double", "description": "Wheel_n 은 템플릿에 하나. 인덱스 0"},
+        {"id": "stmini.wheel0_current", "addr": "actuator_states_0_current", "node": "OperationalData/ActuatorStates/Wheel_n/current", "type": "Double", "description": "Wheel_n 은 템플릿에 하나. 인덱스 0"},
+        {"id": "stmini.wheel0_temperature", "addr": "actuator_states_0_temperature", "node": "OperationalData/ActuatorStates/Wheel_n/temperature", "type": "Double", "description": "Wheel_n 은 템플릿에 하나. 인덱스 0"},
+        {"id": "stmini.scan_angle_min", "addr": "scan_angle_min", "node": "OperationalData/LaserScan/AngleMin", "type": "Double", "unit": "rad"},
+        {"id": "stmini.scan_angle_max", "addr": "scan_angle_max", "node": "OperationalData/LaserScan/AngleMax", "type": "Double", "unit": "rad"},
+        {"id": "stmini.scan_angle_increment", "addr": "scan_angle_increment", "node": "OperationalData/LaserScan/AngleIncrement", "type": "Double", "unit": "rad"},
+        {"id": "stmini.scan_time_increment", "addr": "scan_time_increment", "node": "OperationalData/LaserScan/TimeIncrement", "type": "Double", "unit": "s"},
+        {"id": "stmini.scan_time", "addr": "scan_scan_time", "node": "OperationalData/LaserScan/ScanTime", "type": "Double", "unit": "s"},
+        {"id": "stmini.scan_range_min", "addr": "scan_range_min", "node": "OperationalData/LaserScan/RangeMin", "type": "Double", "unit": "m"},
+        {"id": "stmini.scan_range_max", "addr": "scan_range_max", "node": "OperationalData/LaserScan/RangeMax", "type": "Double", "unit": "m"},
+        {"id": "stmini.scan_ranges", "addr": "scan_ranges", "node": "OperationalData/LaserScan/Ranges", "type": "Double[]", "unit": "m"},
+        {"id": "stmini.scan_intensities", "addr": "scan_intensities", "node": "OperationalData/LaserScan/Intensities", "type": "Double[]"}
       ]
     }
   ]

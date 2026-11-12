@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-11-12T05:19:11.498694+00:00",
+  "source": {
+    "packageId": "CAMTIC_ST_mini_AAS_Template_v0.1",
+    "fileName": "CAMTIC_ST_mini_AAS_Template_v0.1.aasx",
+    "aasStandard": "IEC 63278 / IDTA AAS V3",
+    "opcUaCompanion": "OPC 30270 (I4AAS)"
+  },
+  "opcUa": {
+    "namespaceUri": "https://camtic.or.kr/opcua/aas/CAMTIC_ST_mini_AAS_Template_v0.1/ecf79052de67",
+    "requiredModels": [
+      {
+        "modelUri": "http://opcfoundation.org/UA/",
+        "version": "1.04"
+      },
+      {
+        "modelUri": "http://opcfoundation.org/UA/I4AAS/",
+        "version": "1.0.0"
+      }
+    ],
+    "endpoint": {
+      "url": "opc.tcp://127.0.0.1:4840",
+      "securityMode": "None",
+      "securityPolicy": "None",
+      "applicationUri": "urn:camtic:aas:CAMTIC_ST_mini_AAS_Template_v0.1"
+    },
+    "rootNodeId": "ns=1;s=CAMTIC_ST_mini_AAS_Template_v0.1",
+    "nodeCount": 569,
+    "variableCount": 438,
+    "objectCount": 131
+  },
+  "artifacts": {
+    "nodeset": "nodeset.xml",
+    "engineering": "engineering.csv",
+    "syscfg": "syscfg.json"
+  },
+  "assetAdministrationShells": [
+    {
+      "id": "urn:physical-ai:aas:camtic:st-mini:template:v0.1",
+      "idShort": "ST_mini",
+      "globalAssetId": "urn:physical-ai:asset-type:camtic:st-mini",
+      "assetKind": "TYPE",
+      "submodelIds": [
+        "urn:physical-ai:st-mini:submodel:ManufacturerDocumentation",
+        "urn:physical-ai:st-mini:submodel:Nameplate",
+        "urn:physical-ai:st-mini:submodel:HistoricalDataConfiguration",
+        "urn:physical-ai:st-mini:submodel:Alarm",
+        "urn:physical-ai:st-mini:submodel:Identification",
+        "urn:physical-ai:st-mini:submodel:DataAcquisitionConfiguration",
+        "urn:physical-ai:st-mini:submodel:TechnicalData",
+        "urn:physical-ai:st-mini:submodel:Documentation",
+        "urn:physical-ai:st-mini:submodel:CAD",
+        "urn:physical-ai:st-mini:submodel:Safety",
+        "urn:physical-ai:st-mini:submodel:OperationalData"
+      ]
+    }
+  ],
+  "counts": {
+    "shells": 1,
+    "submodels": 11,
+    "conceptDescriptions": 186,
+    "supplementaryFiles": 3
+  }
+}

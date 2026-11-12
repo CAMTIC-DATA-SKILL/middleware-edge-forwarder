@@ -274,7 +274,7 @@
     <DisplayName>원천 필드</DisplayName>
     <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPPositionRawSourceField</Description>
     <Value>
-      <uax:String>DeltaRAWdata 열 4, I32 에 1000을 곱해 X Y Z. 단위는 미확인.</uax:String>
+      <uax:String>DeltaRAWdata 열 4, I32 에 0.001을 곱해 X Y Z. 단위는 mm.</uax:String>
     </Value>
     <References>
       <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -307,7 +307,7 @@
     <DisplayName>단위 메모</DisplayName>
     <Description>urn:physical-ai:igus:dle-dr-0001:concept:MapTCPPositionUnitNote</Description>
     <Value>
-      <uax:String>TBD</uax:String>
+      <uax:String>mm</uax:String>
     </Value>
     <References>
       <Reference ReferenceType="HasTypeDefinition">i=63</Reference>

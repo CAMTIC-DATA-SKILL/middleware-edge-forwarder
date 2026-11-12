@@ -244,7 +244,7 @@ class CollectorHeaderTest(unittest.TestCase):
     def test_live_tag_map_validates(self) -> None:
         tag_map = TagMapFile.model_validate_json(LIVE.read_text(encoding="utf-8"))
         by_id = {tag.tag_id: tag for tag in tag_map.tags}
-        self.assertEqual(len(tag_map.tags), 114)
+        self.assertEqual(len(tag_map.tags), 143)
         self.assertEqual(
             by_id["jp1.value_0"].node_id,
             "ns=1;s=Hyundai_HH7_AAS_Template_v0.3/HH7/RobotKinematicState/JointPosition/J1",
@@ -261,8 +261,23 @@ class CollectorHeaderTest(unittest.TestCase):
         )
         self.assertEqual(
             by_id["ls6.rz"].node_id,
-            "ns=1;s=Epson_LS6_602_AAS_Template_v0.1/Epson_LS6_602/RobotKinematicState/TCPOrientation/Component1",
+            "ns=1;s=Epson_LS6_602_AAS_Template_v0.1/Epson_LS6_602/RobotKinematicState/TCPOrientation/Rz",
         )
+        self.assertEqual(
+            by_id["stmini.amcl_x"].node_id,
+            "ns=1;s=CAMTIC_ST_mini_AAS_Template_v0.1/ST_mini/OperationalData/Coordinates/X",
+        )
+        self.assertEqual(by_id["stmini.amcl_x"].target.path, "ST_mini/OperationalData/Coordinates")
+        self.assertEqual(by_id["stmini.amcl_x"].conversion.scale, 1000)
+        self.assertEqual(by_id["stmini.odom_vx"].conversion.scale, 60)
+        self.assertEqual(by_id["stmini.odom_vx"].target.unit, "m/min")
+        self.assertEqual(by_id["stmini.odom_x"].conversion.scale, 1)
+        self.assertEqual(by_id["stmini.odom_x"].target.unit, "m")
+        self.assertEqual(
+            by_id["stmini.vehicle_state"].node_id,
+            "ns=1;s=CAMTIC_ST_mini_AAS_Template_v0.1/ST_mini/OperationalData/OperationalState",
+        )
+        self.assertEqual(by_id["stmini.scan_ranges"].target.data_type, "Double[]")
         self.assertEqual(
             by_id["dr0001.j1_position"].node_id,
             "ns=1;s=Igus_DLE_DR_0001_AAS_Template_v0.1/Igus_DLE_DR_0001/RobotKinematicState/JointPosition/J1",
