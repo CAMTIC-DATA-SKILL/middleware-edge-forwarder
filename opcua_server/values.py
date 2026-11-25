@@ -44,11 +44,61 @@ _SAMPLE_TYPE_TO_VARIANT = {
 
 
 def infer_variant_type(sample_type: str | None, value: Any) -> ua.VariantType | None:
-    """샘플 type 우선, 모르면 값의 파이썬 타입으로 추론. 판단할 수 없으면 None."""
-    if sample_type:
-        vtype = _SAMPLE_TYPE_TO_VARIANT.get(sample_type.strip().lower())
-        if vtype is not None:
-            return vtype
+    """스칼라 형식만 반환한다. 배열 여부가 필요하면 node_type 을 쓴다."""
+    parsed = node_type(sample_type, value)
+    if parsed is None or parsed[1]:
+        return None
+    return parsed[0]
+
+
+def variant_from_opcua_type(name: str) -> tuple[ua.VariantType, bool]:
+    """tag map data_type. `Double[]` 은 1차원 Double 이다."""
+    text = name.strip()
+    is_array = text.endswith("[]")
+    base = text[:-2].strip() if is_array else text
+    return ua.VariantType[base], is_array
+
+
+def node_type(sample_type: str | None, value: Any) -> tuple[ua.VariantType, bool] | None:
+    """북향 노드의 원소 형식과 1차원 배열 여부. 정할 수 없으면 None.
+
+    `f64[]` 처럼 타입이 배열이면 값이 비어 있어도 노드를 만들 수 있다.
+    타입이 없고 빈 리스트만 있으면 None 이다. 다음 샘플에서 다시 본다.
+    """
+    declared = _declared_type(sample_type)
+    if declared is not None:
+        vtype, is_array = declared
+        if is_array or isinstance(value, list):
+            return vtype, True
+        return vtype, False
+    if isinstance(value, list):
+        if not value:
+            return None
+        element = _element_type(value)
+        if element is None:
+            return None
+        return element, True
+    scalar = _scalar_variant(value)
+    if scalar is None:
+        return None
+    return scalar, False
+
+
+def _declared_type(sample_type: str | None) -> tuple[ua.VariantType, bool] | None:
+    if sample_type is None:
+        return None
+    text = sample_type.strip().lower()
+    if not text:
+        return None
+    is_array = text.endswith("[]")
+    base = text[:-2].strip() if is_array else text
+    vtype = _SAMPLE_TYPE_TO_VARIANT.get(base)
+    if vtype is None:
+        return None
+    return vtype, is_array
+
+
+def _scalar_variant(value: Any) -> ua.VariantType | None:
     if isinstance(value, bool):
         return ua.VariantType.Boolean
     if isinstance(value, int):
@@ -57,6 +107,28 @@ def infer_variant_type(sample_type: str | None, value: Any) -> ua.VariantType | 
         return ua.VariantType.Double
     if isinstance(value, str):
         return ua.VariantType.String
+    return None
+
+
+def _element_type(value: list[Any]) -> ua.VariantType | None:
+    """1차원으로 원소 형식이 하나일 때만. 정수와 실수가 섞이면 Double."""
+    kinds: set[ua.VariantType] = set()
+    for item in value:
+        if isinstance(item, list):
+            return None
+        kind = _scalar_variant(item)
+        if kind is None:
+            return None
+        kinds.add(kind)
+    if not kinds:
+        return None
+    if len(kinds) == 1:
+        return kinds.pop()
+    numeric = {ua.VariantType.Int64, ua.VariantType.Double, ua.VariantType.Float}
+    if kinds <= numeric and ua.VariantType.Float not in kinds:
+        return ua.VariantType.Double
+    if kinds <= numeric:
+        return ua.VariantType.Float
     return None
 
 
@@ -69,6 +141,15 @@ def status_for_error(code: str) -> ua.StatusCode:
     if code.startswith("E-4"):
         return ua.StatusCode(ua.StatusCodes.BadConfigurationError)
     return ua.StatusCode(ua.StatusCodes.BadDeviceFailure)
+
+
+def coerce_array(value: Any, vtype: ua.VariantType) -> list[Any]:
+    """1차원 배열. 원소는 coerce_value 와 같은 규칙이다."""
+    if isinstance(value, tuple):
+        value = list(value)
+    if not isinstance(value, list) or any(isinstance(item, list) for item in value):
+        raise TypeError(f"{vtype.name} 배열로 변환할 수 없습니다: {type(value).__name__}")
+    return [coerce_value(item, vtype) for item in value]
 
 
 def coerce_value(value: Any, vtype: ua.VariantType) -> Any:

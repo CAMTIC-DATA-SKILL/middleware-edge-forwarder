@@ -11,7 +11,7 @@ from asyncua import Node, Server, ua
 
 from model.app_model import OpcUaServerSettings
 from model.tag_model import IDENTIFICATION_BROWSE_NAME, RESERVED_ROOT
-from opcua_server.values import coerce_value
+from opcua_server.values import coerce_array, coerce_value
 
 logger = logging.getLogger(__name__)
 
@@ -32,6 +32,7 @@ class TagNodeSpec:
     description: str = ""
     unit: str = ""
     node_id: int | str | None = None
+    is_array: bool = False
 
 
 @dataclass(frozen=True)
@@ -39,6 +40,7 @@ class _TagNode:
     node_id: ua.NodeId
     vtype: ua.VariantType
     source_id: str
+    is_array: bool = False
 
 
 @dataclass(frozen=True)
@@ -126,13 +128,16 @@ class NorthboundServer:
             return False
         parent = await self._ensure_object_path(spec.segments)
         node_id = variable_node_id(spec.tag_id, spec.node_id, self._ns)
+        initial = [] if spec.is_array else ua.get_default_value(spec.vtype)
         variable = await parent.add_variable(
             node_id,
             ua.QualifiedName(spec.name, self._ns),
-            ua.get_default_value(spec.vtype),
+            initial,
             varianttype=spec.vtype,
             datatype=_data_type_id(spec.vtype),
         )
+        if spec.is_array:
+            await _mark_one_dimension(variable)
         if spec.description:
             await variable.write_attribute(
                 ua.AttributeIds.Description,
@@ -150,10 +155,11 @@ class NorthboundServer:
                 varianttype=ua.VariantType.ExtensionObject,
                 datatype=ua.NodeId(ua.ObjectIds.EUInformation),
             )
+        waiting = [] if spec.is_array else ua.get_default_value(spec.vtype)
         await variable.write_value(
-            ua.DataValue(ua.Variant(ua.get_default_value(spec.vtype), spec.vtype), StatusCode=_WAITING)
+            ua.DataValue(ua.Variant(waiting, spec.vtype), StatusCode=_WAITING)
         )
-        self._tags[spec.tag_id] = _TagNode(node_id, spec.vtype, spec.source_id)
+        self._tags[spec.tag_id] = _TagNode(node_id, spec.vtype, spec.source_id, spec.is_array)
         await self._write_status(self._status.get("TagCount"), len(self._tags), ua.VariantType.UInt32)
         logger.debug("태그 추가: %s (%s/%s, %s)", spec.tag_id, "/".join(spec.segments), spec.name, spec.vtype.name)
         return True
@@ -209,7 +215,8 @@ class NorthboundServer:
 
         if value is not None:
             try:
-                variant = ua.Variant(coerce_value(value, tag.vtype), tag.vtype)
+                coerced = coerce_array(value, tag.vtype) if tag.is_array else coerce_value(value, tag.vtype)
+                variant = ua.Variant(coerced, tag.vtype)
                 self._mismatch_logged.discard(tag_id)
             except (TypeError, ValueError, OverflowError) as e:
                 if tag_id not in self._mismatch_logged:
@@ -371,3 +378,15 @@ def variable_node_id(tag_id: str, node_id: int | str | None, ns: int) -> ua.Node
 
 def _data_type_id(vtype: ua.VariantType) -> ua.NodeId:
     return ua.NodeId(getattr(ua.ObjectIds, vtype.name))
+
+
+async def _mark_one_dimension(variable: Node) -> None:
+    """가변 길이 1차원 배열. asyncua 는 Dimensions 가 없으면 ValueRank 를 비워 둔다."""
+    await variable.write_attribute(
+        ua.AttributeIds.ValueRank,
+        ua.DataValue(ua.Variant(int(ua.ValueRank.OneDimension), ua.VariantType.Int32)),
+    )
+    await variable.write_attribute(
+        ua.AttributeIds.ArrayDimensions,
+        ua.DataValue(ua.Variant([0], ua.VariantType.UInt32)),
+    )

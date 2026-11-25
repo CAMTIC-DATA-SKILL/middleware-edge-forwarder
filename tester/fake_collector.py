@@ -6,7 +6,7 @@ collector-plc 와 같은 와이어로 DATA/HEALTH 를 PUB 하는 가짜 collecto
     python tester/fake_collector.py --device-key plc-sim-1 --period-ms 500
     python tester/fake_collector.py --count 10 --health-fail   # 10회 송신 후 device_ok=false
 
-collector-plc 와 동시에 띄우면 포트가 겹치므로 둘 중 하나만 실행한다.
+미들웨어 SUB(tcp://127.0.0.1:5556)가 열린 뒤에 실행한다.
 """
 
 from __future__ import annotations
@@ -69,7 +69,7 @@ def send(sock: zmq.Socket, kind: str, device_key: str, msg_type: str, body: dict
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="fake collector PUB")
-    parser.add_argument("--endpoint", default="tcp://127.0.0.1:5556", help="PUB bind 주소 (collector-plc 기본과 동일)")
+    parser.add_argument("--endpoint", default="tcp://127.0.0.1:5556", help="미들웨어 SUB 주소. PUB 이 connect 한다")
     parser.add_argument("--kind", default="plc")
     parser.add_argument("--device-key", default="plc-sim-1")
     parser.add_argument("--period-ms", type=int, default=1000)
@@ -79,8 +79,8 @@ def main() -> None:
 
     sock = zmq.Context.instance().socket(zmq.PUB)
     sock.setsockopt(zmq.LINGER, 1000)
-    sock.bind(args.endpoint)
-    print(f"PUB bind={args.endpoint} kind={args.kind} device_key={args.device_key} (Ctrl+C 종료)")
+    sock.connect(args.endpoint)
+    print(f"PUB connect={args.endpoint} kind={args.kind} device_key={args.device_key} (Ctrl+C 종료)")
     # PUB slow joiner: SUB 가 붙을 시간을 준다
     time.sleep(1.0)
 
